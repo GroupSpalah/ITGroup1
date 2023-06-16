@@ -1,0 +1,60 @@
+package homeworks.anton_gvozdenko.hw_19_05_23.overriding_overloading;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.sql.SQLDataException;
+import java.util.Date;
+
+public class Catch extends java.lang.Exception {
+
+    public final void foo() {
+        System.out.println("Foo");
+    }
+
+//super class costructor is missed
+    @Override
+    public Object getNumberOfCars() {
+        int year = getYear();//call the method from super class
+        return new Object;
+    }
+
+    @Override
+    public static Date getTime() {
+        return new Date();
+    }
+
+    protected Integer getPatientFromDatabase(File file, Integer number) throws SQLDataException {
+        System.out.println("Integer");
+        count = 1;//count is private(getCount())
+        return count;    //count is private(getCount())
+
+
+    }
+
+    private int getPatientFromDatabase(File file, int number) throws java.lang.Exception {//overloading
+        System.out.println("int");
+        return 6;
+    }
+
+    public int getPatientFromDatabase(File file, int number, int years ) throws java.lang.Exception {//overloading
+        return 2;
+    }
+
+    public File getFileName(Path path) throws IOException, SQLDataException{//overloading
+        return new File("./MyFile.txt");
+    }
+
+
+    Object calculate(String name, Integer count, BufferedReader bufferedReader) {
+        return new Object();
+    }//overloading
+
+    public static void main(String[] args) {
+        Catch aCatch = new Catch();//field is missed
+        System.out.println(aCatch.getPatientFromDatabase(new File(""), 2));
+    }
+
+}

@@ -1,0 +1,21 @@
+public class Car extends TrafficLight{
+
+	private int countOfSpeeds;
+	private int countOfDoors;
+	private String model;
+
+	protected Car(int countOfSpeeds, double countOfDoors, String model){           Класс Car наследует TrafficLight,
+	                                                                               в конструкторе должно быть поле
+	                                                                               родителя String nameOfStreet!
+	                                                                               вместо double countOfDoors - int!
+
+	countOfSpeeds = countOfSpeeds;                                                 Нету ссылки this!
+	countOfDoors = countOfDoors;
+	model = model;
+	}
+	
+	public void drive(){
+		System.out.println("Go...");
+	}
+		
+}

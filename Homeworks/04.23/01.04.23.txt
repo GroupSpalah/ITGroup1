@@ -1,0 +1,14 @@
+*** Debug, MateAcademy
+*** Дана непустая строка S и целое число N (> 0). Вывести строку, содержащую символы строки S, между которыми вставлено по N символов
+«*» (звездочка).
+*** Declare two local variables myStr1 and myStr2 of String type and assign a value “Cartoon” for first string and ”Tomcat” 
+for second.
+Write code to display all of the letters, which are present in the first word, but absent in the second. example lessons.ls_25_03_23.Task1
+
+*** If the work starts with x, replace it with a. startsWith
+                    Input:
+                        xcodex
+                    Output:
+                        acodex
+
+						

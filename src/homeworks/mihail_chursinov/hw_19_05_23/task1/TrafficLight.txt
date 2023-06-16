@@ -1,0 +1,24 @@
+public class TrafficLight{
+
+private String nameOfStreet;
+
+TrafficLight(String name){            Не полное название String nameOfStreet!
+	numberOfStreet = nameOfStreet;    Нету ссылки this.numberOfStreet = nameOfStreet;!
+}
+
+private String getNameOfStreet(){     Getter должен быть public!
+
+return nameOfStreet;
+
+}
+
+private abstract getNumberOfColor(){}; Метод не может быть private и abstract одновременно!
+                                       private работает только в пределах класса, а abstract должен реализовыватся!
+
+public static void main(string[] args){ string c большой!
+
+TrafficLight trafficLight = new TrafficLight();
+
+}
+
+}

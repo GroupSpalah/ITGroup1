@@ -1,0 +1,14 @@
+public interface Ballable{
+
+private abstract int count = 0;    Поле не может быть private и abstract в класе interface!
+                                   Все поля в interface - константы!
+
+
+public void jump(){}               Метод в класе interface без реализации! public писать не обязательно!
+
+default String getName(){
+
+	return "John";
+}
+
+}

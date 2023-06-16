@@ -1,0 +1,23 @@
+public class TrafficLight{
+
+private String nameOfStreet;//'of' is bad
+
+TrafficLight(String name){
+	numberOfStreet = nameOfStreet;
+}
+
+private String getNameOfStreet(){//public getter
+
+return nameOfStreet;
+
+}
+
+private abstract getNumberOfColor(){};//can't be abstract
+
+public static void main(string[] args){
+
+TrafficLight trafficLight = new TrafficLight();must be field
+
+}
+
+}

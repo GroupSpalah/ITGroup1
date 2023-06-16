@@ -1,0 +1,12 @@
+public interface Ballable{
+
+private abstract int count = 0;
+
+public void jump(){}
+
+default String getName(){
+
+	return "John";
+}
+
+}

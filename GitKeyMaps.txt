@@ -1,0 +1,18 @@
+git init - create local repo
+git status - check status repo
+git add file_name - add file to index
+git diff - show difference in files
+git commit -m"message for commit" - create commit
+git log --graph - show commit's tree
+
+git push url_remote_repo or pseudonim_remote_repo branch_name - push commits to remote repo
+git clone url_remote_repo - clone remote repo to local repo
+git pull url_remote_repo or pseudonim_remote_repo branch_name - pull commits from remote repo
+
+git remote add pseudonim url_remote_repo - create pseudonim
+git remote -v - show pseudonims
+Stashing
+git stash save "message for stage" - create and save stage
+git stash list - show all stages
+git stash apply stash@{0} -apply stash with given number
+git stash clear - delete all stashes

@@ -1,0 +1,23 @@
+
+	private class Operator extends Runnable implements Ballable {      Класс Factorial(Operator), не может наследовать
+	                                                                   интерфейс Runnable, только реализовывать, как в
+	                                                                   случаи с Ballable!
+
+	public static void main(String args){
+
+		System.out.println("Hello world");
+
+	}
+	@Override
+	public void jump(){
+		System.out.println(Jumping);        Нету скобок для "Jumping"!
+	}
+
+	}
+
+
+	public class Tree{
+
+	public Tree(){}
+
+	}

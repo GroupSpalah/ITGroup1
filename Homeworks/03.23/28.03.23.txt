@@ -1,0 +1,52 @@
+1) Create a class named CombineWords. Then add them together and print.
+    But if the last letter if the first word and the first letter of the last letter is the same,
+    print that character once.
+
+                Input:
+                    one
+                    eight
+                Output:
+                    oneight
+
+2) Create a class called EmailTask2.
+                          Assume that email address is constructed by person's first name and followed by an underscore and last name.
+
+                          Write a program that will print out information about user based on email. Print first name, last name, and domain.
+
+                          First and Last name should be printed with proper format - uppercase first letter and remaining lowercase.
+
+                                  Ex:
+                                      input:
+                                          craig_federighi@apple.com
+
+                                   Output:
+                                       First name: Craig
+                                       Last name: Federighi
+                                       Domain: apple
+									   
+На след. занятие.
+
+1. *** Преобразовать данный текст, заменив каждую строку вида переменная=переменная+1; на строку вида переменная++; а каждую строку вида 
+переменная=переменная–1;на строку вида переменная–– .
+
+
+2. MateAcademy
+						
+3. Соединить две строки след. вида: ("abc", "drf") результат: ("adbrcf"), ("ab", "drf") результат: ("adbrf"), 
+("abc", "dr") результат: ("adbrc")
+						
+
+						
+След. домашнее задание
+*** Дана непустая строка S и целое число N (> 0). Вывести строку, содержащую символы строки S, между которыми вставлено по N символов
+«*» (звездочка).
+*** Declare two local variables myStr1 and myStr2 of String type and assign a value “Cartoon” for first string and ”Tomcat” 
+for second.
+Write code to display all of the letters, which are present in the first word, but absent in the second.
+*** write a program that asks user to enter a word. If the work starts with x, replace it with a.
+                    Input:
+                        xcodex
+                    Output:
+                        acodex
+
+						

@@ -1,0 +1,14 @@
+*** Дано предложение. Вывести текст, составленный из последних букв всех слов., split, charAt
+*** Дано слово, состоящее из четного числа букв. Вывести на экран его первую половину,
+не используя оператор цикла., substring
+*** Count chars of strings placed in the even positions in the given array.
+For example: array = {"Hello", "world", "from", "array"}
+the result will be 9: "Hello" length is 5 and "from" length is 4 "world" and "array"
+are skipped because they are on the odd positions.
+*** В заданной строке удалить первый символ., substring
+*** В заданной строке посчитать количество точек и запятых., charAt
+*** В заданной строке найти месторасположение первого символа «*»., indexOf
+
+
+Для занятия
+*** StringBuilder

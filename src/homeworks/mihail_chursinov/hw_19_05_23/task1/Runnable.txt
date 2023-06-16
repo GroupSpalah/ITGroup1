@@ -1,0 +1,8 @@
+private interface Runnable{
+
+private void print(){
+	System.out.println("Print");     Метод в класе interface без реализации!
+	                                 Не может быть private, так как он реализуется!
+}
+
+}

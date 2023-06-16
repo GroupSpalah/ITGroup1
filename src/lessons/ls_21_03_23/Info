@@ -1,0 +1,4 @@
+.cpp -> by compiler -> machine code(1 and 0)
+.html -> by interpretator(browser) -> HTML page
+
+.java file -> by compiler -> .class file(bytecode) -> by interpretator -> machine code(1 and 0)

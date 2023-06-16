@@ -1,0 +1,7 @@
+private interface Runnable{
+
+private void print(){
+	System.out.println("Print");
+}
+
+}

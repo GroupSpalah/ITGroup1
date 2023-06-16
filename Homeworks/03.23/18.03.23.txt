@@ -1,0 +1,17 @@
+Создать класс с полем типа одномерный массив с типом int.
+
+Класс должен выполнять следующие операции:
+
+8) удалять дубликаты. - Homework
+10) Перемешивание элементов листа в случайном порядке.
+
+Random random = new Random();
+
+        for (int i = array.length - 1; i > 1; i--) {
+            int j = random.nextInt(i);
+
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+

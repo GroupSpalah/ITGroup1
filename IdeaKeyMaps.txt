@@ -1,0 +1,10 @@
+ctrl + alt + l - format code
+ctrl + d - duplication code
+ctrl + / - oneline comments
+ctrl + shift + f - search files
+ctrl + shift + / - manyline comments
+ctrl + shift + F10 - run psvm
+ctrl + alt + c - create constant
+ctrl + shift + enter - create body + format code + move to body
+alt + insert - create java file, package, directory etc.
+shift + F6 - rename variable, package etc.

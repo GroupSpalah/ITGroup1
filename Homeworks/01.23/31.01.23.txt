@@ -1,0 +1,13 @@
+1) Post/pre increment/decrement, ваши примеры
+2)
+*** Write a program that print on console all number from 20 to 40 with
+step 1 (40 must be not included)
+
+*** Write a program that print on console all numbers from -10 to 10 with
+step 1
+
+*** Write a program that print all natural numbers from 1 to 100
+
+*** Написать программу, которая печатает в консоль числа от 1 до 100 при условии, что числа больше 30 или больше 50.
+
+*** Написать программу, которая печатает в консоль числа от 15 до 55 при условии, что числа больше 20 и нечетные.
