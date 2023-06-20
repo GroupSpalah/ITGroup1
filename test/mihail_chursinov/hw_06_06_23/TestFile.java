@@ -6,6 +6,7 @@ import homeworks.mihail_chursinov.hw_02_06_23.FileManager;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
@@ -17,6 +18,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class TestFile {
+    @Rule
+    public SystemOutRule outRule = new SystemOutRule().enableLog();
     FileManager fileManager = new FileManager();
     @Rule
     public TemporaryFolder tf = new TemporaryFolder();
@@ -37,33 +40,35 @@ public class TestFile {
         Assert.assertTrue(Files.exists(newDir));
     }
 
-//    @Test
-//    public void shouldConvertTxtToPDf() throws IOException {
-//        File dir = tf.newFolder("movie");
-//        Path pathToFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
-//        Files.write(pathToFile, "Hello".getBytes(), StandardOpenOption.CREATE);
-//
-//        Path pathToFilePdf = Paths.get(dir.getAbsolutePath(), "Test.pdf");
-//        fileManager.createFile(pathToFilePdf);
-//
-//        PdfReader reader;
-//        try {
-//
-//            reader = new PdfReader((InputStream) pathToFilePdf);//???
-//
-//            // pageNumber = 1
-//            String textFromPage = PdfTextExtractor.getTextFromPage(reader, 1);
-//
-//            System.out.println(textFromPage);
-//
-//            reader.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Assert.assertEquals(pathToFile, pathToFilePdf);
+    @Test
+    public void shouldConvertTxtToPDf() throws IOException {
+        File dir = tf.newFolder("movie");
+        Path pathToFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
+        Files.write(pathToFile, "Hello".getBytes(), StandardOpenOption.CREATE);
 
-    //  }
+        Path pathToFilePdf = Paths.get(dir.getAbsolutePath(), "Test.pdf");
+        fileManager.convertTxtToPdf(pathToFile);
+
+        PdfReader reader;
+        try {
+
+            reader = new PdfReader(pathToFilePdf.toFile().getAbsolutePath());
+
+            // pageNumber = 1
+            String textFromPage = PdfTextExtractor.getTextFromPage(reader, 1);
+
+            System.out.println(textFromPage);
+
+            reader.close();
+            Assert.assertEquals("Hello", textFromPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     @Test
     public void shouldCopyFile() throws IOException {
         File sourceDir = tf.newFolder("movie");
@@ -126,12 +131,12 @@ public class TestFile {
     public void showDir() throws IOException {
         File dir = tf.newFolder("movie");
         String absolutePath = dir.getAbsolutePath();
+        Path path = Paths.get(absolutePath, "Legend.txt");
 
-        for (int i = 0; i < 5; i++) {
-            Path path = Paths.get(absolutePath, "Legend" + i + ".txt");
-
-            Files.createFile(path);
-            fileManager.showDir(path);
-        }
+        Files.createFile(path);
+        fileManager.showDir(dir.toPath());
+        String log = outRule.getLog();
+        Assert.assertTrue(log.contains("movie"));
+        Assert.assertTrue(log.contains("Legend.txt"));
     }
 }
