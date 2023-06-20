@@ -1,5 +1,7 @@
 package lessons.ls_16_06_23;
 
+import lessons.lessons.ls_16_06_23.NotCreatedPdfException;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.SQLDataException;
@@ -10,7 +12,7 @@ public class LearnExceptions {
 
 //        throw new NullPointerException();
 
-        print2();
+        print9();
     }
 
     public static void print1() {
@@ -39,6 +41,57 @@ public class LearnExceptions {
         }
     }
 
+    public static void print7() {
+        try {
+            if (1 == 1) {
+                throw new IOException();
+            } else {
+                throw new SQLDataException();
+            }
+
+        } catch (IOException | SQLDataException e) {
+            //System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void print8() {
+        try {
+            if (1 == 1) {
+                throw new IOException();
+            } else {
+                throw new SQLDataException();
+            }
+
+        } catch (IOException e) {
+            //System.out.println(e.getMessage());
+            e.printStackTrace();
+        } catch (SQLDataException e) {
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static void print12() throws IOException, SQLDataException {
+        if (1 == 1) {
+            throw new IOException();
+        }
+        throw new SQLDataException();
+    }
+
+    public static void print13() throws Exception {
+        if (1 == 1) {
+            throw new IOException();
+        }
+        throw new SQLDataException();
+    }
+
+    public static void print14() throws Exception {
+        throw new IOException();
+//        throw new SQLDataException();
+    }
+
     public static void print3() {
         try {
             //complex logic
@@ -48,6 +101,48 @@ public class LearnExceptions {
         } catch (IOException e) {
             //System.out.println(e.getMessage());
             e.printStackTrace();
+        }
+
+    }
+
+    public static void print10() {
+        try {
+
+            throw new NotCreatedPdfException("");
+
+        } catch (NotCreatedPdfException e) {
+            //System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void print11() throws Exception {
+        try {
+
+            throw new IOException("");
+
+        } catch (IOException e) {
+            throw new Exception();
+        }
+    }
+
+    public static void print9() {
+        try {
+            //open connection to database
+
+//            System.exit(5);
+
+            if (1 == 2) {
+                throw new IOException();
+            }
+            //close connection to database
+
+        } catch (IOException e) {
+            System.out.println("Catch");
+            //close connection to database
+        } finally {
+            System.out.println("Block finally");
+            //close connection to database
         }
 
     }

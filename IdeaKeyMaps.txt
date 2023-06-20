@@ -4,6 +4,8 @@ ctrl + / - oneline comments
 ctrl + shift + f - search files
 ctrl + shift + / - manyline comments
 ctrl + shift + F10 - run psvm
+ctrl + shift + "-" - сокрытие тел методов
+ctrl + shift + "+" - раскрытие тел методов
 ctrl + alt + c - create constant
 ctrl + shift + enter - create body + format code + move to body
 alt + insert - create java file, package, directory etc.
