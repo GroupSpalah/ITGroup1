@@ -86,14 +86,15 @@ public class TestFile {
         Assert.assertEquals(text, "Hello");
     }
 
-//    @Test
-//    public void shouldDeleteFile() throws IOException {
-//        File dir = tf.newFolder("movie");
-//        Path pathToFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
-//        fileManager.deleteFile(pathToFile);//??????
-//        Assert.assertTrue(Files.exists(pathToFile));//??????????
-//
-//    }
+    @Test
+    public void shouldDeleteFile() throws IOException {
+        File dir = tf.newFolder("movie");
+        Path pathToFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
+        fileManager.createFile(pathToFile);
+        fileManager.deleteFile(pathToFile);
+        Assert.assertFalse(Files.exists(pathToFile));
+
+    }
 
     @Test
     public void shouldDeleteWithFile() throws IOException {
@@ -108,16 +109,18 @@ public class TestFile {
         }
     }
 
-//    @Test
-//    public void shouldRenameFile() throws IOException {
-//        File dir = tf.newFolder("movie");
-//        File dir2 = tf.newFolder("movie2");
-//        Path pathFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
-//        Path pathFile1 = Paths.get(dir2.getAbsolutePath(), "Test2.txt");
-//        fileManager.renameFile(pathFile, pathFile1);
-//        Assert.assertTrue(Files.exists(pathFile1));
-//
-//    }
+    @Test
+    public void shouldRenameFile() throws IOException {
+        File dir = tf.newFolder("movie");
+        File dir2 = tf.newFolder("movie2");
+        Path pathFile = Paths.get(dir.getAbsolutePath(), "Test.txt");
+        Path pathFile1 = Paths.get(dir2.getAbsolutePath(), "Test2.txt");
+        fileManager.createFile(pathFile);
+        fileManager.createFile(pathFile1);
+        fileManager.renameFile(pathFile, pathFile1);
+        Assert.assertTrue(Files.exists(pathFile1));
+
+    }
 
     @Test
     public void showDir() throws IOException {
