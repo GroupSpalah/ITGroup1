@@ -1,6 +1,6 @@
 package mihail_chursinov.hw_15_04_23;
 
-import homeworks.mihail_chursinov.hw_15_04_23.AnimalsSounds;
+import homeworks.mihail_chursinov.hw_04_23.hw_15_04_23.AnimalsSounds;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

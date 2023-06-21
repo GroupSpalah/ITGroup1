@@ -1,0 +1,28 @@
+package homeworks.mihail_chursinov.hw_05_23.hw_02_05_23;
+
+public class ChromeDriver implements RemoteWebDriver{
+    @Override
+    public void navigate() {
+
+    }
+
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void close() {
+
+    }
+
+    @Override
+    public String getTitle() {
+        return null;
+    }
+
+    @Override
+    public void getScreenshot() {
+
+    }
+}

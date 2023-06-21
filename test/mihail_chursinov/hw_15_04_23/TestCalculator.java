@@ -1,6 +1,6 @@
 package mihail_chursinov.hw_15_04_23;
 
-import homeworks.mihail_chursinov.hw_15_04_23.Calculator;
+import homeworks.mihail_chursinov.hw_04_23.hw_15_04_23.Calculator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

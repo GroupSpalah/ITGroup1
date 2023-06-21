@@ -1,6 +1,6 @@
 package mihail_chursinov.hw_08_04_23;
 
-import homeworks.mihail_chursinov.hw_07_03_23.ImitationList;
+import homeworks.mihail_chursinov.hw_03_23.hw_07_03_23.ImitationList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
