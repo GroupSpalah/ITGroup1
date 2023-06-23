@@ -1,4 +1,4 @@
-import homeworks.mihail_chursinov.hw_02_06_23.FileManager;
+import homeworks.mihail_chursinov.hw_06_23.hw_02_06_23.FileManager;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

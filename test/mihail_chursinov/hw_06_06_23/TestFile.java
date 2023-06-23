@@ -2,7 +2,7 @@ package mihail_chursinov.hw_06_06_23;
 
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-import homeworks.mihail_chursinov.hw_02_06_23.FileManager;
+import homeworks.mihail_chursinov.hw_06_23.hw_02_06_23.FileManager;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,7 +11,6 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
