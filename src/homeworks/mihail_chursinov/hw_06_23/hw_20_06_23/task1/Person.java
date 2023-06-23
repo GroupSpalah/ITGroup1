@@ -5,7 +5,6 @@ package homeworks.mihail_chursinov.hw_06_23.hw_20_06_23.task1;
  * Create InvalidAgeException class that is subclass of Exception.
  * App should throw InvalidAgeException when age out of range 1-120 in constructor.
  */
-
 public class Person {
     private String firstName;
     private String lastName;

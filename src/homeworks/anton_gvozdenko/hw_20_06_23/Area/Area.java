@@ -15,13 +15,13 @@ public class Area {
 
     public static int trySquareRectangle(int a, int b) {
         if (a < 1 || b < 1) {
-            System.out.println(-1);
-        } else System.out.println(squareRectangle(a, b));
-        return 0;
+            return -1;
+        } else {
+            return squareRectangle(a, b);
+        }
     }
 
     public static void main(String[] args) throws IllegalArgumentException {
-        squareRectangle(-1, 3);
         trySquareRectangle(-1, 2);
     }
 }

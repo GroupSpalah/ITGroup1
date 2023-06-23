@@ -7,7 +7,6 @@ package homeworks.mihail_chursinov.hw_06_23.hw_20_06_23.task2;
 
 public class Main {
     private int grade;
-
     public Main(int grade) {
         this.grade = grade;
     }
@@ -15,11 +14,11 @@ public class Main {
     public void checkGrade(int grade) {
         try {
             if (grade > 90) {
-                throw new MyExceptionClass("Exception!");
+                throw new SyntaxStudentException("Exception!");
             } else if (grade < 90) {
                 System.out.println("You are a great student!");
             }
-        } catch (MyExceptionClass e) {
+        } catch (SyntaxStudentException e) {
             System.out.println(e.getMessage());
         }
     }

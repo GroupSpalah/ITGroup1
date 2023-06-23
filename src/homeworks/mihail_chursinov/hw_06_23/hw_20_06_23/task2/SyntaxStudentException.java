@@ -12,8 +12,8 @@ package homeworks.mihail_chursinov.hw_06_23.hw_20_06_23.task2;
  *    ```
  */
 
-public class MyExceptionClass extends Exception{
-    public MyExceptionClass(String message) {
+public class SyntaxStudentException extends Exception{
+    public SyntaxStudentException(String message) {
         super(message);
     }
 }
