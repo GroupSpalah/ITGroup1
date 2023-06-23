@@ -140,8 +140,8 @@ public class LearnExceptions {
         } catch (IOException e) {
             System.out.println("Catch");
             //close connection to database
-        } finally {
-            System.out.println("Block finally");
+       /* } finally {
+            System.out.println("Block finally");*/
             //close connection to database
         }
 
