@@ -1,0 +1,85 @@
+  2) Методы LocalDate:
+    - format - Цей метод використовується для форматування дати у вказаний формат. Він приймає аргумент
+     для DateTimeFormatterформатування дати та повертає рядок дати. Наприклад, у нас є дата у форматі рррр/мм/дд
+     і ми хочемо перетворити її у формат дд/мм/рррр( LocalDate date = LocalDate.now();
+                                                          String localDate = DateTimeFormatter.ofPattern("dd/MM/YYYY")
+                                                          .format(date);
+                                                          System.out.println("Date2 : "+localDate);)
+    - minus  використовується для вилучення поля дати. Поле може бути днем, місяцем або роком. Цей метод повертає нову
+    дату після віднімання вказаного поля. Наприклад, у нас є дата 2012/02/10 і ми хочемо
+    відняти 2 дні від дати
+    LocalDate localDate = LocalDate.of(2016, 10, 21);
+    		System.out.println(localDate);
+    		localDate = localDate.minus(2,ChronoUnit.DAYS);
+    		System.out.println("New date : "+localDate);
+    -  3 метода now
+    local date now - Получает текущую дату по системным часам в указанном часовом поясе.
+    (LocalDate localDate = LocalDate.now();)
+    local date zoneID - використовується для отримання поточної дати від системного годинника у вказаному часовому поясі.
+     Він повертає поточну місцеву дату з указаним часовим поясом.
+     (LocalDate localDate = LocalDate.now(ZoneId.of("Asia/Tokyo"));)
+     local date(clock) - використовується для отримання поточної дати на основі вказаного годинника.
+      Годинник — це абстрактний клас, який надає статичні методи для створення дати різних сценаріїв.
+     ( LocalDate localDate = LocalDate.now(Clock.systemDefaultZone());)
+    -  parse -  використовується для отримання локальної дати з текстової дати
+    LocalDate localDate = LocalDate.parse("2015-12-10");
+    -  plus - використовується для додавання кількості одиниць до дати. Одиницею може бути день, місяць, тиждень тощо.
+    LocalDate localDate = LocalDate.of(2011,02,28);
+    		System.out.println(localDate);
+    		localDate = localDate.plus(Period.ofDays(10));
+    -  of - використовується для отримання екземпляра LocalDate року, місяця та дня. Його можна використовувати для
+     створення дати, передаючи рік, місяць і день як параметри
+     LocalDate localDate = LocalDate.of(2012,10,12);
+    -  until - використовується для отримання часу до іншої дати в термінах вказаної одиниці. Він обчислює кількість
+    часу між двома LocalDateоб’єктами в термінах одного TemporalUnit.
+    	LocalDate localDate = LocalDate.of(2002, 01, 10);
+    		System.out.println(localDate);
+    		long period = localDate.until(LocalDate.of(2005,10,12), ChronoUnit.YEARS);
+    -  isAfter - використовується для перевірки, чи ця дата є пізнішою за вказану дату.
+    	LocalDate localDate1 = LocalDate.of(2018, 2, 20);
+    		// Displaying date
+    		System.out.println(localDate1.isAfter(LocalDate.of(2015,05,10)));
+    -  isBefore використовується для перевірки, чи ця дата передує вказаній даті
+    	LocalDate localDate = LocalDate.of(2015, 10, 21);
+    		boolean d  = localDate.isBefore(LocalDate.of(2016, 10, 21));
+    4) Методы LocalDateTime:
+    - atZone - поєднує цю дату-час із часовим поясом для створення ZonedDateTime.
+     LocalDateTime a = LocalDateTime.of(2014, 6, 30, 12, 00);
+        ZonedDateTime b = a.atZone(ZoneId.systemDefault());
+    - atOffset - поєднує цю дату-час із зміщенням для створення OffsetDateTime.
+     LocalDateTime a = LocalDateTime.of(2014, 6, 30, 12, 00);
+
+        OffsetDateTime b = a.atOffset(ZoneOffset.UTC);
+    - from - тримує екземпляр LocalDateTime із тимчасового об’єкта.
+      LocalDateTime a = LocalDateTime.from(ZonedDateTime.now());
+
+    -  truncatedTo - повертає копію цього LocalDateTime із скороченим часом.
+       LocalDateTime a = LocalDateTime.of(2014, 6, 30, 12, 01);
+          LocalDateTime t = a.truncatedTo(ChronoUnit.HOURS);
+    -  range -отримує діапазон допустимих значень для зазначеного поля.
+     LocalDateTime a = LocalDateTime.of(2014, 6, 30, 12, 01);
+      System.out.println(a.range(ChronoField.DAY_OF_WEEK))
+    5) Методы Calendar:
+    - add - Додає вказану (підписану) кількість часу до заданого поля календаря.
+   Calendar cal = (Calendar) Calendar.getInstance();
+       System.out.println("" + cal.getTime());
+          cal.add((Calendar.YEAR), 9);
+                System.out.println("" + cal.getTime());
+    - getInstance(TimeZone zone)
+    Цей метод використовується з об’єктом calendar для отримання екземпляра calendar відповідно до поточного
+     часового поясу, встановленого середовищем виконання Java
+        Calendar calendar = Calendar.getInstance();
+        System.out.print("At present Date And Time Is: " + calendar.getTime());
+    - getTimeZone() Цей метод отримує часовий пояс об’єкта календаря та повертає об’єкт TimeZone.
+         Calendar mycal2 = Calendar.getInstance();
+                 TimeZone timezoneobj = mycal2.getTimeZone();
+                    System.out.println(" Display Name of Current TimeZone :" + timezoneobj.getDisplayName());
+    - set Встановлює вказане поле календаря за вказаним значенням.
+   Примеры кода использования методов. Получение из этих объектов, объект Date
+       Calendar mycalobj =  Calendar.getInstance();
+         System.out.println("Today  :" + mycalobj.getTime());
+         mycalobj.set(Calendar.YEAR , 1996);
+         System.out.println(" Altered Date(1) :" + mycalobj.getTime());
+          mycalobj.set  (1996 , 9 , 23);
+          System.out.println(" Altered Date (2) :" + mycalobj.getTime());
+        }
