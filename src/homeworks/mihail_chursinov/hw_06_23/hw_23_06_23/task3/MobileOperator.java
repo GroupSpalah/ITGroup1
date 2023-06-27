@@ -23,7 +23,7 @@ public class MobileOperator {
         DayOfWeek expirationDayOfWeek = expirationDate.getDayOfWeek();
 
         System.out.println("Дата истечения срока действия пакета: " + plusOneYear);
-        System.out.println("День недели истечения срока действия пакета: " + expirationDayOfWeek.getValue());
+        System.out.println("День недели истечения срока действия пакета: " + expirationDayOfWeek);
     }
 }
 
