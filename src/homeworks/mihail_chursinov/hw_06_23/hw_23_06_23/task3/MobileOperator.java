@@ -21,6 +21,8 @@ public class MobileOperator {
         LocalDateTime plusOneYear = lastCallDate.plusYears(1).atStartOfDay();
         DayOfWeek expirationDayOfWeek = plusOneYear.getDayOfWeek();
 
+//        int value = LocalDateTime.of().plusYears(1).getDayOfWeek().getValue();
+
         System.out.println("Дата истечения срока действия пакета: " + plusOneYear);
         System.out.println("День недели истечения срока действия пакета: " + expirationDayOfWeek);
     }

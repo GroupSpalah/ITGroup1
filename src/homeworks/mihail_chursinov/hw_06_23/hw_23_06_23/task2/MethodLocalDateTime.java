@@ -25,9 +25,9 @@ public class MethodLocalDateTime {
         OffsetDateTime offsetDateTime = localDateTime.atOffset(offset);
         System.out.println("Offset date and time: " + offsetDateTime);
 
-//        LocalDate localDate = LocalDate.of(2023, 6, 30);//???
-//        LocalDateTime localDateTime1 = LocalDateTime.from(localDate);
-//        System.out.println("Local date and time: " + localDateTime1);
+        LocalDate localDate = LocalDate.of(2023, 6, 30);//???
+        LocalDateTime localDateTime1 = LocalDateTime.from(localDate);
+        System.out.println("Local date and time: " + localDateTime1);
 
         LocalDateTime truncatedDateTime = localDateTime.truncatedTo(ChronoUnit.HOURS);
         System.out.println("Truncated date and time: " + truncatedDateTime);
