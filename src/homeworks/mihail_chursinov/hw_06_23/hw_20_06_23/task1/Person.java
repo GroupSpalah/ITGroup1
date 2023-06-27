@@ -17,12 +17,13 @@ public class Person {
     }
 
     public void showAge(int age) {
-        if (age > 120) {
-            try {
-                throw new InvalidAgeException("Age is more than 120 years!");
-            } catch (InvalidAgeException e) {
-                System.out.println(e.getMessage());
+
+        try {
+            if (age < 1 || age > 120) {
+                throw new InvalidAgeException("InvalidAgeException!");
             }
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

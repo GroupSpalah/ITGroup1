@@ -14,7 +14,7 @@ public class Main {
     public void checkGrade(int grade) {
         try {
             if (grade > 90) {
-                throw new SyntaxStudentException("Exception!");
+                throw new SyntaxStudentException("You are an exceptionally awesome student!");
             } else if (grade < 90) {
                 System.out.println("You are a great student!");
             }
