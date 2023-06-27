@@ -1,23 +1,22 @@
-package lessons.homeworks.anton_gvozdenko.hw_20_06_23.Exception;
+package homeworks.anton_gvozdenko.hw_20_06_23.exception;
 
-import java.io.IOException;
 
 public class Exception {
-    public static void gradeCheck(int grade) throws IOException {
+    public static void gradeCheck(int grade) throws SyntaxStudentException {
         try {
             if (grade > 90) {
-                throw new IOException();
+                throw new SyntaxStudentException("You are an exceptionally awesome student");
             } else if (grade < 90) {
-                System.out.println("You are great student");
+                System.out.println("You are a great student");
             }
-        } catch (IOException e) {
+        } catch (SyntaxStudentException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        gradeCheck(50);
-
+    public static void main(String[] args) throws SyntaxStudentException {
+        gradeCheck(80);
     }
+
 }
