@@ -23,6 +23,7 @@ public class Area {
 
     public static void main(String[] args) throws IllegalArgumentException {
         trySquareRectangle(-1, 2);
+        squareRectangle(2,3);
     }
 }
 
