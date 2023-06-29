@@ -7,9 +7,6 @@ package homeworks.mihail_chursinov.hw_06_23.hw_20_06_23.task2;
 
 public class Main {
     private int grade;
-    public Main(int grade) {
-        this.grade = grade;
-    }
 
     public void checkGrade(int grade) {
         try {
