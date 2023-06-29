@@ -6,6 +6,8 @@ public class VarArgs {
 
         print(array);
 
+        System.out.println(1111111);
+
         print1(4, 8, 9, 6, 4);
     }
 
