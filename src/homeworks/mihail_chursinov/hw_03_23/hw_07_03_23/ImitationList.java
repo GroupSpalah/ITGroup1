@@ -231,12 +231,12 @@ class TestList {
                 .add(3)
                 .add(7)
                 .add(2);
-        //obj.increase(3);
+        obj.increase(3);
         //obj.reduction(5);
         // obj.outputArray();
 //        obj.outputArrayBack();
 //        System.out.println(obj.findIndex(6));
-        obj.changeElementByIndex(1, 16);
+        //obj.changeElementByIndex(1, 16);
 //        obj.bubbleSort();
 //        obj.deleteDuplicates();
         // obj.mixElement();
