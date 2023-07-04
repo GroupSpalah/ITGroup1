@@ -1,9 +1,6 @@
-package lessons.hw_23_06_23;
+package lessons.ls_23_06_23;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 import java.util.Date;

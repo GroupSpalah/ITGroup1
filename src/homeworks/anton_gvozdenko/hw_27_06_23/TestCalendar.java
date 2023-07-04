@@ -11,6 +11,8 @@ public class TestCalendar {
         Event event = new Event("Easter", "04.05.23");
         Event eventTwo = new Event("BirthDay", "02.03.23");
 
+        System.out.println(event);
+
         eventService.addEvent(event);
         eventService.addEvent(eventTwo);
         eventService.showEvent("04.05.23");

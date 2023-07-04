@@ -17,7 +17,6 @@ public class EventService {
         events = new Event[size];
     }
 
-
     public void addEvent(Event event) {
         for (int i = 0; i < events.length; i++) {
             if (Objects.isNull(events[i])) {
