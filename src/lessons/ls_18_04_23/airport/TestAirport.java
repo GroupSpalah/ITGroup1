@@ -13,8 +13,7 @@ public class TestAirport {
         flightService.addFlight(hr);
         flightService.addFlight(hr1);
         flightService.addFlight(hr2);
-
-        flightService.showAllFlights();
+flightService.searchFlightByName("HR");
 
         /*int[] array = {4, 7, 9};
 
