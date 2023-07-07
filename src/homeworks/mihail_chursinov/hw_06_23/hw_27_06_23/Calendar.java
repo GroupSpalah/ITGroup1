@@ -7,6 +7,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Objects;
 
 /**
  * 1) Организовать приложение календарь.
@@ -35,17 +36,25 @@ public class Calendar {
         }
     }
 
-    public void addEvent(String date, String event) {
-        String[] newEvents = new String[events.length + 1];
-        System.arraycopy(events, 0, newEvents, 0, events.length);
-        newEvents[events.length] = event;
-        events = newEvents;
-
-        LocalDate parsedDate = LocalDate.parse(date);
-        if (date.equals("2023-11-21")) {
-            System.out.println(newEvents[2] + "\t" + parsedDate);
-        } else {
-            System.out.println("Wrong date!");
+//    public void addEvent(String date, String event) {
+//        String[] newEvents = new String[events.length + 1];
+//        System.arraycopy(events, 0, newEvents, 0, events.length);
+//        newEvents[events.length] = event;
+//        events = newEvents;
+//
+//        LocalDate parsedDate = LocalDate.parse(date);
+//        if (date.equals("2023-11-21")) {
+//            System.out.println(newEvents[2] + "\t" + parsedDate);
+//        } else {
+//            System.out.println("Wrong date!");
+//        }
+//    }
+    public void addEvent(String event) {
+        for (int i = 0; i < events.length; i++) {
+            if (Objects.isNull(events[i])) {
+                events[i] = String.valueOf(event);
+                break;
+            }
         }
     }
 
