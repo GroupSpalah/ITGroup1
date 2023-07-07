@@ -1,5 +1,6 @@
 ctrl + alt + l - format code
 ctrl + d - duplication code
+ctrl + y - delete line
 ctrl + / - oneline comments
 ctrl + shift + f - search files
 ctrl + shift + / - manyline comments

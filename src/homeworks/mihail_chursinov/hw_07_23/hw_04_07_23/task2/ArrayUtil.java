@@ -12,7 +12,7 @@ public class ArrayUtil {
         int count = array.length();
 
         for (int i = 0; i < count; i++) {
-            sum += array.getArray(i).doubleValue();
+            sum += array.get(i).doubleValue();
         }
         return sum / count;
     }

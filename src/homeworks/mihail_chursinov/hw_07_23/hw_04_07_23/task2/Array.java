@@ -7,7 +7,7 @@ public class Array<T extends Number> {
         this.array = array;
     }
 
-    public T getArray(int index) {
+    public T get(int index) {
         return array[index];
     }
 

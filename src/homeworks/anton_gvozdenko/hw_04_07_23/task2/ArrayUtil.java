@@ -18,11 +18,11 @@ class Array<T> {
 }
 
 public class ArrayUtil {
-    public static <T extends Number> int showAverageValue(Array e) {
+    public static <T extends Number> int showAverageValue(Array<T> e) {
         double sum = 0;
         for (int i = 0; i < e.length(); i++) {
-            if (e[i + 1] < e.length()) {
-                sum += e[i];
+            if (e.get(i).intValue() < e.length()) {
+                sum += e.get(i).intValue();
             }
 
             double result = sum / e.length();
