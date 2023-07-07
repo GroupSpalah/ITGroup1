@@ -14,8 +14,6 @@ public class ArrayUtil {
         for (int i = 0; i < count; i++) {
             sum += array.getArray(i).doubleValue();
         }
-
         return sum / count;
-
     }
 }
