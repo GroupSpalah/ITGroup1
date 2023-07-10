@@ -1,4 +1,4 @@
-import lessons.ls_27_06_23.ExceptionHandler;
+import lessons.ls_06_23.ls_27_06_23.ExceptionHandler;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

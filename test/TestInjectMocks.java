@@ -1,5 +1,5 @@
-import lessons.ls_15_04_23.inject_mocks.Car;
-import lessons.ls_15_04_23.inject_mocks.Engine;
+import lessons.ls_04_23.ls_15_04_23.inject_mocks.Car;
+import lessons.ls_04_23.ls_15_04_23.inject_mocks.Engine;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

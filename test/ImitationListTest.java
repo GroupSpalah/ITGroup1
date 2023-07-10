@@ -1,4 +1,4 @@
-import lessons.ls_14_03_23.ImitationList;
+import lessons.ls_03_23.ls_14_03_23.ImitationList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

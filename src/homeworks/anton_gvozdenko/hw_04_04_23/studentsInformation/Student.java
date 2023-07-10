@@ -1,7 +1,5 @@
 package homeworks.anton_gvozdenko.hw_04_04_23.studentsInformation;
 
-import lessons.ls_04_04_23.man_position.Gender;
-
 public class Student {
     private int age;
     private String FirstName;

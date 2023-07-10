@@ -1,4 +1,4 @@
-import lessons.ls_08_04_23.Calculator;
+import lessons.ls_04_23.ls_08_04_23.Calculator;
 import org.junit.*;
 
 public class CalculatorTest {

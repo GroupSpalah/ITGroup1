@@ -1,4 +1,4 @@
-import lessons.ls_11_04_23.CalculatorMockito;
+import lessons.ls_04_23.ls_11_04_23.CalculatorMockito;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

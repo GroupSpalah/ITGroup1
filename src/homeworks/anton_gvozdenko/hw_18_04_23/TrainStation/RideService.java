@@ -1,7 +1,5 @@
 package homeworks.anton_gvozdenko.hw_18_04_23.TrainStation;
 
-import lessons.ls_18_04_23.airport.Flight;
-
 import java.util.Objects;
 
 public class RideService {
