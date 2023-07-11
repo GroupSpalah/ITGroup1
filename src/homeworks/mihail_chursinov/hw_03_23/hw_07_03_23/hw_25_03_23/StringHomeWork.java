@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_03_23.hw_25_03_23;
+package homeworks.mihail_chursinov.hw_03_23.hw_07_03_23.hw_25_03_23;
 
 public class StringHomeWork {
     /**
