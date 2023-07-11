@@ -11,11 +11,14 @@ import java.util.List;
 public class Task4 {
     public static void main(String[] args) {
         List<String> lines = List.of("qwe","qsd", "qxc");
+
         for (String line : lines) {
             if (line.startsWith("q")) {
                 String result = line.replace("q","i");
                 System.out.println(result);
             }
         }
+
+        System.out.println(lines);
     }
 }
