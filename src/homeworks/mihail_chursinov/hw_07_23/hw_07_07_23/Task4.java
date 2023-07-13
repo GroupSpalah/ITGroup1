@@ -1,5 +1,6 @@
 package homeworks.mihail_chursinov.hw_07_23.hw_07_07_23;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,13 +11,12 @@ import java.util.List;
 
 public class Task4 {
     public static void main(String[] args) {
-        List<String> lines = List.of("qwe","qsd", "qxc");
+        List<String> lines = new ArrayList<>(List.of("qwe", "qsd", "qxc"));
+        for (int i = 0; i < lines.size(); i++) {
+            String elements = lines.get(i);
+            String result = elements.replace("q","i");
+            lines.set(i, result);
 
-        for (String line : lines) {
-            if (line.startsWith("q")) {
-                String result = line.replace("q","i");
-                System.out.println(result);
-            }
         }
 
         System.out.println(lines);
