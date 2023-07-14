@@ -1,4 +1,4 @@
-package lessons.homeworks.anton_gvozdenko.hw_11_07_23.Task2;
+package homeworks.anton_gvozdenko.hw_11_07_23.Task2;
 
 
 import java.util.ArrayList;

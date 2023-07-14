@@ -1,4 +1,4 @@
-package lessons.homeworks.anton_gvozdenko.hw_11_07_23;
+package homeworks.anton_gvozdenko.hw_11_07_23;
 
 import java.time.Month;
 import java.util.ArrayList;
@@ -7,7 +7,6 @@ import java.util.List;
 
 public class ProductService {
     private List<Product> products;
-
     public ProductService() {
         products = new ArrayList<>();
     }
