@@ -1,13 +1,14 @@
 package homeworks.mihail_chursinov.hw_07_23.hw_11_07_23.task2;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 class ProductService {
     private List<Product> products;
 
     public ProductService() {
-        this.products = new ArrayList<>();
+        this.products = new LinkedList<>();
     }
 
     public void addProduct(Product product) {

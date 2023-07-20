@@ -6,7 +6,7 @@ import java.util.List;
 class Bucket {
     private List<Product> products;
     private int countProducts;
-    private int price;
+    private float price;
     private User user;
 
     public Bucket(User user) {
@@ -24,7 +24,7 @@ class Bucket {
         return countProducts;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
