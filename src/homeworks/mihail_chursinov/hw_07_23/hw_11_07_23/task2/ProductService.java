@@ -38,4 +38,13 @@ class ProductService {
         }
         return count;
     }
+//    public int chooseProductForCategory(Product name, Product relatedProduct) {
+//        int count = 0;
+//        for (Product product : products) {
+//            if (product.getName().equals(name)) {
+//                Category related1Product = product.getSubCategory();
+//            }
+//        }
+//        return count;
+//    }
 }
