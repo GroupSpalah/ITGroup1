@@ -1,6 +1,4 @@
-package hw_11_07_23.task2;
-
-
+package homeworks.anton_gvozdenko.hw_11_07_23.Task2;
 
 public class Product {
     private String name;
@@ -10,7 +8,8 @@ public class Product {
     private SubCategory subCategory;
     private float price;
 
-    public Product(String name, String manufacture, String date, Category category, SubCategory subCategory, float price) {
+    public Product(String name, String manufacture, String date, Category category,
+                   SubCategory subCategory, float price) {
         this.name = name;
         this.manufacture = manufacture;
         this.date = date;
@@ -44,9 +43,9 @@ public class Product {
     }
 
     public void view() {
-        System.out.println("Name: " + name + "\tManufacture: " + manufacture + "\tCategory: " + category + "\tSubcategory: "
+        System.out.println("Name: " + name + "\tManufacture: " + manufacture + "\tCategory: " + category +
+                "\tSubcategory: "
                 + subCategory + "\tDate: " + date + "\tPrice: " + price);
     }
-
 
 }

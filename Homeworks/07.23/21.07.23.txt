@@ -1,0 +1,40 @@
+1) Создать приложение интернет - магазина(консольное).
+Приложение должен выполнять следующие операции:
+
+   1) добавление товара(название, производитель, дата производства и т.д.).
+   3) удаление товара с сопутствующими товарами.
+   4) создание корзины для каждого юзера.
+   5) выбор товара по определенным критериям(по названию, по производителя) и
+   после выводить сопутствующие товары.
+
+   Учесть, что каждого товара определенное количество в магазине.
+
+   Примеры товаров: мобильные телефоны, телевизоры и т.д.
+
+   https://codingbat.com/java/Map-1
+
+   https://codingbat.com/java/Map-2
+
+2)
+
+***  Modify and return the given map as follows: if the key "a" has a value,
+set the key "b" to have that same value.
+In all cases remove the key "c", leaving the rest of the map unchanged. - Map-1 > mapShare
+
+*** Given a map of food keys and their topping values, modify and return the map as follows:
+if the key "ice cream" has a value,
+set that as the value for the key "yogurt" also. If the key "spinach" has a value,
+change that value to "nuts". - Map-1 > topping2
+
+*** Modify and return the given map as follows: if
+exactly one of the
+keys "a" or "b" has a value in the map (but not both),
+set the other to have that same value in the map. - Map-1 > mapAB3
+
+*** Modify and return the given map as follows: for this problem
+the map may or may not contain the "a" and "b" keys.
+ If both keys are present, append their 2 string values together
+ and store the result under the key "ab". - Map-1 > mapAB
+
+ *** Map-1 > topping3
+ *** Map-2 > wordLen

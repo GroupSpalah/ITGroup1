@@ -17,7 +17,8 @@ public class PersonService {
     public void showAge(Map<Person, Position> map) {
         Set<Map.Entry<Person, Position>> entries = map.entrySet();
         for (Map.Entry<Person, Position> entry : entries) {
-            if (entry.getKey().age() > 30 && entry.getKey().age() < 50) {
+            Person key = entry.getKey();
+            if (key.age() > 30 && key.age() < 50) {
                 System.out.println(entry);
             }
         }
@@ -35,7 +36,8 @@ public class PersonService {
     public void showLengthOfThePosition(Map<Person, Position> map) {
         Set<Map.Entry<Person, Position>> entries = map.entrySet();
         for (Map.Entry<Person, Position> entry : entries) {
-            if (entry.getKey().position().name().length() > 3) {
+            String name = entry.getKey().position().name();
+            if (name.length() > 3) {
                 System.out.println(entry);
             }
         }
