@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_11_07_23;
+package hw_11_07_23;
 
 import java.time.Month;
 
