@@ -8,9 +8,9 @@ public class Test {
         Position it = new Position("It");
         Position manager = new Position("Manager");
 
-        Person john = new Person("John", 28, automation);
-        Person clark = new Person("Clark", 32, it);
-        Person ben = new Person("Ben", 36, manager);
+        Person john = new Person("John", 28);
+        Person clark = new Person("Clark", 32);
+        Person ben = new Person("Ben", 36);
 
         Map<Person, Position> map = Map.of(
                 john, automation,
@@ -18,11 +18,10 @@ public class Test {
                 ben, manager
         );
 
-
         PersonService personService = new PersonService();
 //        personService.showAge(map);
 //        personService.showLengthOfTheName(map);
-//        personService.showLengthOfThePosition(map);
-        personService.showLengthOfTheNamePosition(map);
+      personService.showLengthOfThePosition(map);
+   //     personService.showLengthOfTheNamePosition(map);
     }
 }

@@ -27,7 +27,8 @@ public class PersonService {
     public void showLengthOfTheName(Map<Person, Position> map) {
         Set<Map.Entry<Person, Position>> entries = map.entrySet();
         for (Map.Entry<Person, Position> entry : entries) {
-            if (entry.getKey().firstName().length() > 3) {
+            String name = entry.getKey().firstName();
+            if (name.length() > 3) {
                 System.out.println(entry);
             }
         }
@@ -36,8 +37,8 @@ public class PersonService {
     public void showLengthOfThePosition(Map<Person, Position> map) {
         Set<Map.Entry<Person, Position>> entries = map.entrySet();
         for (Map.Entry<Person, Position> entry : entries) {
-            String name = entry.getKey().position().name();
-            if (name.length() > 3) {
+            Position position = entry.getValue();
+            if (position.name().length() > 3) {
                 System.out.println(entry);
             }
         }
@@ -46,7 +47,8 @@ public class PersonService {
     public void showLengthOfTheNamePosition(Map<Person, Position> map) {
         Set<Map.Entry<Person, Position>> entries = map.entrySet();
         for (Map.Entry<Person, Position> entry : entries) {
-            if (Objects.equals(entry.getKey().position().name(), "Automation")) {
+            Position position = entry.getValue();
+            if (Objects.equals(position.name(), "Automation")) {
                 System.out.println(entry);
             }
         }

@@ -49,5 +49,10 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
+    public void view() {
+        System.out.println("Name: " + name + "\tManufacture: " + manufacturer + "\tProduction of the date: " +
+                productionDate +"\tCategory: " + category + "\tSubcategory: " + subCategory + "\tPrice: " + price);
+    }
 }
 

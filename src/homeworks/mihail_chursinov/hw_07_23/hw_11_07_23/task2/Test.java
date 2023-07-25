@@ -17,16 +17,19 @@ public class Test {
         productService.addProduct(charger);
         productService.addProduct(headphones);
 
-        bucket.addProduct(phone);
-        bucket.addProduct(charger);
+        productService.chooseProduct("Phone");
 
-        Category selectedCategory = Category.PHONES;
-       // int countByCategory = productService.getProductsByCategory(selectedCategory);
+//        bucket.addProduct(phone);
+//        bucket.addProduct(charger);
+//
+//        Category selectedCategory = Category.PHONES;
+//        int countByCategory = productService.getProductsByCategory(selectedCategory);
+//
+//        System.out.println("Bucket for user: " + bucket.getUser().getName());
+//        System.out.println("Total products in the bucket: " + bucket.getCountProducts());
+//        System.out.println("Total price: " + bucket.getPrice());
+//        System.out.println("Total products in category " + selectedCategory + ": " + countByCategory);
 
-        System.out.println("Bucket for user: " + bucket.getUser().getName());
-        System.out.println("Total products in the bucket: " + bucket.getCountProducts());
-        System.out.println("Total price: " + bucket.getPrice());
-       // System.out.println("Total products in category " + selectedCategory + ": " + countByCategory);
     }
 }
 
