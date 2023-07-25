@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_4_23.hw_01_04_23;
+package homeworks.anton_gvozdenko.hw_01_04_23;
 
 public class Task1 {
 
