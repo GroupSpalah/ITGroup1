@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_11_07_23.Task2;
+package homeworks.anton_gvozdenko.hw_11_07_23.task2;
 
 
 import java.util.ArrayList;
@@ -8,30 +8,32 @@ public class Bucket {
 
     private List<Product> products;
 
-    private int countProducts;
-    private int finalPrice;
-
-    public Bucket(int countProducts, int finalPrice) {
+    public Bucket() {
         products = new ArrayList<>();
-        this.countProducts = countProducts;
-        this.finalPrice = finalPrice;
     }
 
     public void addProduct(Product product) {
-
-        if (products.add(product)) {
-            countProducts++;
-            finalPrice += product.getPrice();
-        }
-        System.out.println("Count of products = " + countProducts + "\tFinal price = " + finalPrice);
+        products.add(product);
     }
 
     public void deleteProduct(Product product) {
-        if (products.remove(product)) {
-            countProducts--;
-            finalPrice -= product.getPrice();
+        products.remove(product);
+    }
+
+    public float calculateSum() {
+
+        float sum = 0;
+
+        for (Product product : products) {
+            sum += product.getPrice();
         }
-        System.out.println("Count of products = " + countProducts + "\tFinal price = " + finalPrice);
+
+        return sum;
     }
 }
+
+/**
+ * Item     Price   Count
+ * Phone      10      3
+ */
 

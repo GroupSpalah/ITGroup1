@@ -11,9 +11,13 @@ import java.util.Map;
 public class Task6 {
     public static void main(String[] args) {
         String[] strings = new String[5];
+
         Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < strings.length; i++) {
-            map.put(strings[i], strings.length);
+
+        for (String string : strings) {
+            map.put(string, string.length());
         }
+
+        System.out.println(map);
     }
 }
