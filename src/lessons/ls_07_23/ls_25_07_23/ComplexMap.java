@@ -38,7 +38,8 @@ class PersonM {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age);
+//        return Objects.hash(name, age);
+        return 5;
     }
 
     @Override
@@ -49,3 +50,19 @@ class PersonM {
                 '}';
     }
 }
+
+/**
+ * if (e.hash == hash && (e.key == key || key.equals(e.key)))
+ * {
+ *     V oldValue = e.value;
+ *     e.value = value;
+ *
+ *     return oldValue;
+ * }
+ *
+ * 1) hashCode not override and equals not override - 2 objects
+ * 2) hashCode override and equals override - 1 objects
+ * 3) hashCode override and equals not override - 2 objects
+ * 4) hashCode not override and equals override - 2 objects
+ * 5) hashCode override(return constant value) and equals override - 2 objects
+ */
