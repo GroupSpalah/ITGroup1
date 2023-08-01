@@ -1,66 +1,51 @@
 package homeworks.mihail_chursinov.hw_07_23.hw_28_07_23;
-/**
- * Создать приложение переводчик.
- * <p>
- * Приложение должно позволять:
- * - добавлять новые слова.
- * - переводить предложение с одного из языков(Русский - Украинский, Украинский - Русский,
- * Английский - Русский, Русский - Английский).
- * - после слова ввода определять язык, на котором ввел юзер
- * - добавлять новые языки
- * - Написать метод который определяет есть ли в словаре перевод для данного слова
- * - В методе перевода предложения написать логику что если хотя бы нет перевода одного слова из
- * предложения то не переводить все предложение
- * <p>
- * После остановки программы сохранять словари в файлах и после запуска наполнять словари.
- * <p>
- * *    Map<String, Map<String, String>> -> Map<rus_eng, Map<Привет, Hello; Утро:Morning>>
- */
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Translator {
-    public static void main(String[] args) throws IOException {
-        Path pathToFile = Paths.get("./MTranslator/eng_rus");
-        Path pathToFile1 = Paths.get("./MTranslator/rus_eng");
-        Path pathToFile2 = Paths.get("./MTranslator/rus_ukr");
-        Path pathToFile3 = Paths.get("./MTranslator/ukr_rus");
+    public static final Path PATH = Paths.get("./MTranslator");
 
-        byte[] bytes = Files.readAllBytes(pathToFile);
-        byte[] bytes1 = Files.readAllBytes(pathToFile1);
-        byte[] bytes2 = Files.readAllBytes(pathToFile2);
-        byte[] bytes3 = Files.readAllBytes(pathToFile3);
+    private Map<String, Map<String, String>> map;
 
-        String eng_rus = new String(bytes);
-        String rus_eng = new String(bytes1);
-        String rus_ukr = new String(bytes2);
-        String ukr_rus = new String(bytes3);
-
-        Map<String, Map<String, String>> result = createMapFromText(eng_rus);
-        System.out.println(result);
-
+    public Translator() throws IOException {
+        map = new HashMap<>();
+        fillTranslator();
     }
-    private static Map<String, Map<String, String>> createMapFromText(String content) {
-        Map<String, Map<String, String>> map = new HashMap<>();
 
-        String[] lines = content.split("\n");
+    private void fillTranslator() throws IOException {
+        Files.walkFileTree(PATH, new Visitor());
+    }
 
-        Map<String, String> temp = new HashMap<>();
-        for (String line : lines) {
-            String[] keyValue = line.split(":");
-            if (keyValue.length == 2) {
-                String key = keyValue[0];
-                String value = keyValue[1];
+    private class Visitor extends SimpleFileVisitor<Path> {
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 
-                temp.put(key, value);
+            String fileName = file.toFile().getName().split("\\.txt")[0];
+
+            List<String> lines = Files.readAllLines(file);
+
+            Map<String, String> temp = new HashMap<>();
+
+            for (String line : lines) {
+                String[] words = line.split(":");
+
+                temp.put(words[0], words[1]);
             }
-        }
-        map.put("eng_rus", temp);
 
-        return map;
+            map.put(fileName, temp);
+
+            return FileVisitResult.CONTINUE;
+        }
+    }
+
+    public void stop() {
+
     }
 }
+
+
