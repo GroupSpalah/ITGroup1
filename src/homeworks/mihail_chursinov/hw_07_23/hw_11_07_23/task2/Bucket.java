@@ -40,4 +40,14 @@ class Bucket {
         price -= product.getPrice();
     }
 
+    public float calculateSum() {
+
+        float sum = 0;
+
+        for (Product product : products) {
+            sum += product.getPrice();
+        }
+        return sum;
+    }
+
 }

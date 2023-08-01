@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_06_23.hw_06_05_23.task1;
+package homeworks.mihail_chursinov.hw_05_23.hw_06_05_23.task1;
 
 /**
  * 1) Создать класс Автомобиль со свойствами: Название, Максимальная

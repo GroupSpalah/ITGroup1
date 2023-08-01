@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_06_23.hw_06_05_23.task1.task2;
+package homeworks.mihail_chursinov.hw_05_23.hw_06_05_23.task1.task2;
 
 public class Test {
     public static void main(String[] args) {

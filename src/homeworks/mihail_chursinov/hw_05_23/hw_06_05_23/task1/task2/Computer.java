@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_06_23.hw_06_05_23.task1.task2;
+package homeworks.mihail_chursinov.hw_05_23.hw_06_05_23.task1.task2;
 
 /**
  * Создать класс Компьютер со свойствами: Частота процессора (в МГц),
