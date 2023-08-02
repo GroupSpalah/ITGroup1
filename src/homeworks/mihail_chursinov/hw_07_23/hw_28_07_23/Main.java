@@ -26,7 +26,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         Translator translator = new Translator();
-
+        translator.addWord("rus_eng", "Ночь", "Night");
+        translator.addLanguage("de_ukr", "Tak", "Привіт");
         System.out.println();
+
     }
 }
