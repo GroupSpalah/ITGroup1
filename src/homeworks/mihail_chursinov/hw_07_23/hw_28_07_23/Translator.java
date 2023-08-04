@@ -41,11 +41,11 @@ public class Translator {
         }
     }
 
-    public void addWord(String rus_eng, String source, String target) {
+    public void addWord(String language, String source, String target) {
 
-        if (map.containsKey(rus_eng)) {
-            Map<String, String> temp = map.get(rus_eng);
-            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
+        if (map.containsKey(language)) {
+            Map<String, String> temp = map.get(language);
+            if (Objects.nonNull(source) && target != null && !source.isEmpty() && !target.isEmpty()) {
                 temp.put(source, target);
             }
         }

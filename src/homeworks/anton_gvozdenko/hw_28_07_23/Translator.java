@@ -63,16 +63,13 @@ public class Translator {
     }
 
 
-    public void isTranslationExist(String language, String word) {
-        Map<String, String> translation = map.get(language);
+    public boolean isTranslationExist(String language, String word) {
         if (word != null) {
-            translation = new HashMap<>();
-            if (translation.equals(word)) {
-                 map.put(language, translation);
-
-
-            }
+            Map<String, String> translation = map.get(language);
+            return translation.containsKey(word);
         }
+
+        return false;
     }
 }
 
