@@ -27,8 +27,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Translator translator = new Translator();
         translator.addWord("rus_eng", "Ночь", "Night");
-        translator.addLanguage("de_ukr", "Tak", "Привіт");
-        System.out.println();
+        translator.addLanguage("de_ukr", "Hallo", "Привіт");
+        boolean word = translator.checkTranslation("Привіт","ukr_rus");
+        System.out.println(word);
 
     }
 }

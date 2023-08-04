@@ -45,20 +45,29 @@ public class Translator {
 
         if (map.containsKey(rus_eng)) {
             Map<String, String> temp = map.get(rus_eng);
-            if ((!source.isEmpty() && !target.isEmpty() && (source != null && target != null))) {
+            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
                 temp.put(source, target);
             }
         }
     }
+
     public void addLanguage(String language, String source, String target) {
 
         if (!map.containsKey(language)) {
-           map.put(language, new HashMap<>());
+            map.put(language, new HashMap<>());
             Map<String, String> temp = map.get(language);
-            if ((!source.isEmpty() && !target.isEmpty() && (source != null && target != null))) {
+            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
                 temp.put(source, target);
             }
         }
+    }
+
+    public boolean checkTranslation(String language, String word) {
+        if (map.containsKey(language)) {
+            Map<String, String> translation = map.get(language);
+            return translation.containsKey(word);
+        }
+        return false;
     }
 
     public void stop() {
