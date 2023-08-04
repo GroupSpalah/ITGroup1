@@ -3,9 +3,7 @@ package homeworks.mihail_chursinov.hw_07_23.hw_28_07_23;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Translator {
     public static final Path PATH = Paths.get("./MTranslator");
@@ -41,6 +39,35 @@ public class Translator {
 
             return FileVisitResult.CONTINUE;
         }
+    }
+
+    public void addWord(String rus_eng, String source, String target) {
+
+        if (map.containsKey(rus_eng)) {
+            Map<String, String> temp = map.get(rus_eng);
+            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
+                temp.put(source, target);
+            }
+        }
+    }
+
+    public void addLanguage(String language, String source, String target) {
+
+        if (!map.containsKey(language)) {
+            map.put(language, new HashMap<>());
+            Map<String, String> temp = map.get(language);
+            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
+                temp.put(source, target);
+            }
+        }
+    }
+
+    public boolean checkTranslation(String language, String word) {
+        if (map.containsKey(language)) {
+            Map<String, String> translation = map.get(language);
+            return translation.containsKey(word);
+        }
+        return false;
     }
 
     public void stop() {
