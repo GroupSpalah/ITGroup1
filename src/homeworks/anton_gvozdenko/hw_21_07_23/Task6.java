@@ -6,15 +6,12 @@ import java.util.Set;
 
 public class Task6 {
     public static void main(String[] args) {
-        Map<Integer, String> map = new HashMap<>();
-        if (map.containsValue("and") && map.containsValue("this") && map.containsValue("that")) {
-            String andValue = String.valueOf(map.containsValue("and"));
-            String thatValue = String.valueOf(map.containsValue("that"));
-            String thisValue = String.valueOf(map.containsValue("this"));
-            map.put(andValue.length(), andValue);
-            map.put(thatValue.length(), thatValue);
-            map.put(thisValue.length(), thisValue);
-        }
+
+      String [] strings = new String[4];
+      Map<String,Integer> map = new HashMap<>();
+      for (String string:strings){
+           map.put(string,string.length());
+      }
     }
     }
 

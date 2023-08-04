@@ -1,4 +1,4 @@
-package lessons.homeworks.anton_gvozdenko.hw_07_07_23;
+package homeworks.anton_gvozdenko.hw_07_07_23;
 
 import java.util.LinkedList;
 import java.util.List;

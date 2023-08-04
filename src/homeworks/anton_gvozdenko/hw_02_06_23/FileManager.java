@@ -100,12 +100,13 @@ class Test {
         Path dirPath = Paths.get("./Homework");
          FileManager manager = new FileManager();
         manager.createDirectory(dirPath);
-        manager.createFile(filePath);
+
         manager.copyFile(filePath,filePath);
         manager.readFile(filePath);
        manager.visitDirectory(dirPath);
          manager.convertTxtToPDf(filePath);
          manager.deleteFile(filePath);
+
 
     }
 }

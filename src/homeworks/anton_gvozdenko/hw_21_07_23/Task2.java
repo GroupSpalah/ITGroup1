@@ -6,10 +6,11 @@ import java.util.Map;
 public class Task2 {
     public static void main(String[] args) {
         Map<String,String>  map = new HashMap<>();
-        if (map.containsKey("a") && map.containsKey("b") && map.containsKey("c")){
+        if (map.containsKey("a")) {
             String valueA = map.get("a");
-            map.put("b",valueA);
+            map.put("b", valueA);
+        }
             map.remove("c");
         }
     }
-}
+

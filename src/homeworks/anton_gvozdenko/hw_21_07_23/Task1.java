@@ -6,9 +6,9 @@ import java.util.Map;
 public class Task1 {
     public static void main(String[] args) {
         Map<String,String> map = new HashMap<>();
-        if (map.containsKey("ice cream") && map.containsKey("yogurt")){
-            map.put("ice cream","apple");
-            map.put("yogurt","apple");
+        if (map.containsKey("ice cream")){
+            String valueA = map.get("ice cream");
+            map.put("yogurt",valueA);
         } if (map.containsKey("spinach")){
             map.put("spinach","nuts");
         }
