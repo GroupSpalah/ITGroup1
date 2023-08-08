@@ -7,6 +7,7 @@ import java.util.*;
 
 public class Translator {
     public static final Path PATH = Paths.get("./ATranslator");
+    public static final String EXTENSION_TXT = ".txt";
 
     private Map<String, Map<String, String>> map;
 
@@ -50,21 +51,16 @@ public class Translator {
             map.put(language, languageMap);
         }
         languageMap.put(wordIn, wordOut);
-
-
     }
 
     public void addNewLanguage(String language) {
-        Map<String, String> stringMap = map.get(language);
-        if (!map.containsKey(stringMap)) {
-            stringMap = new HashMap<>();
-            map.put(language, stringMap);
-            if (map.containsKey(stringMap)) {
-                System.out.println("Language doesn't add");
-            }
+        if (!map.containsKey(language)) {
+            map.put(language, new HashMap<>());
+        } else {
+            System.out.println("Language doesn't add");
         }
     }
-    public boolean isTranslationExist(String language, String word) {
+    private boolean isTranslationExist(String language, String word) {
         if (word != null) {
             Map<String, String> translation = map.get(language);
             return translation.containsKey(word);
@@ -85,7 +81,6 @@ public class Translator {
             }
         }
         System.out.println(translatedSentence);
-
     }
 
     public void detectLanguage(String word) {
@@ -97,7 +92,43 @@ public class Translator {
             }
         }
     }
+
+    public void stop() throws IOException {
+        Files.walkFileTree(PATH, new DeleteVisitor());
+        saveTranslator();
+    }
+
+    private void saveTranslator() throws IOException {
+        for (Map.Entry<String, Map<String, String>> entry : map.entrySet()) {
+            String fileName = entry.getKey().concat(EXTENSION_TXT);
+            Path pathToFile = Paths.get(PATH.toString(), fileName);
+
+            Set<Map.Entry<String, String>> words = entry.getValue().entrySet();
+
+            Set<String> temp = new HashSet<>();
+
+            for (Map.Entry<String, String> pair : words) {
+                String key = pair.getKey();
+                String value = pair.getValue();
+
+                temp.add(key.concat(":").concat(value));
+            }
+
+            Files.write(pathToFile, temp, StandardOpenOption.CREATE);
+        }
+    }
+
+    private class DeleteVisitor extends SimpleFileVisitor<Path> {
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            Files.delete(file);
+            return FileVisitResult.CONTINUE;
+        }
+    }
 }
+
+
+
 
 
 

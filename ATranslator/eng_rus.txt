@@ -1,2 +1,3 @@
 Morning:Утро
 Car:Машина
+Friend:Друг

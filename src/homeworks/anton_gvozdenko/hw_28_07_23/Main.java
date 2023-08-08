@@ -8,6 +8,7 @@ public class Main {
         translator.addNewWords("rus_eng", "Друг", "Friend");
         translator.addNewWords("rus_de", "Вечер", "Abend");
         translator.addNewLanguage("de_rus");
+        translator.addNewLanguage("uk_spain");
         translator.addNewWords("eng_rus", "Car", "Машина");
         translator.addNewWords("rus_eng", "Машина", "Car");
         translator.addNewWords("eng_rus", "Friend", "Друг");
@@ -16,6 +17,7 @@ public class Main {
 
         translator.translateSentence("Машина Утро Друг", "rus_eng");
         translator.detectLanguage("Tak");
+        translator.stop();
 
     }
 }

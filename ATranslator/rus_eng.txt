@@ -1,2 +1,4 @@
-Привет:Hello
 Утро:Morning
+Машина:Car
+Привет:Hello
+Друг:Friend
