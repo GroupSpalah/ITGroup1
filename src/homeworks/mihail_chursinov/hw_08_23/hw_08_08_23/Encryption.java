@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Encryption {
     public static void main(String[] args) {
-        encrypt("где почва?");
+        encrypt("где почка?");
     }
 
     public static void encrypt(String word) {
@@ -50,7 +50,6 @@ public class Encryption {
         thirdMap.putAll(secondMap);
         thirdMap.put(" ", "751769758801849");
         thirdMap.put("?", "777");
-
 
         StringBuilder encryptedText = new StringBuilder();
 
