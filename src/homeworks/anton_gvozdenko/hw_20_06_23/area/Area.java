@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_20_06_23.area;
+package homeworks.anton_gvozdenko.hw_20_06_23.Area;
 
 public class Area {
     public static   int squareRectangle(int a, int b) throws IllegalArgumentException {
