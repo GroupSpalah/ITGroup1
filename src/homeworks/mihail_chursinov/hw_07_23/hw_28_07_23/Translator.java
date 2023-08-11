@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Translator {
     public static final Path PATH = Paths.get("./MTranslator");
-
+    public static final String EXTENSION_TXT = ".txt";
     private Map<String, Map<String, String>> map;
 
     public Translator() throws IOException {
@@ -42,21 +42,19 @@ public class Translator {
     }
 
     public void addWord(String language, String source, String target) {
-
-        if (map.containsKey(language)) {
-            Map<String, String> temp = map.get(language);
-            if (Objects.nonNull(source) && target != null && !source.isEmpty() && !target.isEmpty()) {
+        if (Objects.nonNull(source) && Objects.nonNull(target) && !source.isEmpty() && !target.isEmpty()) {
+            if (map.containsKey(language)) {
+                Map<String, String> temp = map.get(language);
                 temp.put(source, target);
             }
         }
     }
 
     public void addLanguage(String language, String source, String target) {
-
-        if (!map.containsKey(language)) {
-            map.put(language, new HashMap<>());
-            Map<String, String> temp = map.get(language);
-            if (source != null && target != null && !source.isEmpty() && !target.isEmpty()) {
+        if (Objects.nonNull(source) && Objects.nonNull(target) && !source.isEmpty() && !target.isEmpty()) {
+            if (!map.containsKey(language)) {
+                map.put(language, new HashMap<>());
+                Map<String, String> temp = map.get(language);
                 temp.put(source, target);
             }
         }
@@ -70,8 +68,61 @@ public class Translator {
         return false;
     }
 
-    public void stop() {
+    public void translateSentence(String sentence, String language) {
+        String[] words = sentence.split(" ");
+        StringBuilder translatedSentence = new StringBuilder();
 
+        for (String word : words) {
+            if (checkTranslation(word, language)) {
+                String translation = map.get(language).get(word);
+                translatedSentence.append(translation).append(" ");
+            } else {
+                System.out.println(sentence);
+                return;
+            }
+        }
+    }
+
+    public void determineLanguage(String word) {
+        for (Map.Entry<String, Map<String, String>> entry : map.entrySet()) {
+            if (entry.getValue().containsKey(word)) {
+                String key = entry.getKey();
+                String[] words = key.split("_");
+                System.out.println(words[0]);
+            }
+        }
+    }
+    public void stop() throws IOException {
+        Files.walkFileTree(PATH, new DeleteVisitor());
+        saveTranslator();
+    }
+
+    private void saveTranslator() throws IOException {
+        for (Map.Entry<String, Map<String, String>> entry : map.entrySet()) {
+            String fileName = entry.getKey().concat(EXTENSION_TXT);
+            Path pathToFile = Paths.get(PATH.toString(), fileName);
+
+            Set<Map.Entry<String, String>> words = entry.getValue().entrySet();
+
+            Set<String> temp = new HashSet<>();
+
+            for (Map.Entry<String, String> pair : words) {
+                String key = pair.getKey();
+                String value = pair.getValue();
+
+                temp.add(key.concat(":").concat(value));
+            }
+
+            Files.write(pathToFile, temp, StandardOpenOption.CREATE);
+        }
+    }
+
+    private class DeleteVisitor extends SimpleFileVisitor<Path> {
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            Files.delete(file);
+            return FileVisitResult.CONTINUE;
+        }
     }
 }
 

@@ -30,6 +30,9 @@ public class Main {
         translator.addLanguage("de_ukr", "Hallo", "Привіт");
         boolean word = translator.checkTranslation("Привіт","ukr_rus");
         System.out.println(word);
+        translator.translateSentence("Добрий вечір","ukr_rus");
+        translator.determineLanguage("Привіт");
+        translator.stop();
 
     }
 }
