@@ -5,11 +5,21 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Encryption {
+
+    private Map<String, String> map;
     public static void main(String[] args) {
-        encrypt("где почка?");
+//        new Encryption().encrypt("где почка?");
+        Encryption encryption = new Encryption();
+//        encryption.encrypt("мама");
+        encryption.decryptPhrase("755742760128350201755742760128350201");
     }
 
-    public static void encrypt(String word) {
+    public Encryption() {
+        map = new HashMap<>();
+        fillMap();
+    }
+
+    private void fillMap() {
         Map<String, String> firstMap = Map.of(
                 "а", "760128350201",
                 "б", "101",
@@ -34,7 +44,7 @@ public class Encryption {
                 "у", "544",
                 "ф", "560"
         ));
-        secondMap.putAll(firstMap);
+        map.putAll(firstMap);
         Map<String, String> thirdMap = new HashMap<>(Map.of(
                 "х", "768",
                 "ц", "545",
@@ -47,20 +57,57 @@ public class Encryption {
                 "ю", "570",
                 "я", "216104"
         ));
-        thirdMap.putAll(secondMap);
-        thirdMap.put(" ", "751769758801849");
-        thirdMap.put("?", "777");
+        map.putAll(secondMap);
+        map.put(" ", "751769758801849");
+        map.put("?", "777");
+    }
+
+    public void encrypt(String word) {
+
 
         StringBuilder encryptedText = new StringBuilder();
 
         for (int i = 0; i < word.length(); i++) {
             String key = word.substring(i, i + 1);
-            String value = thirdMap.get(key);
+
+            String symbol = String.valueOf(word.charAt(i));
+
+            String value = map.get(symbol);
 
             if (Objects.nonNull(value)) {
                 encryptedText.append(value);
             }
         }
         System.out.println(encryptedText);
+    }
+
+    public void decryptPhrase(String ecryptPhrase) {
+        StringBuilder result = new StringBuilder();
+
+        decodeTest(ecryptPhrase, result);
+
+    }
+
+    private void decodeTest(String phrase, StringBuilder builder) {
+
+        if (phrase.length() == 0) {
+            System.out.println(builder.toString().toLowerCase());
+            return;
+        }
+
+        String result = phrase.substring(0, 3);
+
+        Map.Entry<String, String> entry = map.entrySet()
+                .stream()
+                .filter(e -> e.getValue().contains(result))
+                .findFirst()
+                .get();
+
+        builder.append(entry.getKey());
+
+        phrase = phrase.replaceFirst(entry.getValue(), "");
+
+        decodeTest(phrase, builder);
+
     }
 }

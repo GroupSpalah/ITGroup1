@@ -7,6 +7,7 @@ public class dd {
         }
 
         int digit = n % 10; // Отримуємо останню цифру числа
+
         if (digit % 2 == 0) {
             System.out.print(digit); // Виводимо цифру, якщо вона непарна
         }

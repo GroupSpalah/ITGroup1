@@ -1,4 +1,4 @@
-package lessons.ls_08_23;
+package lessons.ls_08_23.ls_11_08_23;
 
 import java.util.HashMap;
 import java.util.Random;
