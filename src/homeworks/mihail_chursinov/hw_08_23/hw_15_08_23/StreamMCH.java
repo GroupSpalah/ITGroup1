@@ -10,7 +10,7 @@ import java.util.List;
  * В коллекции храним список стран. Вывести страны, в которых больше 5 букв
  */
 
-public class Stream {
+public class StreamMCH {
     public void showCountriesTndWith() {
         List<String> countries = List.of("Ukraine", "Australia", "UK", "Canada");
         countries
