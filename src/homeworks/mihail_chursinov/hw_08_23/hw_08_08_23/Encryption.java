@@ -7,11 +7,12 @@ import java.util.Objects;
 public class Encryption {
 
     private Map<String, String> map;
+
     public static void main(String[] args) {
 //        new Encryption().encrypt("где почка?");
-        Encryption encryption = new Encryption();
-//        encryption.encrypt("мама");
-        encryption.decryptPhrase("755742760128350201755742760128350201");
+//        Encryption encryption = new Encryption();
+//   encryption.encrypt("мама");
+//        encryption.decryptPhrase("755742760128350201755742760128350201");
     }
 
     public Encryption() {
@@ -64,11 +65,9 @@ public class Encryption {
 
     public void encrypt(String word) {
 
-
         StringBuilder encryptedText = new StringBuilder();
 
         for (int i = 0; i < word.length(); i++) {
-            String key = word.substring(i, i + 1);
 
             String symbol = String.valueOf(word.charAt(i));
 

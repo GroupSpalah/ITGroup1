@@ -10,9 +10,9 @@ public class Recoursion {
     public static void main(String[] args) {
 
 //        showEvenNumbers(1815);
-        System.out.println(showEvenNumbersWithCount(1885, 0));
+ //       System.out.println(showEvenNumbersWithCount(1885, 0));
         //showOddNumbers(1885);
-//        showFirstNumbers(1815);
+        showFirstNumbers(1815);
 //        System.out.println(1885 % 10);
 //        System.out.println(1 / 10);
     }
@@ -97,6 +97,6 @@ public class Recoursion {
             System.out.print(digit);
         }
 
-        showOddNumbers(n / 10);
+        showFirstNumbers(n / 10);
     }
 }
