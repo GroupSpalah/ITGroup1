@@ -21,8 +21,6 @@ public class LearnStreams {
                 .removeIf(value -> value > 5);
 
         System.out.println(integers);
-
-
     }
 
 }
