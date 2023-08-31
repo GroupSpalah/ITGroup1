@@ -150,6 +150,7 @@ changeMan(people);
         people.stream()
                 .collect(Collectors.groupingBy(man -> man.getCountOfChildren() + man.getAge()))
                 .forEach((key, group) -> {
+                    System.out.println(key);
                     group.forEach(man -> System.out.println("First name:" + man.getFirstName() +
                             "\tLast name:" + man.getLastName() + "\tCount of children:" + man.getCountOfChildren() +
                             "\tAge:" + man.getAge()));
