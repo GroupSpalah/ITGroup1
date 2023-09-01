@@ -7,25 +7,6 @@ import java.util.stream.Collectors;
 record Address(
         String country, String city, String street,
         int numberOfHome) {
-    @Override
-    public String country() {
-        return country;
-    }
-
-    @Override
-    public String city() {
-        return city;
-    }
-
-    @Override
-    public String street() {
-        return street;
-    }
-
-    @Override
-    public int numberOfHome() {
-        return numberOfHome;
-    }
 }
 
 class Man {
@@ -78,10 +59,6 @@ class Man {
     public void setCountOfChildren(int countOfChildren) {
         this.countOfChildren = countOfChildren;
     }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 }
 
 class Main {
@@ -95,48 +72,56 @@ class Main {
         Man steven = new Man("Steven", "Tramp", 20, 1, ukraine);
         List<Man> people = List.of(john, ben, steven);
 
-sortByFirstName(people);
-changeMan(people);
+        sortByFirstName(people);
+        changeMan(people);
         showByCountry(people);
         groupByChildren(people);
         groupByChildrenAge(people);
         groupByCity(people);
         groupByCityStreet(people);
     }
+
     public static void showInfo(List<Man> people) {      // Вывести информацию о всех людях
         people.forEach(man -> System.out.println(man.getFirstName() + " " + man.getLastName() + " " + "Age:" +
                 +man.getAge()
                 + " " + "Count of children:" + man.getCountOfChildren() + " " + man.getAddress()));
     }
+
     public static void showAddress(List<Man> people) {
         people.stream().map(man -> man.getAddress()).forEach(address ->
                 System.out.println("Country:" + address.country() + "\tCity:" + address.city()
                         + "\tStreet:" + address.street()
                         + " " + "\tNumber of home:" + address.numberOfHome()));
     }
+
     public static void sortByFirstName(List<Man> people) {
         people.stream()
                 .filter(man -> man.getAge() >= 20)
                 .sorted((man1, man2) -> man1.getLastName().compareTo(man2.getFirstName()))
-                .forEach(man -> System.out.println("First name:" + man.getFirstName() + "\tLast name:" + man.getLastName()
+                .forEach(man -> System.out.println("First name:" + man.getFirstName() +
+                        "\tLast name:" + man.getLastName()
                         + "\tCount of children:" + man.getCountOfChildren()));
     }
+
     public static void changeMan(List<Man> people) {
         people.stream()
                 .filter(man -> man.getAddress().country().equals("US")) // Измените "US" на нужную вам страну
-                .forEach(man -> {
+                .peek(man -> {
                     man.setFirstName("Petr");
                     man.setLastName("Ivanov");
                     man.setCountOfChildren(7);
-                });
+                }).forEach(m -> System.out.println(m));
     }
+
     public static void showByCountry(List<Man> people) {
         people.stream()
-                .filter(man -> (man.getAddress().country().equals("Canada") && man.getAddress().numberOfHome() == 3)
-                        || man.getAge() >= 25)
+                .filter(man -> (man.getAddress().country().equals("Canada") &&
+                        man.getAddress().numberOfHome() == 3) ||
+                        man.getAge() >= 25)
                 .forEach(man -> System.out.println("First name:" + man.getFirstName() + "\tLast name:" + man.getLastName()
                         + "\tStreet:" + man.getAddress().street()));
     }
+
     public static void groupByChildren(List<Man> people) {
         people.stream()
                 .collect(Collectors.groupingBy(man -> man.getCountOfChildren()))
@@ -146,6 +131,7 @@ changeMan(people);
                             + man.getLastName()));
                 });
     }
+
     public static void groupByChildrenAge(List<Man> people) {
         people.stream()
                 .collect(Collectors.groupingBy(man -> man.getCountOfChildren() + man.getAge()))
@@ -156,6 +142,7 @@ changeMan(people);
                             "\tAge:" + man.getAge()));
                 });
     }
+
     public static void groupByCity(List<Man> people) {
         people.stream()
                 .collect(Collectors.groupingBy(man -> man.getAddress().city()
@@ -167,6 +154,7 @@ changeMan(people);
                                     + "\tLast name:" + man.getLastName()));
                 });
     }
+
     public static void groupByCityStreet(List<Man> people) {
         people.stream()
                 .collect(Collectors.groupingBy(man -> man.getAddress().city()
