@@ -1,6 +1,6 @@
 package homeworks.anton_gvozdenko.hw_01_09_23;
 
-enum ConnectionStatus {
+public enum ConnectionStatus {
     CONNECTED,
     WARNING,
     ERROR;

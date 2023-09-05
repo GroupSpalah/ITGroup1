@@ -5,9 +5,9 @@ import java.util.Objects;
 /**
  * Сущность Man(имя, фамилия, возраст, количество детей, Адрес), Адрес(страна, город, улица, номер дома)
  * Использовать коллекцию LinkedList. Действия для класса Адрес делать из класса Man.
-  */
+ */
 
-public class Man implements Comparable<Man>{
+public class Man implements Comparable<Man> {
     private String firstName;
     private String lastName;
     private int age;
@@ -21,6 +21,7 @@ public class Man implements Comparable<Man>{
         this.countOfChildren = countOfChildren;
         this.address = address;
     }
+
     public Man(int age, int countOfChildren) {
         this.age = age;
         this.countOfChildren = countOfChildren;
@@ -34,19 +35,27 @@ public class Man implements Comparable<Man>{
     public String toString() {
         return
                 "firstName = " + firstName + '\'' +
-                ", lastName = " + lastName + '\'' +
-                ", age = " + age +
-                ", countOfChildren = " + countOfChildren +
-                "\t" + address +
-                '}';
+                        ", lastName = " + lastName + '\'' +
+                        ", age = " + age +
+                        ", countOfChildren = " + countOfChildren +
+                        "\t" + address +
+                        '}';
     }
 
     public String getFirstName() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getAge() {
@@ -57,20 +66,12 @@ public class Man implements Comparable<Man>{
         return countOfChildren;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public void setCountOfChildren(int countOfChildren) {
         this.countOfChildren = countOfChildren;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package homeworks.anton_gvozdenko.hw_01_09_23;
 
-enum Manufacturer {
+public enum Manufacturer {
     LG,
     SAMSUNG,
     APPLE;

@@ -14,7 +14,7 @@ public class Main {
         Man jack = new Man("Jack", "Jonson", 22, 3, addressJack);
         Man petro = new Man("Petro", "Savchuk", 23, 3, addressPetro);
 
-        LinkedList<Man> men = new LinkedList<>(List.of(john, jack, petro));
+        List<Man> men = new LinkedList<>(List.of(john, jack, petro));
 
 //        serviceMan.showInfoAllMan(men);
 //        serviceMan.showAllAddress(men);

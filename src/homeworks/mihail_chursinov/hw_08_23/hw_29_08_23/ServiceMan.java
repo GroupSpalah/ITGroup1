@@ -17,10 +17,10 @@ import java.util.stream.Collectors;
  * * - Сгруппировать людей по городу и названию улицы и вывести количество адресов, где количество людей больше 4.
  */
 public class ServiceMan {
-    public void showInfoAllMan(LinkedList<Man> men) {
+    public void showInfoAllMan(List<Man> men) {
         men
                 .stream()
-                .forEach(man -> System.out.println(man));
+                .forEach(System.out::println);
 
     }
 
@@ -87,14 +87,14 @@ public class ServiceMan {
         System.out.println(map);
     }
 
-    public void groupingAmountOfCityWithAddress(LinkedList<Man> people) {
+    public void groupingAmountOfCityWithAddress(List<Man> people) {
         Map<Address, List<Man>> map = people
                 .stream()
                 .collect(Collectors.groupingBy(m -> new Address(m.getAddress().country(), m.getAddress().street())));
         map
                 .entrySet()
                 .stream()
-                .filter(e -> e.getValue().size() > 4)
+                .filter(e -> e.getValue().size() >= 0)
                 .forEach(m -> System.out.println(m));
     }
 }
