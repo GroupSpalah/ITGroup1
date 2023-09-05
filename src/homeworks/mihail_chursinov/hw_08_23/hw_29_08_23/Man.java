@@ -1,11 +1,13 @@
 package homeworks.mihail_chursinov.hw_08_23.hw_29_08_23;
 
+import java.util.Objects;
+
 /**
  * Сущность Man(имя, фамилия, возраст, количество детей, Адрес), Адрес(страна, город, улица, номер дома)
  * Использовать коллекцию LinkedList. Действия для класса Адрес делать из класса Man.
   */
 
-public class Man {
+public class Man implements Comparable<Man>{
     private String firstName;
     private String lastName;
     private int age;
@@ -18,6 +20,14 @@ public class Man {
         this.age = age;
         this.countOfChildren = countOfChildren;
         this.address = address;
+    }
+    public Man(int age, int countOfChildren) {
+        this.age = age;
+        this.countOfChildren = countOfChildren;
+
+    }
+
+    public Man(String city, String street) {
     }
 
     @Override
@@ -49,5 +59,35 @@ public class Man {
 
     public Address getAddress() {
         return address;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setCountOfChildren(int countOfChildren) {
+        this.countOfChildren = countOfChildren;
+    }
+
+    @Override
+    public int compareTo(Man o) {
+        return firstName.compareTo(o.firstName);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Man man = (Man) o;
+        return age == man.age && countOfChildren == man.countOfChildren && Objects.equals(firstName, man.firstName) && Objects.equals(lastName, man.lastName) && Objects.equals(address, man.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age, countOfChildren, address);
     }
 }
