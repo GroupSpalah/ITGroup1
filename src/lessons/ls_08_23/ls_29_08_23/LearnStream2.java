@@ -45,7 +45,7 @@ public class LearnStream2 {
         men
                 .stream()
                 .peek(m -> m.setName(m.getName().concat("Hello")))
-                .forEach(m -> System.out.println(m));
+                .forEach(System.out::println);
 
 
     }
