@@ -24,6 +24,6 @@ public class Main {
        // serviceMan.groupingAmountOfChildren(men);
        // serviceMan.groupingAmountOfChildrenAndAge(men);
       //serviceMan.groupingAmountOfCity(men);
-        serviceMan.groupingAmountOfCityWithAddress(men);
+      //  serviceMan.groupingAmountOfCityWithAddress(men);
     }
 }
