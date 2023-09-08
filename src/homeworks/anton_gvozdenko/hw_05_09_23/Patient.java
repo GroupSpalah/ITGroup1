@@ -4,9 +4,15 @@ public class Patient {
     private String name;
     private int idNumber;
 
+    private boolean isLoyalty;
+
     public Patient(String name, int idNumber) {
         this.name = name;
         this.idNumber = idNumber;
+    }
+
+    public void setLoyalty(boolean loyalty) {
+        isLoyalty = loyalty;
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package lessons.ls_09_23;
+package lessons.ls_09_23.ls_05_09_23;
 
 import java.util.List;
 

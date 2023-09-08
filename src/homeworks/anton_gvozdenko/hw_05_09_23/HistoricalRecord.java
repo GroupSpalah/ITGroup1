@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HistoricalRecord {
     private List<Visit> visits;
-    private List<ProcedureType> procedureTypes;
+    private List<ProcedureType> procedureTypes;//remove
     private int countOfVisits;
 
     public HistoricalRecord(int countOfVisits) {
@@ -13,7 +13,6 @@ public class HistoricalRecord {
         this.countOfVisits = countOfVisits;
         this.procedureTypes = new ArrayList<>();
     }
-
 
     public List<Visit> getVisits() {
         return visits;
