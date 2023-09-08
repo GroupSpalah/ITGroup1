@@ -17,14 +17,14 @@ import java.util.stream.Collectors;
  * * - Сгруппировать людей по городу и названию улицы и вывести количество адресов, где количество людей больше 4.
  */
 public class ServiceMan {
-    public void showInfoAllMan(LinkedList<Man> men) {
+    public void showInfoAllMan(List<Man> men) {
         men
                 .stream()
-                .forEach(man -> System.out.println(man));
+                .forEach(System.out::println);
 
     }
 
-    public void showAllAddress(LinkedList<Man> address) {
+    public void showAllAddress(List<Man> address) {
         address
                 .stream()
                 .forEach(a -> System.out.println("Country :" + a.getAddress().country() + "\t" +
@@ -33,7 +33,7 @@ public class ServiceMan {
 
     }
 
-    public void showInfoWhenAgeMoreTwenty(LinkedList<Man> people) {
+    public void showInfoWhenAgeMoreTwenty(List<Man> people) {
         people
                 .stream()
                 .filter(m -> m.getAge() >= 20)
@@ -43,7 +43,7 @@ public class ServiceMan {
 
     }
 
-    public void changeMan(LinkedList<Man> people) {
+    public void changeMan(List<Man> people) {
         people
                 .stream()
                 .filter(m -> m.getAddress().country().equals("USA"))
@@ -52,10 +52,10 @@ public class ServiceMan {
                     m.setLastName("Kennedi");
                     m.setCountOfChildren(3);
                 })
-                .forEach(m -> System.out.println(m));
+                .forEach(System.out::println);
     }
 
-    public void showInfoWhenCountryUK(LinkedList<Man> people) {
+    public void showInfoWhenCountryUK(List<Man> people) {
         people
                 .stream()
                 .filter(m -> m.getAddress().country().equals("UK") && m.getAddress().houseStreet() == 5 ||
@@ -66,26 +66,26 @@ public class ServiceMan {
 
     }
 
-    public void groupingAmountOfChildren(LinkedList<Man> people) {
+    public void groupingAmountOfChildren(List<Man> people) {
         Map<Integer, Long> men = people
                 .stream()
-                .collect(Collectors.groupingBy(m -> m.getCountOfChildren(), Collectors.counting()));
+                .collect(Collectors.groupingBy(Man::getCountOfChildren, Collectors.counting()));
         System.out.println(men);
     }
 
-    public void groupingAmountOfChildrenAge(LinkedList<Man> people) {
-        Map<Man, List<Man>> map = people
-                .stream()
-                .collect(Collectors.groupingBy(m -> new Man(m.getAddress().country(), m.getAddress().street())));
-        System.out.println();
-    }
+//    public void groupingAmountOfChildrenAge(List<Man> people) {
+//        Map<Man, List<Man>> map = people
+//                .stream()
+//                .collect(Collectors.groupingBy(m -> new GroupMan(m.)));
+//        System.out.println();
+//    }
 
-    public void groupingAmountOfCity(LinkedList<Man> people) {
-        Map<Address, List<Man>> map = people
-                .stream()
-                .collect(Collectors.groupingBy(m -> new Address(m.getAddress().country(), m.getAddress().street())));
-        System.out.println(map);
-    }
+//    public void groupingAmountOfCity(List<Man> people) {
+//        Map<Man, List<Man>> map = people
+//                .stream()
+//                .collect(Collectors.groupingBy(m -> new GroupMan(m.)));
+//        System.out.println();
+//    }
 
     public void groupingAmountOfCityWithAddress(LinkedList<Man> people) {
         Map<Address, List<Man>> map = people
@@ -94,7 +94,7 @@ public class ServiceMan {
         map
                 .entrySet()
                 .stream()
-                .filter(e -> e.getValue().size() > 4)
-                .forEach(m -> System.out.println(m));
+                .filter(e -> e.getValue().size() > 1)
+                .forEach(System.out::println);
     }
 }
