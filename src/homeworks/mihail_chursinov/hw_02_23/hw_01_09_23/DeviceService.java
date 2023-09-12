@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_09_23.hw_01_09_23;
+package homeworks.mihail_chursinov.hw_02_23.hw_01_09_23;
 
 import java.util.List;
 
