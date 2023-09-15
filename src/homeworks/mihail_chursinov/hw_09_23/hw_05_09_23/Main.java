@@ -1,7 +1,6 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_05_09_23;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -21,19 +20,17 @@ public class Main {
                 LocalDate.of(2023, 10, 18), "preventive");
 
         HistoricalRecord historicalRecord1 = new HistoricalRecord(List.of(visit1)
-                , List.of(DentalStaff.DENTIST), "preventive",
-                "review", "yes");
+                , "preventive", "review", "yes");
         HistoricalRecord historicalRecord2 = new HistoricalRecord(List.of(visit2)
-                , List.of(DentalStaff.DENTAL), "preventive",
-                "review", "yes");
+                , "preventive", "review", "yes");
         HistoricalRecord historicalRecord3 = new HistoricalRecord(List.of(visit2)
-                , List.of(DentalStaff.X_RAY_TECHNICAL), "preventive",
-                "review", "yes");
+                , "preventive", "review", "yes");
 
-        boolean isPatientLoyal = dentalClinicService.isPatientLoyal(List.of(historicalRecord1),
-                LocalDate.of(2023, 12, 10),
-                LocalDate.of(2023, 11, 15));
-        System.out.println(isPatientLoyal);
+//        dentalClinicService.isPatientLoyal(List.of(historicalRecord1),
+//                LocalDate.of(2023, 12, 10),
+//                LocalDate.of(2023, 11, 15));
+
+        dentalClinicService.showTypeOfProcedure(endDate);
 
     }
 }
