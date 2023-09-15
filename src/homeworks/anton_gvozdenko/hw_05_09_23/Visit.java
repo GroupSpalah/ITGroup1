@@ -32,4 +32,11 @@ public class Visit {
     public ProcedureType getProcedureType() {
         return procedureType;
     }
-}
+
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+
+    }
+
+
+    }

@@ -81,7 +81,7 @@ class Main {
         groupByCityStreet(people);
     }
 
-    public static void showInfo(List<Man> people) {      // Вывести информацию о всех людях
+    public static void showInfo(List<Man> people) {
         people.forEach(man -> System.out.println(man.getFirstName() + " " + man.getLastName() + " " + "Age:" +
                 +man.getAge()
                 + " " + "Count of children:" + man.getCountOfChildren() + " " + man.getAddress()));

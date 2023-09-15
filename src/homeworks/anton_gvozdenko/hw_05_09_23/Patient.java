@@ -22,4 +22,9 @@ public class Patient {
     public int getIdNumber() {
         return idNumber;
     }
+
+    public void add(Patient patient) {
+        patient.add(patient);
+    }
 }
+

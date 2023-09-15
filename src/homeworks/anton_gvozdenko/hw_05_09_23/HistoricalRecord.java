@@ -6,11 +6,10 @@ import java.util.List;
 public class HistoricalRecord {
     private List<Visit> visits;
     private List<ProcedureType> procedureTypes;//remove
-    private int countOfVisits;
 
-    public HistoricalRecord(int countOfVisits) {
+
+    public HistoricalRecord() {
         this.visits = new ArrayList<>();
-        this.countOfVisits = countOfVisits;
         this.procedureTypes = new ArrayList<>();
     }
 
@@ -18,11 +17,9 @@ public class HistoricalRecord {
         return visits;
     }
 
-    public int getCountOfVisits() {
-        return countOfVisits;
-    }
 
     public List<ProcedureType> getProcedureTypes() {
         return procedureTypes;
     }
+
 }
