@@ -20,7 +20,9 @@ public class Dog extends Mammal {
         if (getDigCount() > 3) {
             System.out.println("Собака не може копати");
             return;
-        } else System.out.println("Собака   може копати");
+        } else {
+            System.out.println("Собака може копати");
+        }
 
     }
 }

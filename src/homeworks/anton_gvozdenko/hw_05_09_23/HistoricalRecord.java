@@ -7,7 +7,6 @@ public class HistoricalRecord {
     private List<Visit> visits;
     private List<ProcedureType> procedureTypes;//remove
 
-
     public HistoricalRecord() {
         this.visits = new ArrayList<>();
         this.procedureTypes = new ArrayList<>();
@@ -16,7 +15,6 @@ public class HistoricalRecord {
     public List<Visit> getVisits() {
         return visits;
     }
-
 
     public List<ProcedureType> getProcedureTypes() {
         return procedureTypes;
