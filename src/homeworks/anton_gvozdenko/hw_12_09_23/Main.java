@@ -32,5 +32,6 @@ public class Main {
         dog.dig();
         dog.dig();
         dog.dig();
+        cat.giveBirth(500);
     }
 }

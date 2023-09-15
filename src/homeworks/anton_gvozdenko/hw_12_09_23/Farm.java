@@ -22,6 +22,7 @@ public class Farm {
                 .forEach(animal -> System.out.println("Звук, видаваний твариною з ідентифікатором "
                         + animalId + ": " + animal.makeSound()));
     }
+
 }
 
 
