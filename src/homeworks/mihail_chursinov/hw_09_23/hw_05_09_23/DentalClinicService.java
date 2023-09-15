@@ -11,14 +11,13 @@ public class DentalClinicService {
         this.records = new ArrayList<>();
     }
 
-    public boolean isPatientLoyal(List<HistoricalRecord> records, LocalDate startDate, LocalDate beforeDate) {
+    public void isPatientLoyal(List<HistoricalRecord> records, LocalDate startDate, LocalDate beforeDate) {
         records
                 .stream()
                 .filter(hr -> hr.visit().size() > 3)
                 .flatMap(hr -> hr.visit().stream())
                 .filter(v -> v.localDate().isAfter(startDate) && v.localDate().isBefore(beforeDate))
                 .forEach(v -> v.patient().setLoyalty(true));
-        return true;
     }
 
     public void showTypeOfProcedure(LocalDate endDate) {
@@ -27,18 +26,16 @@ public class DentalClinicService {
                 .stream()
                 .flatMap(hr -> hr.visit().stream())
                 .filter(v -> v.localDate().isAfter(startDate) && v.localDate().isBefore(endDate))
-                .map(Visit::typeProcedures)
-                .forEach(System.out::println);
+                .forEach(Visit::typeProcedures);
 
     }
 
-    public void showPatientsByStaff(DentalStaff staff, LocalDate startDate, LocalDate endDate) {
+    public void showPatientsByStaff(DentalStaff staff) {
         records
                 .stream()
                 .flatMap(hr -> hr.visit().stream())
                 .filter(v -> v.dentalStaffs().contains(staff))
-                .map(Visit::patient)
-                .forEach(System.out::println);
+                .forEach(Visit::patient);
 
     }
 }
