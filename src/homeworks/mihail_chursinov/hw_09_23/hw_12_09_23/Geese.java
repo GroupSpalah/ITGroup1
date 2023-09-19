@@ -1,8 +1,15 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_12_09_23;
 
 public class Geese extends Animal{
-    public Geese(float weight, int id) {
+    private int amountEgg;
+
+    public Geese(float weight, int id, int amountEgg) {
         super(weight, id);
+        this.amountEgg = amountEgg;
+    }
+
+    public int getAmountEgg() {
+        return amountEgg;
     }
 
     @Override
@@ -20,4 +27,10 @@ public class Geese extends Animal{
 
     }
 
+    @Override
+    public String toString() {
+        return "Geese{" +
+                 "Weight: " + getWeight() + "\t" + "Id geese: " + getId() + "\t" +
+                "amount eggs = " + amountEgg;
+    }
 }
