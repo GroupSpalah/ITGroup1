@@ -24,7 +24,7 @@ public class Vehicle {
         return id;
     }
 
-    public VehicleStatus getVehicleNumber() {
+    public int getVehicleNumber() {
         return vehicleNumber;
     }
 

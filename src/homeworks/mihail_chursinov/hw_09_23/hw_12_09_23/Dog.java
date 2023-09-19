@@ -1,8 +1,5 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_12_09_23;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Dog extends Animal {
 
     private int holeCount = 0;
@@ -25,8 +22,8 @@ public class Dog extends Animal {
         if (holeCount < 10) {
             holeCount++;
             System.out.println("Dog dug a hole!");
-        } else {
-            System.out.println("Dog can't dig more holes!");
+            return;
         }
+        System.out.println("Dog can't dig more holes!");
     }
 }

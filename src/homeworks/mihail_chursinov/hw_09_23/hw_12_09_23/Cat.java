@@ -20,6 +20,4 @@ public class Cat extends Animal {
     void digHole() {
 
     }
-
-
 }

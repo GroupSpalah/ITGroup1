@@ -1,10 +1,12 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_12_09_23;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 
 public class AnimalService {
     private List<Animal> animals;
-
 
     public AnimalService() {
         animals = new ArrayList<>();
@@ -25,6 +27,7 @@ public class AnimalService {
 
     public void demolishMaxEggs(List<Geese> geese) {
         Comparator<Geese> comparator = Comparator.comparing(Geese::getAmountEgg);
+
         Optional<Geese> maxAmountEgg = geese
                 .stream()
                 .max(comparator);
