@@ -2,6 +2,7 @@ package homeworks.anton_gvozdenko.hw_15_09_23;
 
 import java.time.LocalDate;
 
+
 public class Vehicle {
     private  int id;
     private  int vehicleNumber;
@@ -47,7 +48,10 @@ public class Vehicle {
     public void setVehicleStatus(VehicleStatus vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
     }
-}
+           public  void addVehicle(Vehicle vehicle){vehicle.addVehicle(vehicle);
+           }
+    }
+
 
 
 

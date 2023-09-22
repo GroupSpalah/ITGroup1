@@ -7,5 +7,7 @@ public class TrolleyBus  extends Vehicle{
                       FuelType fuelType, LocalDate dateOfService) {
         super(id, vehicleNumber, maxPassengers, vehicleStatus, fuelType, dateOfService);
     }
-
+public void addTrolley(TrolleyBus trolleyBus){
+        trolleyBus.addTrolley(trolleyBus);
+}
 }

@@ -14,4 +14,7 @@ public class Tram extends Vehicle{
     public int getCountYear() {
         return countYear;
     }
+    public void addTram(Tram tram){
+        tram.addTram(tram);
+    }
 }
