@@ -33,5 +33,13 @@ public class Main {
         dog.dig();
         dog.dig();
         cat.giveBirth(500);
+
+        Goose goldenGoose = farm.findGoldenGoose();
+        if (goldenGoose != null) {
+            System.out.println("Золотий гусак знайдений! Він зніс більше всіх яєць.");
+        } else {
+            System.out.println("Золотий гусак не знайдений.");
+        }
+    }
     }
 }
