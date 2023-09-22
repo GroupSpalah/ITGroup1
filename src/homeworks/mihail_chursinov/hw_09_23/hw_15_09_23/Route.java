@@ -14,4 +14,8 @@ public class Route{
     public Station getStation() {
         return station;
     }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
 }

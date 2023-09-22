@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 
 public class Vehicle {
-    private  int id;
-    private  int vehicleNumber;
+    private int id;
+    private int vehicleNumber;
     private int maxPassengers;
     private VehicleStatus vehicleStatus;
     private FuelType fuelType;
@@ -37,10 +37,6 @@ public class Vehicle {
         return vehicleStatus;
     }
 
-    public FuelType getFuelType() {
-        return fuelType;
-    }
-
     public LocalDate getDateOfService() {
         return dateOfService;
     }
@@ -48,9 +44,7 @@ public class Vehicle {
     public void setVehicleStatus(VehicleStatus vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
     }
-           public  void addVehicle(Vehicle vehicle){vehicle.addVehicle(vehicle);
-           }
-    }
+}
 
 
 

@@ -12,8 +12,6 @@ public class VehicleService {
         this.buses = new ArrayList<>();
         this.vehicles = new ArrayList<>();
     }
-
-
     public void  addService(VehicleService service){
     service.addService(service);
 }

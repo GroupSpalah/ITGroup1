@@ -2,13 +2,11 @@ package homeworks.anton_gvozdenko.hw_12_09_23;
 
 
 public class Dog extends Mammal {
-
     private int digCount;
 
     public Dog(String id, int weight) {
         super(id, weight, "гав");
         this.digCount = 0;
-
     }
 
     public int getDigCount() {
@@ -20,10 +18,8 @@ public class Dog extends Mammal {
         if (getDigCount() > 3) {
             System.out.println("Собака не може копати");
             return;
-        } else {
-            System.out.println("Собака може копати");
         }
-
+        System.out.println("Собака може копати");
     }
 }
 

@@ -1,7 +1,6 @@
 package lessons.ls_09_23.ls_19_09_23;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
 public class LearnOptional {
     public static void main(String[] args) {
@@ -10,12 +9,9 @@ public class LearnOptional {
 //        print(str);
 
 
-
         Optional.
                 of(str)
                 .orElseThrow(IllegalArgumentException::new);
-
-
 
     }
 

@@ -1,11 +1,8 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_15_09_23;
 
-import homeworks.anton_gvozdenko.hw_15_09_23.VehicleStatus;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class VehicleService {
     private List<Vehicle> vehicles;
@@ -52,22 +49,21 @@ public class VehicleService {
 
     /**
      * Маршрут описывается двумя или более станциями,
-     *  * и список транспортных средств, которые на нем работают. Помните, что маршрут может быть назначен
-     *  * только транспортным средствам, находящимся в эксплуатации.
-     *  * Каждая станция имеет название.
-     *  */
+     * * и список транспортных средств, которые на нем работают. Помните, что маршрут может быть назначен
+     * * только транспортным средствам, находящимся в эксплуатации.
+     * * Каждая станция имеет название.
+     */
 
-//    public void checkTracking() {
-//
-//        routes.
-//                forEach(route -> {
-//            List<Vehicle> vehiclesForAssignment = vehicles
-//                    .stream()
-//                    .filter(vehicle -> vehicle.getStatus() == Status.IN_OPERATION)
-//                    .toList()
-//
-//            });
-//
-//
-//    }
+    public void checkTracking() {
+
+        routes.
+                forEach(route -> {
+                    route
+                            .getVehicles()
+                            .stream()
+                            .allMatch(v -> v.getStatus() == Status.IN_OPERATION);
+
+                });
+
+    }
 }

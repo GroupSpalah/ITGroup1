@@ -2,7 +2,7 @@ package homeworks.anton_gvozdenko.hw_15_09_23;
 
 import java.time.LocalDate;
 
-public class Tram extends Vehicle{
+public class Tram extends Vehicle {
     private int countYear;
 
     public Tram(int id, int vehicleNumber, int maxPassengers, VehicleStatus vehicleStatus,
@@ -14,7 +14,8 @@ public class Tram extends Vehicle{
     public int getCountYear() {
         return countYear;
     }
-    public void addTram(Tram tram){
+
+    public void addTram(Tram tram) {
         tram.addTram(tram);
     }
 }

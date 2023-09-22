@@ -16,7 +16,7 @@ public class Route {
         if (vehicle.getVehicleStatus() == VehicleStatus.IN_OPERATION) {
             vehicles.add(vehicle);
             System.out.println(
-                     vehicle.getVehicleStatus());
+                    vehicle.getVehicleStatus());
         } else {
             System.out.println("Cannot assign vehicle");
         }

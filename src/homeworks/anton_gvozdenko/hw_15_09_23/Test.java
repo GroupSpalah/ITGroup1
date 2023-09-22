@@ -6,7 +6,8 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
         VehicleService service = new VehicleService();
-        Vehicle vehicle = new Vehicle(1, 111, 30, VehicleStatus.IN_OPERATION, FuelType.GAS,
+        Vehicle vehicle = new Vehicle(1, 111, 30,
+                VehicleStatus.IN_OPERATION, FuelType.GAS,
                 LocalDate.of(2023, 2, 3));
         Bus bus = new Bus(2, 222, 20, VehicleStatus.IN_OPERATION, FuelType.GAS, LocalDate.of(2023,
                 5, 15), 5
@@ -19,10 +20,22 @@ public class Test {
         Route route = new Route();
         route.assignVehicle(bus);
 
-
-
         service.checkStatus();
         service.checkSpecialStatus();
 
+//        vehicle.addVehicle(vehicle);
+
+    }
+}
+
+class A {
+    public A() {
+        new B();
+    }
+}
+
+class B {
+    public B() {
+        new A();
     }
 }

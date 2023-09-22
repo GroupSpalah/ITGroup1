@@ -39,9 +39,23 @@ public class Vehicle {
     private LocalDate dateService;
     private Station station;
 
+    public static int counterIds = 1;
+
     public Vehicle(int id, int number, int licensePlate, int maximumNumberPassengers, Status status, Fuel fuel,
                    LocalDate dateService, Station station) {
         this.id = id;
+        this.number = number;
+        this.licensePlate = licensePlate;
+        this.maximumNumberPassengers = maximumNumberPassengers;
+        this.status = status;
+        this.fuel = fuel;
+        this.dateService = dateService;
+        this.station = station;
+    }
+
+    public Vehicle(int number, int licensePlate, int maximumNumberPassengers,
+                   Status status, Fuel fuel, LocalDate dateService, Station station) {
+        this.id = counterIds++;
         this.number = number;
         this.licensePlate = licensePlate;
         this.maximumNumberPassengers = maximumNumberPassengers;
