@@ -1,11 +1,12 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_12_09_23;
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Hole{
 
-    private int holeCount = 0;
+    private int holeCount;
 
-    public Dog(float weight, int id, boolean canDigHoles) {
+    public Dog(float weight, int id, int holeCount) {
         super(weight, id);
+        this.holeCount = 0;
     }
 
     @Override

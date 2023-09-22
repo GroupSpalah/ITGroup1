@@ -23,11 +23,6 @@ public class Geese extends Animal{
     }
 
     @Override
-    void digHole() {
-
-    }
-
-    @Override
     public String toString() {
         return "Geese{" +
                  "Weight: " + getWeight() + "\t" + "Id geese: " + getId() + "\t" +

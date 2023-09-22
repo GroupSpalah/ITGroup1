@@ -12,7 +12,7 @@ public class Main {
         geese.add(new Geese(900, 19, 2));
 
         Cat cat = new Cat(1500, 12);
-        Dog dog = new Dog(3000, 21, true);
+        Dog dog = new Dog(3000, 21, 3);
         Cow cow = new Cow(10000, 31);
 
         animalService.addAnimal(cat);
