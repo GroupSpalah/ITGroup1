@@ -41,6 +41,4 @@ public abstract class Animal {
 
     abstract void interaction();
 
-    abstract void digHole();
-
 }

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public class AnimalService {
     private List<Animal> animals;
+    private List<Dog> dogs;
 
     public AnimalService() {
         animals = new ArrayList<>();
@@ -22,7 +23,7 @@ public class AnimalService {
     }
 
     public void digHoles() {
-        animals.forEach(Animal::digHole);
+        dogs.forEach(Dog::digHole);
     }
 
     public void demolishMaxEggs(List<Geese> geese) {

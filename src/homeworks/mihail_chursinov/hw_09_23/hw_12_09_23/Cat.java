@@ -16,8 +16,4 @@ public class Cat extends Animal {
         System.out.println("Cat: " + getId() + "\t" + "Weight: " + getWeight() + "\t" +  "Say: " + makeSound());
     }
 
-    @Override
-    void digHole() {
-
-    }
 }
