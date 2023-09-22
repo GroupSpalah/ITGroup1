@@ -1,7 +1,9 @@
 package homeworks.anton_gvozdenko.hw_12_09_23;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Farm {
     private List<Animal> animals;
@@ -23,6 +25,13 @@ public class Farm {
                         + animalId + ": " + animal.makeSound()));
     }
 
+    public Goose findGoldenGoose() {
+        Optional<Goose> goldenGoose = animals.stream()
+                .filter(animal -> animal instanceof Goose)
+                .map(animal -> (Goose) animal)
+                .max(Comparator.comparingInt(Goose::getEggCount));
+        return goldenGoose.orElse(null);
+    }
 }
 
 
