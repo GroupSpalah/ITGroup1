@@ -13,7 +13,7 @@ public class WorkWithFiles {
 
         Files
                 .newDirectoryStream(pathToDir)
-                .forEach(path -> System.out.println(path));
+                .forEach(path -> System.out.println(path.toFile().getName()));
 
         for (int i = 0; i < 5; i++) {
 

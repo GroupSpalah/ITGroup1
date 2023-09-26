@@ -9,11 +9,10 @@ public class Main {
         Deserializator deserializator = new Deserializator();
         RectangleService rectangleService = new RectangleService();
 
-        // serializator.addRectangle(rectangle);
-        //serializator.writeFile();
+         serializator.addRectangle(rectangle);
+        serializator.writeFile();
         deserializator.readFile();
-        serializator.addRectangle(rectangle);
-        rectangleService.findObjectMaxSquare(deserializator);
+        rectangleService.findObjectMaxSquare();
 
     }
 }

@@ -1,9 +1,10 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_22_09_23;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle {
+public class Rectangle implements Serializable {
     private double length;
     private double width;
 
