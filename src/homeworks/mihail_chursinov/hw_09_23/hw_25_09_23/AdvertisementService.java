@@ -1,12 +1,8 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_25_09_23;
 
-import homeworks.mihail_chursinov.hw_09_23.hw_22_09_23.Rectangle;
-
 import java.io.*;
 import java.nio.file.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class AdvertisementService {
@@ -77,11 +73,42 @@ public class AdvertisementService {
         }
     }
 
+    public void createAd1(PlaceInfo placeInfo, String ad) throws IOException, ClassNotFoundException {
+        Files.newDirectoryStream(Paths.get(PATH_TO_DIR))
+                .forEach(path -> {
+                    Path pathToInfo = Paths.get(path.toString(), FILE_INFO);
+                    PlaceInfo info = readInfo(pathToInfo);
+
+                    if (placeInfo.equals(info)) {
+                        if (path.toFile().getName().endsWith(".txt")) {
+                            try {
+                                Files.write(path, ad.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }
+                });
+
+    }
+
+    private PlaceInfo readInfo(Path path) {
+        PlaceInfo info = new PlaceInfo(Browser.UNKNOWN, OS.UNKNOWN);
+
+        try (FileInputStream fileInputStream = new FileInputStream(path.toFile());
+             ObjectInputStream ois = new ObjectInputStream(fileInputStream)) {
+            info = (PlaceInfo) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return info;
+    }
+
     private void createDefaultScreens(Path pathToPlace) {
         IntStream
                 .rangeClosed(1, 5)
                 .forEach(index -> {
-
                     Path pathToScreen = Paths.get(pathToPlace.toString(), "Screen_" + index + ".txt");
 
                     try {
@@ -91,5 +118,13 @@ public class AdvertisementService {
                     }
 
                 });
+    }
+
+    public void addScreenToPlace(Path pathToPlace, String name) {
+        //name + .txt
+    }
+
+    public void deletePlace(Path pathToPlace) {
+
     }
 }

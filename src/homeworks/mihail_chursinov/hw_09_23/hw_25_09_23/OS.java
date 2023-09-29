@@ -4,5 +4,7 @@ public enum OS {
     WINDOWS,
     LINUX,
     MAC,
-    FEDORA
+    FEDORA,
+
+    UNKNOWN
 }

@@ -1,7 +1,7 @@
-package homeworks.anton_gvozdenko.hw_20_06_23.Area;
+package lessons.homeworks.anton_gvozdenko.hw_20_06_23.Area;
 
 public class Area {
-    public static   int squareRectangle(int a, int b) throws IllegalArgumentException {
+    public static int squareRectangle(int a, int b) throws IllegalArgumentException {
 
         try {
             if (a < 1 || b < 1) {
@@ -13,7 +13,7 @@ public class Area {
         return a * b;
     }
 
-    public static   int trySquareRectangle(int a, int b) {
+    public static int trySquareRectangle(int a, int b) {
         if (a < 1 || b < 1) {
             return -1;
         } else {
@@ -22,8 +22,7 @@ public class Area {
     }
 
     public static void main(String[] args) throws IllegalArgumentException {
-        trySquareRectangle(-1, -1);
-        squareRectangle(2,3);
+        trySquareRectangle(-1, 2);
     }
 }
 
