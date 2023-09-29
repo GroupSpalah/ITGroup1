@@ -7,16 +7,10 @@ import java.util.List;
 
 public class Deserializator {
 
-    public static void readFile1() throws IOException, ClassNotFoundException {
-        try (FileInputStream file = new FileInputStream("List.txt");
-             ObjectInputStream ois = new ObjectInputStream(file)) {
-            Rectangle rectangle = (Rectangle) ois.readObject();
-            System.out.println(rectangle);
-        }
-    }
+    public static final String NAME_FILE = "List.dat";
 
     public static List<Rectangle> readFile() throws IOException, ClassNotFoundException {
-        try (FileInputStream file = new FileInputStream("List.txt");
+        try (FileInputStream file = new FileInputStream(NAME_FILE);
              ObjectInputStream ois = new ObjectInputStream(file)) {
             return (List<Rectangle>) ois.readObject();
         }

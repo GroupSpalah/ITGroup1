@@ -4,5 +4,7 @@ public enum Browser {
     FIREFOX,
     CHROME,
     MOZILLA,
-    SAFARI
+    SAFARI,
+
+    UNKNOWN
 }

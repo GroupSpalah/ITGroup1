@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Serializator {
-        private List<Rectangle> rectangles;
+    public static final String FILE_NAME = "List.dat";
+    private List<Rectangle> rectangles;
 
         public Serializator() {
             this.rectangles = new ArrayList<>();
@@ -18,7 +19,7 @@ public class Serializator {
         }
 
         public void writeFile() throws IOException {
-            String fileName = "List.txt";
+            String fileName = FILE_NAME;
 
             try (FileOutputStream file = new FileOutputStream(fileName);
                  ObjectOutputStream oos = new ObjectOutputStream(file)) {

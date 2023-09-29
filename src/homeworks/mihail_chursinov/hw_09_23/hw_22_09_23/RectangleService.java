@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class RectangleService {
 
-    public void findObjectMaxSquare() throws IOException, ClassNotFoundException {
+    public void showObjectMaxSquare() throws IOException, ClassNotFoundException {
         List<Rectangle> rectangles = Deserializator.readFile();
         Comparator<Rectangle> comparator = Comparator.comparing(Rectangle::calculateSquare);
 
@@ -18,7 +18,18 @@ public class RectangleService {
         if (maxSquare.isPresent()) {
             Rectangle rectangle = maxSquare.get();
             System.out.println(rectangle);
+        }
+    }
+    public void showObjectMaxPerimeter() throws IOException, ClassNotFoundException {
+        List<Rectangle> rectangles = Deserializator.readFile();
+        Comparator<Rectangle> comparator = Comparator.comparing(Rectangle::calculatePerimeter);
 
+        Optional<Rectangle> maxPerimeter = rectangles
+                .stream()
+                .max(comparator);
+        if (maxPerimeter.isPresent()) {
+            Rectangle rectangle = maxPerimeter.get();
+            System.out.println(rectangle);
         }
     }
 }

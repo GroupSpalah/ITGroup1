@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle implements Serializable {
+public class Rectangle implements Serializable{
     private double length;
     private double width;
 
