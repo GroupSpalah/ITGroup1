@@ -10,13 +10,13 @@ public class TestAdvertisement {
         AdvertisementService advertisementService = new AdvertisementService();
         Path path = Paths.get("./Advertisement/Place_1");
 
-//        try {
-//            advertisementService.createAd(new PlaceInfo(Browser.CHROME, OS.FEDORA), "Well");
-//        } catch (IOException | ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            advertisementService.createAd(new PlaceInfo(Browser.CHROME, OS.FEDORA), "Well");
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 //        advertisementService.addScreenToPlace(path, "write smth");
-        advertisementService.createNewPlace();
+//        advertisementService.createNewPlace();
 
    }
 }

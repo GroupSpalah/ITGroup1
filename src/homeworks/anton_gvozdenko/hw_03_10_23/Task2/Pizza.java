@@ -9,6 +9,9 @@ public class Pizza {
     private String vegetable;
     private String mushroom;
 
+    private Pizza() {
+
+    }
 
     public void setCheese(String cheese) {
         this.cheese = cheese;
@@ -29,7 +32,6 @@ public class Pizza {
     public void setMushroom(String mushroom) {
         this.mushroom = mushroom;
     }
-
 
     public static PizzaBuilder getBuilder() {
         return new PizzaBuilder();
@@ -88,6 +90,7 @@ class Test {
                 .addSeaFood("Fish")
                 .addMeat("Chicken")
                 .addVegetable("Pepper");
+
         PizzaBuilder standart = Pizza.getBuilder()
                 .cook();
 

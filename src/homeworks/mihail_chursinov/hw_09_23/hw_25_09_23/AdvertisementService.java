@@ -1,7 +1,10 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_25_09_23;
 
 import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -60,6 +63,7 @@ public class AdvertisementService {
                     PlaceInfo info = readInfo(pathToInfo);
 
                     if (placeInfo.equals(info)) {
+//                        Files.newDirectoryStream()
                         if (path.toFile().getName().endsWith(".txt")) {
                             try {
                                 Files.write(path, ad.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
@@ -106,23 +110,20 @@ public class AdvertisementService {
     }
 
     public void createNewPlace() {
-        IntStream
-                .rangeClosed(1, 1)
-                .forEach(index -> {
 
-                    Path pathToPlace = Paths.get(PATH_TO_DIR, NEW_PLACE);
+        Path pathToPlace = Paths.get(PATH_TO_DIR, NEW_PLACE);
 
-                    try {
-                        if (!Files.exists(pathToPlace)) {
-                            Files.createDirectory(pathToPlace);
-                            createDefaultScreens(pathToPlace);
-                            createInfoFile(pathToPlace, -1);
-                        }
+        try {
+            if (!Files.exists(pathToPlace)) {
+                Files.createDirectory(pathToPlace);
+                createDefaultScreens(pathToPlace);
+                createInfoFile(pathToPlace, -1);
+            }
 
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 //
 //
