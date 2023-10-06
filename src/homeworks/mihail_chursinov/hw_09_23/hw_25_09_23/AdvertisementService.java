@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class AdvertisementService {
-    public static final String FILE_INFO = "info.dat";
 
     private static final List<PlaceInfo> PLACE_INFO = List.of(
             new PlaceInfo(Browser.CHROME, OS.WINDOWS),
@@ -15,8 +14,10 @@ public class AdvertisementService {
             new PlaceInfo(Browser.SAFARI, OS.MAC),
             new PlaceInfo(Browser.CHROME, OS.FEDORA)
     );
-
+    public static final String FILE_INFO = "info.dat";
     public static final String PATH_TO_DIR = "./Advertisement";
+    public static final String NEW_FILE = "new.txt";
+    public static final String NEW_PLACE = "new_Place";
 
     public AdvertisementService() {
         createDefaultPlaces();
@@ -53,27 +54,6 @@ public class AdvertisementService {
     }
 
     public void createAd(PlaceInfo placeInfo, String ad) throws IOException, ClassNotFoundException {
-        try (DirectoryStream<Path> paths = Files.newDirectoryStream(Paths.get(PATH_TO_DIR))) {
-            for (Path path : paths) {
-                if (Files.isRegularFile(path) && path.getFileName().equals(FILE_INFO)) {
-                    try (FileInputStream fileInputStream = new FileInputStream(path.toFile());
-                         ObjectInputStream ois = new ObjectInputStream(fileInputStream)) {
-                        List<PlaceInfo> placeInfoList = (List<PlaceInfo>) ois.readObject();
-                        if (placeInfo.equals(placeInfoList)) {
-                            try (FileWriter fileWriter = new FileWriter(path.toFile(), true);
-                                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-                                bufferedWriter.write(ad);
-                            }
-
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-
-    public void createAd1(PlaceInfo placeInfo, String ad) throws IOException, ClassNotFoundException {
         Files.newDirectoryStream(Paths.get(PATH_TO_DIR))
                 .forEach(path -> {
                     Path pathToInfo = Paths.get(path.toString(), FILE_INFO);
@@ -120,11 +100,43 @@ public class AdvertisementService {
                 });
     }
 
-    public void addScreenToPlace(Path pathToPlace, String name) {
-        //name + .txt
+    public void addScreenToPlace(Path pathToPlace, String name) throws IOException {
+        Path pathToNew = pathToPlace.resolve(NEW_FILE);
+        Files.write(pathToNew, name.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
     }
 
-    public void deletePlace(Path pathToPlace) {
+    public void createNewPlace() {
+        IntStream
+                .rangeClosed(1, 1)
+                .forEach(index -> {
 
+                    Path pathToPlace = Paths.get(PATH_TO_DIR, NEW_PLACE);
+
+                    try {
+                        if (!Files.exists(pathToPlace)) {
+                            Files.createDirectory(pathToPlace);
+                            createDefaultScreens(pathToPlace);
+                            createInfoFile(pathToPlace, -1);
+                        }
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
     }
+//
+//
+//    public void deletePlace(Path pathToPlace) throws IOException {
+//        Files.newDirectoryStream(Paths.get(PATH_TO_DIR))
+//                .forEach(path -> {
+//                    IntStream
+//                            .rangeClosed(1, 5)
+//                            .
+//
+//
+//                });
+//
+//
+//    }
+
 }
