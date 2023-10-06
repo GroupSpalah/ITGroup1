@@ -16,8 +16,7 @@ public class TestAdvertisement {
 //            throw new RuntimeException(e);
 //        }
 //        advertisementService.addScreenToPlace(path, "write smth");
-//        advertisementService.createNewPlace();
-        advertisementService.deletePlace(path);
+        advertisementService.createNewPlace();
 
    }
 }
