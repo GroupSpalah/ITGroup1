@@ -77,5 +77,6 @@ class TestBuilder {
                 .buildMaxSpeed(220)
                 .buildTransmission(Transmission.AUTO)
                 .build();
+        System.out.println(bmwShort1);
     }
 }
