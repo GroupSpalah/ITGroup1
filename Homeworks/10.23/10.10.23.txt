@@ -1,0 +1,4 @@
+https://www.oodesign.com/
+
+1) Misha - Object pool
+2) Anton - Proxy

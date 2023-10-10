@@ -3,7 +3,8 @@ package homeworks.mihail_chursinov.hw_10_23.hw_06_10_23.task2;
 public class Test {
     public static void main(String[] args) {
 
-        DiscountService discountService = new DiscountStrategy().getDiscountServiceBySpecialEvent("New Year");
+        DiscountService discountService =
+                new DiscountStrategy().getDiscountServiceBySpecialEvent("New Year");
         double discount = discountService.getDiscount();
         DiscountService discountService1 = new DiscountStrategy().getDiscountServiceBySpecialEvent("Birthday");
         double discount1 = discountService1.getDiscount();

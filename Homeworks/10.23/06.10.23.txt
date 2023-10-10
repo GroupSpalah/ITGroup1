@@ -1,4 +1,4 @@
-    1) Добавить функционал добавления к строке @@ и {} к шаблону Декоратор, чтобы получить строку @{"Hello"}@
+1) Добавить функционал добавления к строке @@ и {} к шаблону Декоратор, чтобы получить строку @{"Hello"}@
 
 2) Imagine you have сhain of stores. You need to implement discount system for people
    in some special events of a year like New Year.

@@ -45,7 +45,9 @@ class DiscountStrategy {
             discountService = new NewYearDiscountService();
         } else if (specialEvent.contains("Black Friday")) {
             discountService = new BirthdayDiscountService();
-        } else discountService = new DefaultDiscountService();
+        } else {
+            discountService = new DefaultDiscountService();
+        }
     }
 }
 
