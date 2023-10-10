@@ -20,7 +20,6 @@ public class AdvertisementService {
     public static final String FILE_INFO = "info.dat";
     public static final String PATH_TO_DIR = "./Advertisement";
     public static final String NEW_FILE = "new.txt";
-    public static final String NEW_PLACE = "new_Place";
 
     public AdvertisementService() {
         createDefaultPlaces();
@@ -63,13 +62,20 @@ public class AdvertisementService {
                     PlaceInfo info = readInfo(pathToInfo);
 
                     if (placeInfo.equals(info)) {
-//                        Files.newDirectoryStream()
-                        if (path.toFile().getName().endsWith(".txt")) {
-                            try {
-                                Files.write(path, ad.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
+                        try {
+                            Files.newDirectoryStream(Paths.get(".txt"))
+                                    .forEach(path1 -> {
+                                        if (path1.toFile().getName().endsWith(".txt")) {
+                                            try {
+                                                Files.write(path1, ad.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
+                                            } catch (IOException e) {
+                                                throw new RuntimeException(e);
+                                            }
+                                        }
+                                    });
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
                         }
                     }
                 });
@@ -109,9 +115,9 @@ public class AdvertisementService {
         Files.write(pathToNew, name.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
     }
 
-    public void createNewPlace() {
+    public void createNewPlace(String name) {
 
-        Path pathToPlace = Paths.get(PATH_TO_DIR, NEW_PLACE);
+        Path pathToPlace = Paths.get(PATH_TO_DIR, name);
 
         try {
             if (!Files.exists(pathToPlace)) {
