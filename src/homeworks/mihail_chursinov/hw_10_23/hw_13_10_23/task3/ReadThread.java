@@ -17,7 +17,6 @@ public class ReadThread extends Thread{
 
     public static final String FILE_PATH = "./Story.txt";
     public static final String DIRECTORY_PATH = "./Homeworks/10.23";
-
     @Override
     public void run() {
         Path pathToPlace = Path.of(DIRECTORY_PATH);
