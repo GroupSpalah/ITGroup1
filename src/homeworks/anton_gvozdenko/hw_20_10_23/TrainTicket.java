@@ -1,7 +1,8 @@
 package homeworks.anton_gvozdenko.hw_20_10_23;
 
-import java.util.*;
-
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 
 class TrainTicket {
@@ -92,74 +93,73 @@ class TicketCounter {
     }
 
 
-
     public static void main(String[] args) throws InterruptedException {
 
 
-                TicketCounter ticketCounter = new TicketCounter();
-                ticketCounter.addTicket(new TrainTicket("Kiev-Lviv"));
-                ticketCounter.addTicket(new TrainTicket("Kiev-Odessa"));
+        TicketCounter ticketCounter = new TicketCounter();
+        ticketCounter.addTicket(new TrainTicket("Kiev-Lviv"));
+        ticketCounter.addTicket(new TrainTicket("Kiev-Odessa"));
 
-                Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-                Thread buyer1 = new Thread(() -> {
-                    System.out.print("Buyer1 вибирає дію (купити/сдати): ");
-                    String action = scanner.next();
-                    if (action.equals("купити")) {
-                        System.out.print("Введіть бажану назву білета: ");
-                        String ticketName = scanner.next();
-                        ticketCounter.sellTicket("Buyer1", ticketName);
-                    } else if (action.equals("сдати")) {
-                        System.out.print("Введіть назву білета для повернення: ");
-                        String ticketName = scanner.next();
-                        ticketCounter.returnTicket("Buyer1", ticketName);
-                    } else {
-                        System.out.println("Невірна дія.");
-                    }
-                });
+        Thread buyer1 = new Thread(() -> {
+            System.out.print("Buyer1 вибирає дію (купити/сдати): ");
+            String action = scanner.next();
+            if (action.equals("купити")) {
+                System.out.print("Введіть бажану назву білета: ");
+                String ticketName = scanner.next();
+                ticketCounter.sellTicket("Buyer1", ticketName);
+            } else if (action.equals("сдати")) {
+                System.out.print("Введіть назву білета для повернення: ");
+                String ticketName = scanner.next();
+                ticketCounter.returnTicket("Buyer1", ticketName);
+            } else {
+                System.out.println("Невірна дія.");
+            }
+        });
 
 
-                Thread buyer2 = new Thread(() -> {
-                        System.out.print("Buyer2 вибирає дію (купити/сдати): ");
-                        String action = scanner.next();
-                        if (action.equals("купити")) {
-                            System.out.print("Введіть бажану назву білета: ");
-                            String ticketName = scanner.next();
-                            ticketCounter.sellTicket("Buyer2", ticketName);
-                        } else if (action.equals("сдати")) {
-                            System.out.print("Введіть назву білета для повернення: ");
-                            String ticketName = scanner.next();
-                            ticketCounter.returnTicket("Buyer2", ticketName);
-                        } else {
-                            System.out.println("Невірна дія.");
-                        }
-                    });
-               buyer2.start();
-               buyer2.join();
-                Thread seller1 = new Thread(() -> {
-                    System.out.print("Seller1 вибирає дію (купити/сдати): ");
-                        String action = scanner.next();
-                        if (action.equals("купити")) {
-                            System.out.print("Введіть бажану назву білета: ");
-                            String ticketName = scanner.next();
-                            ticketCounter.sellTicket("Seller1", ticketName);
-                        } else if (action.equals("сдати")) {
-                            System.out.print("Введіть назву білета для повернення: ");
-                            String ticketName = scanner.next();
-                            ticketCounter.returnTicket("Seller1", ticketName);
-                        } else {
-                            System.out.println("Невірна дія.");
-                        }
+        Thread buyer2 = new Thread(() -> {
+            System.out.print("Buyer2 вибирає дію (купити/сдати): ");
+            String action = scanner.next();
+            if (action.equals("купити")) {
+                System.out.print("Введіть бажану назву білета: ");
+                String ticketName = scanner.next();
+                ticketCounter.sellTicket("Buyer2", ticketName);
+            } else if (action.equals("сдати")) {
+                System.out.print("Введіть назву білета для повернення: ");
+                String ticketName = scanner.next();
+                ticketCounter.returnTicket("Buyer2", ticketName);
+            } else {
+                System.out.println("Невірна дія.");
+            }
+        });
+        buyer2.start();
+        buyer2.join();
+        Thread seller1 = new Thread(() -> {
+            System.out.print("Seller1 вибирає дію (купити/сдати): ");
+            String action = scanner.next();
+            if (action.equals("купити")) {
+                System.out.print("Введіть бажану назву білета: ");
+                String ticketName = scanner.next();
+                ticketCounter.sellTicket("Seller1", ticketName);
+            } else if (action.equals("сдати")) {
+                System.out.print("Введіть назву білета для повернення: ");
+                String ticketName = scanner.next();
+                ticketCounter.returnTicket("Seller1", ticketName);
+            } else {
+                System.out.println("Невірна дія.");
+            }
 
-                });
+        });
 
-                buyer1.start();
-                buyer1.join();
-                buyer2.start();
-                buyer2.join();
-seller1.start();
+        buyer1.start();
+        buyer1.join();
+        buyer2.start();
+        buyer2.join();
+        seller1.start();
     }
-        }
+}
 
 
 
