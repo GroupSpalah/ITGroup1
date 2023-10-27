@@ -37,7 +37,6 @@ public class Factory {
 
 //        worker.interruptThread("Bad quality");
 
-        worker.showLastStage();
     }
 }
 
@@ -57,6 +56,14 @@ class Worker implements Runnable {
 
     @Override
     public void run() {
+
+        try {
+            System.out.println("Last stage");
+            FactoryService.findLastStage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         try {
 
