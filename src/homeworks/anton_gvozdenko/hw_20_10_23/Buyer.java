@@ -1,5 +1,6 @@
 package homeworks.anton_gvozdenko.hw_20_10_23;
 
+import java.util.Scanner;
 import java.util.Set;
 
 public class Buyer {
@@ -9,7 +10,7 @@ public class Buyer {
         this.tickets = availableTickets;
     }
 
-    public synchronized void sellTicket(String buyerName, String ticketName) {
+    public synchronized void buyTicket(String buyerName, String ticketName) {
 
         TrainTicket ticket = new TrainTicket(ticketName);
 
@@ -21,7 +22,6 @@ public class Buyer {
                 e.printStackTrace();
             }
         }
-
         tickets.remove(ticket);
         System.out.println("Билет " + ticketName + " куплен " + buyerName);
     }
