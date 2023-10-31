@@ -14,13 +14,16 @@ public class Buyer implements Runnable {
     @Override
     public void run() {
         synchronized (tickets) {
-            try {
-                System.out.println("Ticket " + desiredTicket + " not found " + Thread.currentThread().getName()
-                        + " wait");
-                tickets.wait();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+            while (!tickets.contains(desiredTicket)) {
+                try {
+                    System.out.println("Ticket " + desiredTicket + " not found " + Thread.currentThread().getName()
+                            + " wait");
+                    tickets.wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
+
         }
 
         System.out.println("Ticket " + desiredTicket + " purchased " + Thread.currentThread().getName());

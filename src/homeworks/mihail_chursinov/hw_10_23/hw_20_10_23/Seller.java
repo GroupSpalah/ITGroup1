@@ -14,13 +14,17 @@ public class Seller implements Runnable {
     @Override
     public void run() {
         synchronized (tickets) {
-            if (!tickets.contains(ticketToSell)) {
+           while (!tickets.contains(ticketToSell)) {
                 tickets.add(ticketToSell);
                 System.out.println("Ticket " + ticketToSell + " was passed " + Thread.currentThread().getName());
-                tickets.notifyAll();
-            } else {
+               try {
+                   tickets.wait();
+               } catch (InterruptedException e) {
+                   throw new RuntimeException(e);
+               }
+           }
                 System.out.println("Ticket " + ticketToSell + " already in stock " + Thread.currentThread().getName());
             }
         }
     }
-}
+
