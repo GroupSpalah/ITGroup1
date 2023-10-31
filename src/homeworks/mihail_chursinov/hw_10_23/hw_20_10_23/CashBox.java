@@ -61,8 +61,6 @@ public class  CashBox {
                 "2) If you want to buy ticket.\n" +
                 "3) Exit.");
 
-        String ticketToAdd = "Kyiv-Lviv";
-        tickets.add(ticketToAdd);
     }
 }
 
