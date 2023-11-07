@@ -61,3 +61,55 @@ FROM students;
 
 SELECT avg(age) 
 FROM students;
+
+CREATE TABLE Goods(
+goods_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(40),
+production_date VARCHAR(40),
+manufacturer VARCHAR(40),
+fragility VARCHAR(40),
+price INT,
+FK_Goods_Manufacturer INT,
+FOREIGN KEY (FK_Goods_Manufacturer) REFERENCES Manufacturer (manufacturer_id));
+); 
+
+INSERT INTO Goods (name, production_date, manufacturer, fragility, price, FK_Goods_Manufacturer)
+VALUES 
+('Laptop',     '2022-01-20', 'HP',      'Fragile',   900, 1),
+('Television', '2020-04-10', 'LG',      'Medium', 700, 2),
+('Phone',      '2019-01-01', 'Samsung', 'Low',    600, 3);
+
+SELECT * 
+FROM goods;
+
+CREATE TABLE Manufacturer(
+manufacturer_id INT PRIMARY KEY AUTO_INCREMENT,
+company_name VARCHAR(40),
+country ENUM('Ukraine', 'USA', 'Canada')
+);
+
+INSERT INTO Manufacturer (company_name, country)
+VALUES 
+('HP',      'USA'),
+('LG',      'Canada'),
+('Samsung', 'Ukraine');
+
+SELECT * 
+FROM Manufacturer;
+
+SELECT * 
+FROM goods g 
+INNER JOIN manufacturer m 
+ON g.FK_Goods_Manufacturer = m.manufacturer_id;
+
+SELECT m.company_name
+FROM goods g 
+INNER JOIN manufacturer m 
+ON g.FK_Goods_Manufacturer = m.manufacturer_id
+WHERE g.fragility = 'Fragile';
+
+SELECT g.name
+FROM goods g 
+INNER JOIN manufacturer m 
+ON g.FK_Goods_Manufacturer = m.manufacturer_id
+WHERE g.production_date >= '2020-01-20' AND g.production_date <='2023-01-01';
