@@ -25,6 +25,10 @@ SELECT * FROM person WHERE age > 30 AND first_name = 'Tom';
 
 SELECT * FROM person WHERE age > 30 OR first_name = 'Tom';
 
+/*Distinct*/
+
+SELECT DISTINCT p.first_name FROM person p; 
+
 /*Sorting*/
 
 SELECT * FROM person ORDER BY age ASC;
@@ -162,6 +166,26 @@ INNER JOIN address a
 ON h.FK_Human_Address = a.address_id
 WHERE a.city = 'Kiev';
 
+/*LEFT JOIN*/
+
+SELECT * 
+FROM address a 
+LEFT JOIN human h
+ON h.FK_Human_Address = a.address_id;
+
+/*RIGHT JOIN*/
+
+SELECT * 
+FROM human h
+RIGHT JOIN address a
+ON h.FK_Human_Address = a.address_id;
+
+/*CROSS JOIN*/
+
+SELECT * 
+FROM human h
+CROSS JOIN address a;
+
 /*Dates*/
 
 SELECT now();
@@ -249,3 +273,46 @@ SELECT lower('Hello');
 SELECT concat(upper(substring('RelATIonSHips', 1, 1)), lower(substring('RelATIonSHips' FROM 2)));
 
 UPDATE example SET city = concat(upper(substring(city, 1, 1)), lower(substring(city FROM 2)));
+
+/*One to one bi-*/
+
+CREATE TABLE Department(
+department_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30), 
+FK_Department_Phone INT,
+FOREIGN KEY (FK_Department_Phone) REFERENCES Phone(phone_id));
+
+CREATE TABLE Phone(
+phone_id INT PRIMARY KEY AUTO_INCREMENT,
+number VARCHAR(30),
+FK_Phone_Department INT DEFAULT NULL);
+
+ALTER TABLE Phone ADD FOREIGN KEY (FK_Phone_Department) REFERENCES department(department_id);
+
+INSERT INTO phone(`number`, FK_Phone_Department)
+VALUES
+('067', NULL),
+('068', NULL),
+('093', NULL);
+
+INSERT INTO department(name, FK_Department_Phone)
+VALUES
+('IT', 1),
+('Manager', 2),
+('Production', 3);
+
+UPDATE phone SET FK_Phone_Department = 1 WHERE phone_id  = 1;
+UPDATE phone SET FK_Phone_Department = 2 WHERE phone_id  = 2;
+UPDATE phone SET FK_Phone_Department = 3 WHERE phone_id  = 3;
+
+/*OneToMany uni-*/
+
+CREATE TABLE Autopark(
+park_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30));
+
+CREATE TABLE Vehicle(
+vehicle_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30),
+FK_Vehicle_Autopark INT,
+FOREIGN KEY (FK_Vehicle_Autopark) REFERENCES Autopark(park_id));
