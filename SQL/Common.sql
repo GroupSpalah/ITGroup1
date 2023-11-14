@@ -25,6 +25,12 @@ SELECT * FROM person WHERE age > 30 AND first_name = 'Tom';
 
 SELECT * FROM person WHERE age > 30 OR first_name = 'Tom';
 
+/*IN operator*/
+
+SELECT * FROM human WHERE human_id = 1 OR human_id = 2 OR human_id = 3;
+
+SELECT * FROM human WHERE human_id IN(1,2,3);
+
 /*Distinct*/
 
 SELECT DISTINCT p.first_name FROM person p; 
@@ -274,6 +280,12 @@ SELECT concat(upper(substring('RelATIonSHips', 1, 1)), lower(substring('RelATIon
 
 UPDATE example SET city = concat(upper(substring(city, 1, 1)), lower(substring(city FROM 2)));
 
+/*Sub query*/
+
+SELECT h2.human_id FROM human h2 WHERE first_name = 'John';
+
+SELECT * FROM human h WHERE h.human_id = (SELECT h2.human_id FROM human h2 WHERE first_name = 'John');/*4*/
+
 /*One to one bi-*/
 
 CREATE TABLE Department(
@@ -316,3 +328,36 @@ vehicle_id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(30),
 FK_Vehicle_Autopark INT,
 FOREIGN KEY (FK_Vehicle_Autopark) REFERENCES Autopark(park_id));
+
+/*OneToMany bi-*/
+
+CREATE TABLE Company(
+company_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30));
+
+CREATE TABLE Secretary(
+secretary_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30));
+
+CREATE TABLE Company_Secretary(
+FK_Company_ID INT,
+FK_Secretary_ID INT UNIQUE,
+FOREIGN KEY (FK_Company_ID) REFERENCES Company(company_id),
+FOREIGN KEY (FK_Secretary_ID) REFERENCES Secretary(secretary_id));
+
+/*ManyToMany*/
+
+CREATE TABLE Company(
+company_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30));
+
+CREATE TABLE Secretary(
+secretary_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30));
+
+CREATE TABLE Company_Secretary(
+FK_Company_ID INT,
+FK_Secretary_ID INT,
+FOREIGN KEY (FK_Company_ID) REFERENCES Company(company_id),
+FOREIGN KEY (FK_Secretary_ID) REFERENCES Secretary(secretary_id),
+UNIQUE KEY(FK_Company_ID, FK_Secretary_ID));

@@ -4,14 +4,11 @@ USE Product;
 
 CREATE TABLE Item(
 
-
 id_item INT PRIMARY KEY AUTO_INCREMENT,
 
 name VARCHAR(30),
 
 date_production DATE,
-
-manufacturer VARCHAR(30),
 
 isCrash BOOLEAN,
 
@@ -36,7 +33,7 @@ country_id INT PRIMARY KEY AUTO_INCREMENT,
 
 name VARCHAR(30));
 
-INSERT INTO Item(name,date_production,manufacturer,isCrash,price,FK_item_producer_id)
+INSERT INTO Item(name, date_production,manufacturer,isCrash,price,FK_item_producer_id)
 VALUES
 ('Phone','2022-01-01','LG',     TRUE, 100,1),
 ('Phone','2021-02-02','Nokia',  FALSE,105,1),
@@ -61,8 +58,7 @@ ON i.FK_item_producer_id = pr.producer_id
 INNER JOIN Country c
 ON c.country_id = pr.FK_producer_country;
 
-
-UPDATE Item SET  name = 'Bike',price = 500
+UPDATE Item SET  name = 'Bike', price = 500
 WHERE  price = 200;
 
 SELECT i.price,COUNT(*)

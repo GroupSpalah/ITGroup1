@@ -43,12 +43,18 @@ VALUES
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id;
 
- SELECT e.first_name   ,COUNT(*)
+ SELECT e.first_name ,COUNT(*)
  FROM employee e 
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id
  WHERE d.dept_number = 10
  GROUP BY e.first_name;
+
+ SELECT d.dept_number, COUNT(*)
+ FROM employee e
+ INNER JOIN dept d
+ ON e.FK_employee_dept  = d.dept_id
+ GROUP BY d.dept_number;
 
 SELECT   e.first_name,count(*) 
 FROM employee e 
@@ -70,11 +76,24 @@ INNER JOIN dept d
 ON e.FK_employee_dept  = d.dept_id
 WHERE d.city LIKE 'L%';
 
-SELECT d.city ,e.first_name 
+SELECT d.city, COUNT(*)
 FROM employee e 
 INNER JOIN dept d 
 ON e.FK_employee_dept  = d.dept_id
-WHERE d.city LIKE '%l%' ;
+WHERE d.city LIKE '%l%'
+group by d.city;
+
+SELECT e.first_name, e.last_name
+FROM employee e
+INNER JOIN dept d
+ON e.FK_employee_dept  = d.dept_id
+where
+SELECT d.city, COUNT(*)
+FROM employee e
+INNER JOIN dept d
+ON e.FK_employee_dept  = d.dept_id
+WHERE d.city LIKE '%l%'
+group by d.city;
 
 
 
