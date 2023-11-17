@@ -43,18 +43,11 @@ VALUES
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id;
 
- SELECT e.first_name ,COUNT(*)
+ SELECT d.dept_number   ,COUNT(*)
  FROM employee e 
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id
- WHERE d.dept_number = 10
- GROUP BY e.first_name;
-
- SELECT d.dept_number, COUNT(*)
- FROM employee e
- INNER JOIN dept d
- ON e.FK_employee_dept  = d.dept_id
- GROUP BY d.dept_number;
+ GROUP BY d.dept_number ;
 
 SELECT   e.first_name,count(*) 
 FROM employee e 
@@ -76,24 +69,26 @@ INNER JOIN dept d
 ON e.FK_employee_dept  = d.dept_id
 WHERE d.city LIKE 'L%';
 
-SELECT d.city, COUNT(*)
+SELECT d.city ,COUNT(*) 
 FROM employee e 
 INNER JOIN dept d 
 ON e.FK_employee_dept  = d.dept_id
-WHERE d.city LIKE '%l%'
-group by d.city;
+WHERE d.city LIKE '%l%' 
+GROUP BY d.city;
 
-SELECT e.first_name, e.last_name
+SELECT * FROM
+employee e 
+INNER JOIN dept d 
+WHERE e.first_name  IN (SELECT e2.first_name FROM employee e2 GROUP BY first_name HAVING d.city = 'Lviv');
+
+SELECT *
 FROM employee e
-INNER JOIN dept d
-ON e.FK_employee_dept  = d.dept_id
-where
-SELECT d.city, COUNT(*)
-FROM employee e
-INNER JOIN dept d
-ON e.FK_employee_dept  = d.dept_id
-WHERE d.city LIKE '%l%'
-group by d.city;
+INNER JOIN dept d 
+WHERE e.first_name IN(SELECT e2.first_name  FROM employee e2  GROUP BY employee_id  HAVING e.first_name = 'John');
+
+
+
+
 
 
 
