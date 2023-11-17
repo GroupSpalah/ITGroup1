@@ -43,10 +43,10 @@ VALUES
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id;
 
- SELECT d.dept_number   ,COUNT(*)
+ SELECT d.dept_number, COUNT(*)
  FROM employee e 
  INNER JOIN dept d 
- ON e.FK_employee_dept  = d.dept_id
+ ON e.FK_employee_dept = d.dept_id
  GROUP BY d.dept_number ;
 
 SELECT   e.first_name,count(*) 
@@ -84,7 +84,10 @@ WHERE e.first_name  IN (SELECT e2.first_name FROM employee e2 GROUP BY first_nam
 SELECT *
 FROM employee e
 INNER JOIN dept d 
-WHERE e.first_name IN(SELECT e2.first_name  FROM employee e2  GROUP BY employee_id  HAVING e.first_name = 'John');
+WHERE e.first_name IN
+(SELECT e2.first_name  FROM employee e2
+ GROUP BY employee_id
+  HAVING e.first_name = 'John');
 
 
 

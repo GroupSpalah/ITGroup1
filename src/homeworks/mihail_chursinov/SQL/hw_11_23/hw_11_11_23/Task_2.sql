@@ -53,7 +53,9 @@ SELECT *
 FROM empl e 
 INNER JOIN dept d
 ON e.FK_Empl_Dept = d.dept_id
-WHERE e.first_name IN (SELECT e2.first_name FROM empl e2 GROUP BY first_name HAVING COUNT(*) > 1) AND d.city = 'Lviv' 
+WHERE concat(e.first_name,' ',e.last_name) IN
+(SELECT e2.first_name FROM empl e2 GROUP BY first_name HAVING COUNT(*) > 1)
+AND d.city = 'Lviv'
 ORDER BY first_name;
 
 SELECT d.city, COUNT(*)
@@ -61,5 +63,6 @@ FROM empl e
 INNER JOIN dept d
 ON e.FK_Empl_Dept = d.dept_id
 WHERE e.first_name = 'Alex'
-GROUP BY d.city HAVING COUNT(*) > 2;
+GROUP BY d.city
+HAVING COUNT(*) > 2;
 

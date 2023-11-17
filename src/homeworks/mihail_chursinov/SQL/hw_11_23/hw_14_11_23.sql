@@ -1,9 +1,9 @@
-CREATE DATABASE students_sql;
+CREATE DATABASE IF NOT EXISTS students_sql;
 
 USE students_sql;
 
 CREATE TABLE Students(
-students_id INT PRIMARY KEY AUTO_INCREMENT,
+student_id INT PRIMARY KEY AUTO_INCREMENT,
 first_name VARCHAR(50),
 last_name VARCHAR(50),
 gender ENUM ('male','female'),
@@ -14,17 +14,23 @@ FOREIGN KEY (FK_Students_Address) REFERENCES Address(address_id),
 FOREIGN KEY (FK_Students_Group_Student) REFERENCES Group_Student(group_student_id)
 );
 
+ALTER TABLE Students AUTO_INCREMENT = 1;
+
 CREATE TABLE University(
 university_id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(50),
 foundation_date DATE 
 );
 
+ALTER TABLE University AUTO_INCREMENT = 1;
+
 CREATE TABLE Faculty(
 faculty_id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(50),
 foundation_date DATE 
 );
+
+ALTER TABLE Faculty AUTO_INCREMENT = 1;
 
 CREATE TABLE Group_Student(
 group_student_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -35,12 +41,16 @@ FK_Group_Student_Faculty INT,
 FOREIGN KEY (FK_Group_Student_Faculty) REFERENCES Faculty(faculty_id) 
 );
 
+ALTER TABLE Group_Student AUTO_INCREMENT = 1;
+
 CREATE TABLE Address(
 address_id INT PRIMARY KEY AUTO_INCREMENT,
 city VARCHAR(50),
 street VARCHAR(50),
 number_house INT,
 number_apartament INT);
+
+ALTER TABLE Address AUTO_INCREMENT = 1;
 
 CREATE TABLE University_Faculty(
 FK_University_ID INT,
@@ -49,7 +59,12 @@ FOREIGN KEY (FK_University_ID) REFERENCES University(university_id),
 FOREIGN KEY (FK_Faculty_ID) REFERENCES Faculty(faculty_id),
 UNIQUE KEY(FK_University_ID, FK_Faculty_ID));
 
-ALTER TABLE Group_Student ADD FOREIGN KEY (FK_Group_Student_Faculty) REFERENCES Students(students_id);
+INSERT INTO University_Faculty (FK_University_ID, FK_Faculty_ID)
+VALUES
+(1, 1),
+(2, 2);
+
+ALTER TABLE Group_Student ADD FOREIGN KEY (FK_Group_Student_Students) REFERENCES Students(student_id);
 
 INSERT INTO Students (first_name, last_name, gender, birth_date, FK_Students_Address, FK_Students_Group_Student)
 VALUES
@@ -90,7 +105,7 @@ VALUES
 ('Economics',        '1893-02-09'),
 ('Physics',          '1901-11-22');
 
-INSERT INTO Group_Student (first_name, foundation_date, FK_Group_Student_Students, FK_Group_Student_Faculty)
+INSERT INTO Group_Student (first_name, foundation_date, FK_Group_Student_Faculty, FK_Group_Student_Students)
 VALUES
 ('Group A', '2021-09-01', 1, NULL),
 ('Group B', '2021-09-01', 2, NULL),
@@ -110,7 +125,11 @@ SELECT *
 FROM students s  
 INNER JOIN group_student gs 
 ON s.FK_Students_Group_Student = gs.group_student_id 
+INNER JOIN faculty f
+ON gs.FK_Group_Student_Faculty = f.faculty_id
+INNER JOIN University_Faculty uf
+ON uf.FK_Faculty_ID = f.faculty_id
 INNER JOIN university u 
-ON gs.FK_Group_Student_Faculty = u.university_id 
+ON uf.FK_University_ID = u.university_id
 WHERE u.university_id = 'Stanford University';
 

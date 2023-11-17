@@ -261,6 +261,8 @@ ADD city VARCHAR(30) DEFAULT 'Lviv';
 ALTER TABLE example 
 MODIFY COLUMN city VARCHAR(100);
 
+ALTER TABLE Example AUTO_INCREMENT = 1;
+
 /*String function task*/
 /*
  * В таблице есть столбец с именем, некоторые буквы в верхнем и нижнем регистрах.
@@ -361,3 +363,4 @@ FK_Secretary_ID INT,
 FOREIGN KEY (FK_Company_ID) REFERENCES Company(company_id),
 FOREIGN KEY (FK_Secretary_ID) REFERENCES Secretary(secretary_id),
 UNIQUE KEY(FK_Company_ID, FK_Secretary_ID));
+
