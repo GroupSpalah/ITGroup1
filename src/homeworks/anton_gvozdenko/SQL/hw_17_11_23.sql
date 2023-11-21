@@ -9,7 +9,6 @@ CREATE TABLE University (
 
 ALTER TABLE University AUTO_INCREMENT = 1;
 
-
 CREATE TABLE Faculty (
     faculty_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -32,12 +31,11 @@ CREATE TABLE Group_student (
     name VARCHAR(40),
     date_creation DATE,
     FK_head_man_student INT,
-  FK_group_faculty_id INT,
-    FOREIGN KEY  (FK_head_man_student)REFERENCES Student(student_id),
+    FK_group_faculty_id INT,
     FOREIGN KEY (FK_group_faculty_id) REFERENCES Faculty(faculty_id));
 );
 
-ALTER  TABLE  Group_student ADD FOREIGN KEY (FK_head_man_student) REFERENCES Student(student_id);
+ALTER TABLE  Group_student ADD FOREIGN KEY (FK_head_man_student) REFERENCES Student(student_id);
 
 ALTER TABLE Group_Student AUTO_INCREMENT = 1;
 
@@ -48,13 +46,14 @@ CREATE TABLE Student (
     age INT,
     Sex VARCHAR(10),
     birthday DATE,
- FK_student_address_id INT,
-   FK_student_group INT,
+    FK_student_address_id INT,
+    FK_student_group INT,
     FOREIGN KEY (FK_student_address_id) REFERENCES Address(address_id),
     FOREIGN KEY (FK_student_group) REFERENCES Group_student(group_id));
    
-   ALTER  TABLE Student AUTO_INCREMENT = 1;
-   CREATE  TABLE University_Faculty(
+   ALTER TABLE Student AUTO_INCREMENT = 1;
+
+   CREATE TABLE University_Faculty(
    FK_university_id,
    FK_faculty_id,
    FOREIGN KEY (FK_university_id) REFERENCES University( university_id),

@@ -79,7 +79,9 @@ GROUP BY d.city;
 SELECT * FROM
 employee e 
 INNER JOIN dept d 
-WHERE concat( e.first_name, '' ,e.last_name) IN (SELECT e2.first_name FROM employee e2 GROUP BY concat(first_name, '' ,last_name) HAVING count(*)> 1  )
+WHERE concat( e.first_name, ' ' ,e.last_name)
+IN (SELECT e2.first_name FROM employee e2 GROUP BY concat(first_name, ' ' ,last_name)
+HAVING count(*) > 1)
 AND  d.city = 'Lviv'
 ORDER BY first_name;
 

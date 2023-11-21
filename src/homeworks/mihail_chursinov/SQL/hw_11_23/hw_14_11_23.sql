@@ -1,3 +1,5 @@
+#DROP DATABASE students_sql;
+
 CREATE DATABASE IF NOT EXISTS students_sql;
 
 USE students_sql;
@@ -45,8 +47,6 @@ FOREIGN KEY (FK_Group_St_Faculty) REFERENCES Faculty(faculty_id)
 
 ALTER TABLE Group_Student AUTO_INCREMENT = 1;
 
-ALTER TABLE Group_Student ADD FOREIGN KEY (FK_Group_St_Students) REFERENCES Students(student_id);
-
 CREATE TABLE Students(
 student_id INT PRIMARY KEY AUTO_INCREMENT,
 first_name VARCHAR(50),
@@ -60,6 +60,8 @@ FOREIGN KEY (FK_Students_Group_St) REFERENCES Group_Student(group_student_id)
 );
 
 ALTER TABLE Students AUTO_INCREMENT = 1;
+
+ALTER TABLE Group_Student ADD FOREIGN KEY (FK_Group_St_Students) REFERENCES Students(student_id);
 
 INSERT INTO Address (city, street, number_house, number_apartament)
 VALUES
@@ -170,5 +172,62 @@ FROM students s;
 SELECT gs.name, s.first_name, s.last_name 
 FROM group_student gs 
 INNER JOIN students s  
-ON gs.FK_Group_St_Students = s.student_id
+ON gs.FK_Group_St_Students = s.student_id;
+
+#- найти группу с максимальным количеством студентов.
+
+SELECT gs.name, count(*)
+FROM students s  
+INNER JOIN group_student gs 
+ON s.FK_Students_Group_St = gs.group_student_id
 GROUP BY gs.name;
+
+SELECT gs.name, count(*)
+FROM students s  
+INNER JOIN group_student gs 
+ON s.FK_Students_Group_St = gs.group_student_id
+GROUP BY gs.name
+ORDER BY count(*) DESC
+LIMIT 1;
+
+#- найти группу с минимальным количеством студентов.
+
+SELECT gs.name, count(*)
+FROM students s  
+INNER JOIN group_student gs 
+ON s.FK_Students_Group_St = gs.group_student_id
+GROUP BY gs.name
+ORDER BY count(*)
+LIMIT 1;
+
+#- вывести среднее количество людей в группе по университету.
+
+SELECT u.name, gs.name `group_name`, count(*) qty
+FROM students s  
+INNER JOIN group_student gs 
+ON s.FK_Students_Group_St = gs.group_student_id 
+INNER JOIN faculty f
+ON gs.FK_Group_St_Faculty = f.faculty_id
+INNER JOIN University_Faculty uf
+ON uf.FK_Faculty_ID = f.faculty_id
+INNER JOIN university u 
+ON uf.FK_University_ID = u.university_id
+GROUP BY u.name, gs.name;
+
+SELECT ug.name, ug.group_name, avg(ug.qty)
+FROM(
+				SELECT u.name, gs.name `group_name`, count(*) qty
+				FROM students s  
+				INNER JOIN group_student gs 
+				ON s.FK_Students_Group_St = gs.group_student_id 
+				INNER JOIN faculty f
+				ON gs.FK_Group_St_Faculty = f.faculty_id
+				INNER JOIN University_Faculty uf
+				ON uf.FK_Faculty_ID = f.faculty_id
+				INNER JOIN university u 
+				ON uf.FK_University_ID = u.university_id
+				GROUP BY u.name, gs.name
+) ug
+GROUP BY ug.name;
+
+
