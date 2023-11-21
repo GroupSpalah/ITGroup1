@@ -53,8 +53,9 @@ SELECT *
 FROM empl e 
 INNER JOIN dept d
 ON e.FK_Empl_Dept = d.dept_id
-WHERE concat(e.first_name,' ',e.last_name) IN
-(SELECT e2.first_name FROM empl e2 GROUP BY first_name HAVING COUNT(*) > 1)
+WHERE CONCAT(e.first_name,' ',e.last_name) IN
+(SELECT CONCAT(e.first_name,' ',e.last_name) FROM empl e2 GROUP BY CONCAT(e.first_name,' ',e.last_name) 
+HAVING COUNT(*) > 1)
 AND d.city = 'Lviv'
 ORDER BY first_name;
 
