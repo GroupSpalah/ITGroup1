@@ -43,10 +43,10 @@ VALUES
  INNER JOIN dept d 
  ON e.FK_employee_dept  = d.dept_id;
 
- SELECT d.dept_number, COUNT(*)
+ SELECT d.dept_number   ,COUNT(*)
  FROM employee e 
  INNER JOIN dept d 
- ON e.FK_employee_dept = d.dept_id
+ ON e.FK_employee_dept  = d.dept_id
  GROUP BY d.dept_number ;
 
 SELECT   e.first_name,count(*) 
@@ -79,15 +79,18 @@ GROUP BY d.city;
 SELECT * FROM
 employee e 
 INNER JOIN dept d 
-WHERE e.first_name  IN (SELECT e2.first_name FROM employee e2 GROUP BY first_name HAVING d.city = 'Lviv');
+WHERE concat( e.first_name, '' ,e.last_name) IN (SELECT e2.first_name FROM employee e2 GROUP BY concat(first_name, '' ,last_name) HAVING count(*)> 1  )
+AND  d.city = 'Lviv'
+ORDER BY first_name;
 
-SELECT *
+SELECT d.city,COUNT(*)
 FROM employee e
 INNER JOIN dept d 
-WHERE e.first_name IN
-(SELECT e2.first_name  FROM employee e2
- GROUP BY employee_id
-  HAVING e.first_name = 'John');
+WHERE e.first_name  = 'John'
+GROUP BY d.city 
+HAVING COUNT(*)>1;
+
+
 
 
 
