@@ -27,7 +27,7 @@ SET @sid = 3;
 
 SELECT @sid;
 
-CALL get_student_by_id_out(@sid);
+CALL get_student_by_id_in_out(@sid);
 
 /*Parameters passing in stored procedure
 	An IN parameter passes a value into a procedure. 

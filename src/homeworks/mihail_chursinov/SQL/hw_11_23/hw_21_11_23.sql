@@ -1,4 +1,4 @@
-CREATE PROCEDURE get_all_students_same_university()
+CREATE PROCEDURE get_all_students_same_university(university_name VARCHAR(30))
 BEGIN
 	SELECT * 
 FROM students s  

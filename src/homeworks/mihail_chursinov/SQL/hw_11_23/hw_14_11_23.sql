@@ -236,6 +236,27 @@ FROM(
 ) ug
 GROUP BY ug.name;
 
+--Using view
+
+CREATE VIEW group_by_uname_gs_name AS
+
+SELECT u.name, gs.name `group_name`, count(*) qty
+ FROM students s
+ INNER JOIN group_student gs
+ ON s.FK_Students_Group_St = gs.group_student_id
+ INNER JOIN faculty f
+ ON gs.FK_Group_St_Faculty = f.faculty_id
+ INNER JOIN University_Faculty uf
+ ON uf.FK_Faculty_ID = f.faculty_id
+ INNER JOIN university u
+ ON uf.FK_University_ID = u.university_id
+ GROUP BY u.name, gs.name;
+
+SELECT ug.name, ug.group_name, avg(ug.qty)
+FROM group_by_uname_gs_name ug
+GROUP BY ug.name;
+
+
 SELECT u.name, COUNT(*) faculty
 FROM faculty f
 INNER JOIN University_Faculty uf

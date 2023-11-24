@@ -1,0 +1,4 @@
+CREATE FUNCTION add_two_years(e_age INT) RETURNS INT DETERMINISTIC
+BEGIN 		
+	RETURN (e_age * 2);
+END
