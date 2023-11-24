@@ -126,6 +126,12 @@ VALUES
 ('Ava',       'Baker',    'female', '1996-10-14', 1, 2),
 ('Benjamin',  'Fisher',   'male',   '1997-07-09', 3, 1);
 
+UPDATE Group_Student SET FK_Group_St_Students = 1 WHERE group_student_id = 1; 
+UPDATE Group_Student SET FK_Group_St_Students = 2 WHERE group_student_id = 2;
+UPDATE Group_Student SET FK_Group_St_Students = 3 WHERE group_student_id = 3;
+UPDATE Group_Student SET FK_Group_St_Students = 4 WHERE group_student_id = 4;
+UPDATE Group_Student SET FK_Group_St_Students = 5 WHERE group_student_id = 5;
+
 SELECT * 
 FROM students s  
 INNER JOIN group_student gs 
@@ -229,5 +235,39 @@ FROM(
 				GROUP BY u.name, gs.name
 ) ug
 GROUP BY ug.name;
+
+SELECT u.name, COUNT(*) faculty
+FROM faculty f
+INNER JOIN University_Faculty uf
+ON uf.FK_Faculty_ID = f.faculty_id
+INNER JOIN university u 
+ON uf.FK_University_ID = u.university_id
+GROUP BY u.name
+ORDER BY faculty DESC;
+
+SELECT u.name, COUNT(*) gr 
+FROM group_student gs  
+INNER JOIN faculty f 
+ON gs.FK_Group_St_Faculty = f.faculty_id 
+INNER JOIN University_Faculty uf
+ON uf.FK_Faculty_ID = f.faculty_id
+INNER JOIN university u 
+ON uf.FK_University_ID = u.university_id
+GROUP BY u.name
+ORDER BY gr DESC;
+
+SELECT u.name, COUNT(*) student  
+FROM students s  
+INNER JOIN group_student gs 
+ON s.FK_Students_Group_St = gs.group_student_id 
+INNER JOIN faculty f
+ON gs.FK_Group_St_Faculty = f.faculty_id
+INNER JOIN University_Faculty uf
+ON uf.FK_Faculty_ID = f.faculty_id
+INNER JOIN university u 
+ON uf.FK_University_ID = u.university_id
+GROUP BY u.name
+ORDER BY student DESC;
+
 
 
