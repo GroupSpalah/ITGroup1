@@ -1,0 +1,2 @@
+Адрес(страна, город, улица, номер дома)
+CRUD(create, read, update, delete)

@@ -2,3 +2,8 @@ CREATE FUNCTION add_two_years(e_age INT) RETURNS INT DETERMINISTIC
 BEGIN 		
 	RETURN (e_age * 2);
 END
+
+CREATE FUNCTION format_date(d_format VARCHAR(20), m_date DATE) RETURNS VARCHAR(20) DETERMINISTIC
+BEGIN
+	RETURN date_format(m_date, d_format);
+END;
