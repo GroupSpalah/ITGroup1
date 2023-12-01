@@ -25,3 +25,18 @@ WHERE address_id = 3;
 DELETE 
 FROM get_all_students 
 WHERE student_id = 10;
+
+CREATE FUNCTION format_date(d_format VARCHAR(50), m_date DATE) RETURNS VARCHAR (20) DETERMINISTIC 
+BEGIN
+	RETURN DATE_FORMAT (m_date, d_format);
+END
+
+SELECT *, format_date ('%d %b %y', s.birth_date) 
+FROM students s;
+
+CREATE FUNCTION add_two_years(e_age INT) RETURNS INT DETERMINISTIC
+BEGIN
+	RETURN (e_age * 3); 
+END
+
+SELECT a.number_house FROM address a;
