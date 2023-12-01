@@ -1,14 +1,12 @@
-package lessons.ls_11_23;
+package lessons.ls_11_23.ls_28_11_23;
 
 import java.sql.*;
 import java.util.Objects;
 
+import static lessons.ls_11_23.ls_28_11_23.util.Contstans.*;
+
 public class DbConnector {
     private static Connection connection;
-    public static final String URL =
-            "jdbc:mysql://localhost:3306/carsshop?serverTimezone=Europe/Kiev";
-    public static final String USER_NAME = "root";
-    public static final String PASSWORD = "123456";
 
     public static Connection getConnection() throws SQLException {
         if (Objects.isNull(connection)) {

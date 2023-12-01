@@ -19,7 +19,7 @@ public class ServiceAddress {
         return connection;
     }
     public static void readAddress() throws SQLException {
-        String query = "Select * From address";
+        String query = "SELECT * FROM address";
 
         try (Statement statement = getConnection().createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
@@ -36,12 +36,11 @@ public class ServiceAddress {
                 addresses.add(address);
 
             }
+
             for (Address address : addresses) {
                 System.out.println(address);
             }
-
         }
-
 
     }
 
@@ -61,7 +60,8 @@ public class ServiceAddress {
     }
 
     public static void updateAddress(Address address) throws SQLException {
-        String query = "UPDATE address SET country = ?, city = ?, street = ?, number_house = ? WHERE address_id = ?";
+        String query = "UPDATE address SET country = ?, city = ?, street = ?, " +
+                "number_house = ? WHERE address_id = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setString(1, address.country());

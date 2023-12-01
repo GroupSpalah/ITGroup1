@@ -1,4 +1,4 @@
-CREATE DATABASE University_office;
+
 USE University_office;
 
 CREATE TABLE University (
@@ -8,8 +8,6 @@ CREATE TABLE University (
 );
 
 ALTER TABLE University AUTO_INCREMENT = 1;
-
-
 
 CREATE TABLE Faculty (
     faculty_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,12 +31,8 @@ CREATE TABLE Group_student (
     name VARCHAR(40),
     date_creation DATE,
     FK_head_man_student INT,
-  FK_group_faculty_id INT,
-    FOREIGN KEY  (FK_head_man_student)REFERENCES Student(student_id),
+  	FK_group_faculty_id INT,
     FOREIGN KEY (FK_group_faculty_id) REFERENCES Faculty(faculty_id));
-);
-
-ALTER  TABLE  Group_student ADD FOREIGN KEY (FK_head_man_student) REFERENCES Student(student_id);
 
 ALTER TABLE Group_Student AUTO_INCREMENT = 1;
 
@@ -55,6 +49,8 @@ CREATE TABLE Student (
     FOREIGN KEY (FK_student_group) REFERENCES Group_student(group_id));
    
    ALTER  TABLE Student AUTO_INCREMENT = 1;
+  
+  ALTER  TABLE  Group_student ADD FOREIGN KEY (FK_head_man_student) REFERENCES Student(student_id);
    
   CREATE  TABLE University_Faculty(
    FK_university_id INT,
@@ -64,9 +60,11 @@ CREATE TABLE Student (
    UNIQUE KEY (FK_university_id,FK_faculty_id));
   
   
-  INSERT INTO Student(name,last_name,age,Sex,birthday)
+  INSERT INTO Student(name,last_name,age,Sex,birthday, FK_student_group)
   VALUES
-  ('John',   'Bush'   ,22,'MAN','2000-01-01'),
+  ('John',   'Bush'   ,22,'MAN','2000-01-01', 4);
+  
+  
   ('Ben',    'Tramp',  21,'MAN','2001-02-02'),
   ('Serg',   'Ronaldo',23,'MAN','2000-03-03'),
   ('Ivan',   'Turner', 25,'MAN','2004-05-05'),
@@ -87,6 +85,12 @@ CREATE TABLE Student (
   ('Lviv',  'Peremohy',1,2),
   ('Odessa','Molodizhna',22,3),
   ('Kiev',  'Naberezhna',4,4);
+ 
+ INSERT INTO Faculty(name,date_creation)
+VALUES 
+('Infornaciynih Tahnologiy','2000-02-22'),
+('Managementu',             '2001-03-22'),
+('Math',                    '1900-02-22');
   
  INSERT INTO Group_student(name,date_creation,FK_group_faculty_id,FK_head_man_student)
  VALUES
@@ -100,12 +104,6 @@ VALUES
 ('DNU',     '1990-09-01'),
 ('Agrarniy','1970-01-01'),
 ('Horniy',  '1980-09-01');
-
-INSERT INTO Faculty(name,date_creation)
-VALUES 
-('Infornaciynih Tahnologiy','2000-02-22'),
-('Managementu',             '2001-03-22'),
-('Math',                    '1900-02-22');
 
 
 SELECT * FROM student s 

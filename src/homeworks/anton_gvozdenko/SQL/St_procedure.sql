@@ -27,6 +27,7 @@ ON uf.FK_university_id = u.university_id
 WHERE u.name = 'DNU'
 AND f.name = 'Math';
 END;
+
 CALL get_student_by_university_faculty();
 
 CREATE PROCEDURE get_student_by_university_faculty_group()

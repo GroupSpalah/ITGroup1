@@ -77,7 +77,6 @@ public class Address {
                 statement.setString(2, address.getCity());
                 statement.setString(3, address.getStreet());
 
-
                 statement.executeUpdate();
             }
         }
@@ -107,14 +106,15 @@ public class Address {
             }
         }
     }
-    public static void main(String[] args) throws SQLException {
-        Address address = new Address("Germany","Berlin","Kaiser",1);
 
-            DbConnector.showAllAddresses();
-             DbConnector.insert(address);
-            DbConnector.update(address);
-            DbConnector.delete(1);
+    public static void main(String[] args) throws SQLException {
+        Address address = new Address("Germany", "Berlin", "Kaiser", 1);
+
+        DbConnector.showAllAddresses();
+        DbConnector.insert(address);
+        DbConnector.update(address);
+        DbConnector.delete(1);
     }
-    }
+}
 
 
