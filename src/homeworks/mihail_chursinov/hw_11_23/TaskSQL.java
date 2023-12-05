@@ -24,10 +24,10 @@ public class TaskSQL {
              ResultSet resultSet = statement.executeQuery(query);) {
 
             while (resultSet.next()) {
-                int addressId = resultSet.getInt("address_id");
+                int addressId = resultSet.getInt("addressId");
                 String country = resultSet.getString("country");
                 String city = resultSet.getString("city");
-                int numberHouse = resultSet.getInt("number_house");
+                int numberHouse = resultSet.getInt("numberHouse");
 
                 System.out.println(addressId + "\t" + country + "\t" + city + "\t" + numberHouse);
             }
@@ -36,7 +36,7 @@ public class TaskSQL {
     }
 
     public static void insertAddress() throws SQLException {
-        String query = "INSERT INTO address(country, city, street, number_house) " +
+        String query = "INSERT INTO address(country, city, street, numberHouse) " +
                 "VALUES(?,?,?,?)";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -51,7 +51,7 @@ public class TaskSQL {
     }
 
     public static void updateAddress() throws SQLException {
-        String query = "UPDATE address SET country = ?, city = ?, street = ?, number_house = ? WHERE address_id = ?";
+        String query = "UPDATE address SET country = ?, city = ?, street = ?, numberHouse = ? WHERE addressId = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setString(1, "Ukraine");
@@ -65,7 +65,7 @@ public class TaskSQL {
         }
     }
     public static void deleteAddress() throws SQLException {
-        String query = "DELETE FROM address WHERE address_id = ?";
+        String query = "DELETE FROM address WHERE addressId = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setInt(1, 5);

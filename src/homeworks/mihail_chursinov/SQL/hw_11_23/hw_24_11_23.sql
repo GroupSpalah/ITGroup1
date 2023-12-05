@@ -26,7 +26,7 @@ DELETE
 FROM get_all_students 
 WHERE student_id = 10;
 
-CREATE FUNCTION format_date(d_format VARCHAR(50), m_date DATE) RETURNS VARCHAR (20) DETERMINISTIC 
+CREATE FUNCTION format_date(d_format VARCHAR(50), m_date DATE) RETURNS VARCHAR (20) READS SQL DATA 
 BEGIN
 	RETURN DATE_FORMAT (m_date, d_format);
 END

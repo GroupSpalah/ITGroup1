@@ -36,23 +36,20 @@ public class ServiceAddress {
                 addresses.add(address);
 
             }
-
-            for (Address address : addresses) {
-                System.out.println(address);
+            addresses.forEach(System.out::println);
             }
         }
 
-    }
 
     public static void insertAddress(Address address) throws SQLException {
-        String query = "INSERT INTO address(country, city, street, number_house) " +
+        String query = "INSERT INTO address(country, city, street, numberHouse) " +
                 "VALUES(?,?,?,?)";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setString(1, address.country());
             statement.setString(2, address.city());
             statement.setString(3, address.street());
-            statement.setInt(4, address.number_house());
+            statement.setInt(4, address.numberHouse());
 
             statement.executeUpdate();
 
@@ -61,21 +58,21 @@ public class ServiceAddress {
 
     public static void updateAddress(Address address) throws SQLException {
         String query = "UPDATE address SET country = ?, city = ?, street = ?, " +
-                "number_house = ? WHERE address_id = ?";
+                "numberHouse = ? WHERE addressId = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setString(1, address.country());
             statement.setString(2, address.city());
             statement.setString(3, address.street());
-            statement.setInt(4, address.number_house());
-            statement.setInt(5, address.address_id());
+            statement.setInt(4, address.numberHouse());
+            statement.setInt(5, address.addressId());
 
             statement.executeUpdate();
 
         }
     }
     public static void deleteAddress(int id) throws SQLException {
-        String query = "DELETE FROM address WHERE address_id = ?";
+        String query = "DELETE FROM address WHERE addressId = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
             statement.setInt(1, id);
