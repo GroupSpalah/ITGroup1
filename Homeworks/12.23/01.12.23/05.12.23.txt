@@ -1,0 +1,10 @@
+Даны два домена Truck(id, model, modelYear) и
+Driver(id, firstName, lastName, age, qualification(Enum), List<Truck>).
+Создать OneToMany отношение, а также CRUD(findAll) операции,
+показывать все trucks для конкретного Driver.
+
+Driver
+findById(int id) {
+select * from driver where driver_id = id; DriverDAOImpl
+select * from truck where FK_Truck_Driver = id; TruckDAOImpl
+}

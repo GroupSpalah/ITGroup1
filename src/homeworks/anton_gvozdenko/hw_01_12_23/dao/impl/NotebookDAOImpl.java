@@ -1,15 +1,17 @@
-package homeworks.anton_gvozdenko.SQL.hw_01_12_23;
+package homeworks.anton_gvozdenko.hw_01_12_23.dao.impl;
 
+
+import homeworks.anton_gvozdenko.hw_01_12_23.NoteBook;
+import homeworks.anton_gvozdenko.hw_01_12_23.dao.NotebookDAO;
 
 import java.sql.*;
 
 import java.util.Objects;
 
-import static homeworks.anton_gvozdenko.SQL.hw_01_12_23.util.Constans.*;
+import static homeworks.anton_gvozdenko.hw_01_12_23.util.Constans.*;
 
-public class DbConnector {
+public class NotebookDAOImpl implements NotebookDAO {
     private static Connection connection;
-
 
     public static Connection getConnection() throws SQLException {
         if (Objects.isNull(connection)) {
@@ -19,7 +21,7 @@ public class DbConnector {
         return connection;
     }
 
-    public static void showAllAddresses() throws SQLException {
+    public void showAllAddresses() throws SQLException {
         String query = "SELECT * FROM Notebook";
 
         try (Statement statement = getConnection().createStatement();
@@ -41,9 +43,8 @@ public class DbConnector {
 
     }
 
-    public static void showByID(int id) throws SQLException {
+    public void showByID(int id) throws SQLException {
         String query = "SELECT * FROM Notebook WHERE notebook_id =  " + id;
-
 
         try (Statement statement = getConnection().createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
@@ -107,7 +108,6 @@ public class DbConnector {
 
     public static void showByRamSsd(int ram, int ssd) throws SQLException {
         String query = "SELECT * FROM Notebook WHERE RAM = " + ram + " AND SSD = " + ssd;
-
 
         try (Statement statement = getConnection().createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {

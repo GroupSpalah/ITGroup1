@@ -1,4 +1,6 @@
-package homeworks.anton_gvozdenko.SQL.hw_01_12_23;
+package homeworks.anton_gvozdenko.hw_01_12_23;
+
+import homeworks.anton_gvozdenko.hw_01_12_23.dao.impl.NotebookDAOImpl;
 
 import java.sql.SQLException;
 
@@ -16,7 +18,7 @@ public class TestNotebook {
      /*   DbConnector.showByModel("Nitro");
         DbConnector.showByDate("2023-01-01");*/
         /* DbConnector.showByRamSsd(16,500);*/
-        DbConnector.showByCpu("Apple_m1");
+        NotebookDAOImpl.showByCpu("Apple_m1");
 
     }
 }

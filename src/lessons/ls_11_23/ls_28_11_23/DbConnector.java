@@ -1,20 +1,23 @@
 package lessons.ls_11_23.ls_28_11_23;
 
+import lessons.ls_11_23.ls_28_11_23.util.ConnectionUtil;
+
 import java.sql.*;
 import java.util.Objects;
 
 import static lessons.ls_11_23.ls_28_11_23.util.Contstans.*;
+import static lessons.ls_11_23.ls_28_11_23.util.ConnectionUtil.*;
 
 public class DbConnector {
     private static Connection connection;
 
-    public static Connection getConnection() throws SQLException {
+   /* public static Connection getConnection() throws SQLException {
         if (Objects.isNull(connection)) {
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         }
 
-        return connection;
-    }
+        return ConnectionUtil.getConnection();
+    }*/
 
     public static void showAllMen() throws SQLException {
         String query = "SELECT * FROM man";

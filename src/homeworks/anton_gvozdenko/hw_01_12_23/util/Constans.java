@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.SQL.hw_01_12_23.util;
+package homeworks.anton_gvozdenko.hw_01_12_23.util;
 
 public class Constans {
     public static final String URL =

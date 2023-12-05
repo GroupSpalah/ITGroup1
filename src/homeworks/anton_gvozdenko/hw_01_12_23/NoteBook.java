@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.SQL.hw_01_12_23;
+package homeworks.anton_gvozdenko.hw_01_12_23;
 
 import java.util.Date;
 
