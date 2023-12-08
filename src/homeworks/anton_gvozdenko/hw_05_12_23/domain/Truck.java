@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_05_12_23;
+package homeworks.anton_gvozdenko.hw_05_12_23.domain;
 
 public class Truck {
     private String model;

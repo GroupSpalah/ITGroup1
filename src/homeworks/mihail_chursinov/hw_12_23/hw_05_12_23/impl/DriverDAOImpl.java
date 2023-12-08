@@ -1,7 +1,9 @@
 package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.impl;
 
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Driver;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Truck;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.CrudDAO;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.TruckDAO;
 
 import static homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.util.ConnectionUtil.*;
 
@@ -13,7 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DriverDAOImpl implements CrudDAO<Driver> {
-    private TruckDAOImpl truckDAO;
+    private TruckDAO truckDAO;
+
+    public DriverDAOImpl() {
+        truckDAO = new TruckDAOImpl();
+    }
+
+    @Override
+    public Driver findById(int id) throws SQLException {
+        return null;
+    }
 
     @Override
     public void create(Driver driver) throws SQLException {
@@ -27,13 +38,11 @@ public class DriverDAOImpl implements CrudDAO<Driver> {
             statement.setString(4, driver.getQualification());
 
             statement.executeUpdate();
-
         }
-
     }
 
     @Override
-    public void read() throws SQLException {
+    public void showAll() throws SQLException {
         String query = "SELECT * FROM driver";
 
         try (Statement statement = getConnection().createStatement();
@@ -41,13 +50,16 @@ public class DriverDAOImpl implements CrudDAO<Driver> {
             List<Driver> drivers = new ArrayList<>();
 
             while (resultSet.next()) {
-                int driverId = resultSet.getInt("id_driver");
+                int driverId = resultSet.getInt("driver_id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 int age = resultSet.getInt("age");
                 String qualification = resultSet.getString("qualification");
 
                 Driver driver = new Driver(driverId, firstName, lastName, age, qualification);
+
+                List<Truck> trucks = truckDAO.findAllByDriverId(driverId);
+
                 drivers.add(driver);
 
             }

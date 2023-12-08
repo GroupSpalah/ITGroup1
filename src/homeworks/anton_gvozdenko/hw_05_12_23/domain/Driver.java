@@ -1,4 +1,4 @@
-package homeworks.anton_gvozdenko.hw_05_12_23;
+package homeworks.anton_gvozdenko.hw_05_12_23.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,6 @@ public class Driver {
     private String lastName;
     private int age;
     private Qualification qualification;
-
     List<Truck> trucks;
 
     public Driver(int id, String firstName, String lastName, int age, Qualification qualification) {

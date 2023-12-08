@@ -1,8 +1,9 @@
-package homeworks.anton_gvozdenko.hw_05_12_23.TruckService;
+package homeworks.anton_gvozdenko.hw_05_12_23.service.impl;
 
-import homeworks.anton_gvozdenko.hw_05_12_23.Truck;
-import homeworks.anton_gvozdenko.hw_05_12_23.TruckDao.TruckDao;
-import homeworks.anton_gvozdenko.hw_05_12_23.TruckDao.TruckDaoImpl;
+import homeworks.anton_gvozdenko.hw_05_12_23.domain.Truck;
+import homeworks.anton_gvozdenko.hw_05_12_23.dao.TruckDao;
+import homeworks.anton_gvozdenko.hw_05_12_23.dao.impl.TruckDaoImpl;
+import homeworks.anton_gvozdenko.hw_05_12_23.service.TruckService;
 
 import java.sql.SQLException;
 

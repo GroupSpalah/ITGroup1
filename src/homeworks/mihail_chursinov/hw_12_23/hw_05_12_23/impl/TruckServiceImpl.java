@@ -2,7 +2,6 @@ package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.impl;
 
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Truck;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.TruckDAO;
-import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.service.ServiceDAO;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.service.TruckService;
 
 import java.sql.SQLException;
@@ -23,7 +22,7 @@ public class TruckServiceImpl implements TruckService {
 
     @Override
     public void read() throws SQLException {
-        dao.read();
+        dao.showAll();
 
     }
 
@@ -41,7 +40,7 @@ public class TruckServiceImpl implements TruckService {
 
     @Override
     public void findByID(int id) throws SQLException {
-        dao.findByID(id);
+        dao.findById(id);
 
     }
 }

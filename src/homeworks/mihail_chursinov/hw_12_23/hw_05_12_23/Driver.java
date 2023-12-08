@@ -7,7 +7,7 @@ public class Driver {
     String firstName;
     String lastName;
     int age;
-    String qualification;
+    String qualification;//enum
     List<Truck> trucks;
 
     public Driver(int id, String firstName, String lastName, int age, String qualification, List<Truck> trucks) {

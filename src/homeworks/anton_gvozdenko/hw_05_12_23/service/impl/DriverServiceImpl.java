@@ -1,13 +1,14 @@
-package homeworks.anton_gvozdenko.hw_05_12_23.driverService;
+package homeworks.anton_gvozdenko.hw_05_12_23.service.impl;
 
-import homeworks.anton_gvozdenko.hw_05_12_23.DriverDao.DriverDao;
-import homeworks.anton_gvozdenko.hw_05_12_23.DriverDao.DriverDaoImpl;
+import homeworks.anton_gvozdenko.hw_05_12_23.dao.CrudDao;
+import homeworks.anton_gvozdenko.hw_05_12_23.dao.impl.DriverDaoImpl;
+import homeworks.anton_gvozdenko.hw_05_12_23.service.DriverService;
 
 import java.sql.Driver;
 import java.sql.SQLException;
 
 public class DriverServiceImpl implements DriverService {
-    private DriverDao driverDao;
+    private CrudDao driverDao;
 
     public DriverServiceImpl() {
         driverDao = new DriverDaoImpl();

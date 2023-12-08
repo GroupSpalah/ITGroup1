@@ -1,5 +1,7 @@
 package homeworks.mihail_chursinov.hw_09_23.hw_25_09_23;
 
+import lombok.Cleanup;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,10 +51,12 @@ public class AdvertisementService {
     private void createInfoFile(Path pathToDir, int index) throws IOException {
         PlaceInfo placeInfo = PLACE_INFO.get(index);
         String fileName = pathToDir.resolve(FILE_INFO).toString();
-        try (FileOutputStream file = new FileOutputStream(fileName);
-             ObjectOutputStream oos = new ObjectOutputStream(file)) {
-            oos.writeObject(placeInfo);
-        }
+        @Cleanup
+        FileOutputStream file = new FileOutputStream(fileName);
+        @Cleanup
+        ObjectOutputStream oos = new ObjectOutputStream(file);
+        oos.writeObject(placeInfo);
+
     }
 
     public void createAd(PlaceInfo placeInfo, String ad) throws IOException, ClassNotFoundException {

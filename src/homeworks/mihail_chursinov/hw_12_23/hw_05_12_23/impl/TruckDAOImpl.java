@@ -17,7 +17,7 @@ public class TruckDAOImpl implements TruckDAO {
     }
 
     @Override
-    public void read() {
+    public void showAll() {
 
     }
 
@@ -32,7 +32,7 @@ public class TruckDAOImpl implements TruckDAO {
     }
 
     @Override
-    public void findByID(int id) throws SQLException {
+    public Truck findById(int id) throws SQLException {
         String query = "SELECT * FROM Truck WHERE FK_Truck_Driver = id_driver";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -49,6 +49,8 @@ public class TruckDAOImpl implements TruckDAO {
                     System.out.println("Producer: " + modelYear);
                 }
             }
+
+            return null;
         }
     }
 }

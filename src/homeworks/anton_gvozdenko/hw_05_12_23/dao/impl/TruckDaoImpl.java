@@ -1,9 +1,9 @@
-package homeworks.anton_gvozdenko.hw_05_12_23.TruckDao;
+package homeworks.anton_gvozdenko.hw_05_12_23.dao.impl;
 
-import homeworks.anton_gvozdenko.hw_05_12_23.Truck;
+import homeworks.anton_gvozdenko.hw_05_12_23.domain.Truck;
+import homeworks.anton_gvozdenko.hw_05_12_23.dao.TruckDao;
 
 import java.sql.*;
-import java.util.List;
 import java.util.Objects;
 
 import static homeworks.anton_gvozdenko.hw_05_12_23.util.Constans.*;
