@@ -18,6 +18,6 @@ public class Test {
         //ServiceNotebook.showForModel("A43");
         //ServiceNotebook.showForDate("2023-01-01");
         //ServiceNotebook.showForRamAndSsd(8, 256);
-        ServiceNotebook.showForCpu("CPU3");
+        //NotebookDAOImpl.showForCpu("CPU3");
     }
 }

@@ -1,4 +1,4 @@
-package homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.Util;
+package homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.util;
 
 public class Constans {
     public static final String URL =

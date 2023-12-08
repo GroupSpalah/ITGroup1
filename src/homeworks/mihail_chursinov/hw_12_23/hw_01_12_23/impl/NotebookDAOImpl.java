@@ -1,15 +1,16 @@
-package homeworks.mihail_chursinov.hw_12_23.hw_01_12_23;
+package homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.impl;
 
-import homeworks.mihail_chursinov.hw_11_23.Address;
+import homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.Notebook;
+import homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.dao.NotebookDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.Util.Constans.*;
+import static homeworks.mihail_chursinov.hw_12_23.hw_01_12_23.util.Constans.*;
 
-public class ServiceNotebook {
+public class NotebookDAOImpl implements NotebookDAO {
     private static Connection connection;
 
     public static Connection getConnection() throws SQLException {
@@ -19,7 +20,7 @@ public class ServiceNotebook {
         return connection;
     }
 
-    public static void add(Notebook notebook) throws SQLException {
+    public void add(Notebook notebook) throws SQLException {
         String query = "INSERT INTO notebook(model, producer, release_date, ram_amount, ssd_capacity, cpu) " +
                 "VALUES(?,?,?,?,?,?)";
 
@@ -35,7 +36,7 @@ public class ServiceNotebook {
         }
     }
 
-    public static void showForID(int id) throws SQLException {
+    public void showForID(int id) throws SQLException {
         String query = "SELECT * FROM notebook WHERE id = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -63,7 +64,7 @@ public class ServiceNotebook {
         }
     }
 
-    public static void showAll() throws SQLException {
+    public void showAll() throws SQLException {
         String query = "SELECT * FROM notebook";
 
         try (Statement statement = getConnection().createStatement();
@@ -87,7 +88,7 @@ public class ServiceNotebook {
         }
     }
 
-    public static void deleteForID(int id) throws SQLException {
+    public void deleteForID(int id) throws SQLException {
         String query = "DELETE FROM notebook WHERE id = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -97,7 +98,7 @@ public class ServiceNotebook {
 
         }
     }
-    public static void deleteAll() throws SQLException {
+    public void deleteAll() throws SQLException {
         String query = "DELETE FROM notebook";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -106,7 +107,7 @@ public class ServiceNotebook {
 
         }
     }
-    public static void updateForId(Notebook notebook) throws SQLException {
+    public void updateForId(Notebook notebook) throws SQLException {
         String query = "UPDATE notebook SET model = ?, producer = ?, release_date = ?, ram_amount = ?," +
                 "ssd_capacity = ?, cpu = ? WHERE id = ?";
 
@@ -123,7 +124,7 @@ public class ServiceNotebook {
 
         }
     }
-    public static void showForModel(String model) throws SQLException {
+    public void showForModel(String model) throws SQLException {
         String query = "SELECT * FROM notebook WHERE model = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -150,7 +151,7 @@ public class ServiceNotebook {
         }
     }
 
-    public static void showForDate(String date) throws SQLException {
+    public void showForDate(String date) throws SQLException {
         String query = "SELECT * FROM notebook WHERE release_date = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -176,7 +177,7 @@ public class ServiceNotebook {
             }
         }
     }
-    public static void showForRamAndSsd(int ram, int ssd) throws SQLException {
+    public void showForRamAndSsd(int ram, int ssd) throws SQLException {
         String query = "SELECT * FROM notebook WHERE ram_amount = ? AND ssd_capacity = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
@@ -202,7 +203,7 @@ public class ServiceNotebook {
             }
         }
     }
-    public static void showForCpu(String cpu) throws SQLException {
+    public void showForCpu(String cpu) throws SQLException {
         String query = "SELECT * FROM notebook WHERE cpu = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
