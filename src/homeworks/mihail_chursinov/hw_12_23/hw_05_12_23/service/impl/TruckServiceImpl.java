@@ -1,10 +1,12 @@
-package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.impl;
+package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.service.impl;
 
-import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Truck;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.domain.Truck;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.TruckDAO;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.impl.TruckDAOImpl;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.service.TruckService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class TruckServiceImpl implements TruckService {
     private TruckDAO dao;
@@ -21,10 +23,10 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public void read() throws SQLException {
-        dao.showAll();
+    public void showAll() throws SQLException {
 
     }
+
 
     @Override
     public void update(Truck truck) throws SQLException {
@@ -39,8 +41,12 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public void findByID(int id) throws SQLException {
-        dao.findById(id);
+    public Truck findById(int id) throws SQLException {
+        return null;
+    }
 
+    @Override
+    public List<Truck> findAllByDriverId(int driverId) throws SQLException {
+        return null;
     }
 }

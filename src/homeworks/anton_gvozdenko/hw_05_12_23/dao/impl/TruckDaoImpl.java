@@ -4,6 +4,7 @@ import homeworks.anton_gvozdenko.hw_05_12_23.domain.Truck;
 import homeworks.anton_gvozdenko.hw_05_12_23.dao.TruckDao;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Objects;
 
 import static homeworks.anton_gvozdenko.hw_05_12_23.util.Constans.*;
@@ -37,6 +38,11 @@ public class TruckDaoImpl implements TruckDao {
         }
     }
 
+    @Override
+    public void showAll() throws SQLException {
+
+    }
+
     public void delete() throws SQLException {
 
         String query = "DELETE FROM Driver";
@@ -57,6 +63,11 @@ public class TruckDaoImpl implements TruckDao {
             statement.setInt(3, truck.getId());
             statement.executeUpdate();
         }
+    }
+
+    @Override
+    public List<Truck> findAllTrucksByDriverId(int driverId) {
+        return null;
     }
 }
 

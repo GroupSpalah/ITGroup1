@@ -4,7 +4,12 @@ import java.sql.SQLException;
 
 public interface CrudService<T>{
     void create(T t) throws SQLException;
-    void read() throws SQLException;
+
+    void showAll() throws SQLException;
+
     void update(T t) throws SQLException;
+
     void delete(int id) throws SQLException;
+
+    T findById(int id) throws SQLException;
 }

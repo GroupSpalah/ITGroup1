@@ -1,9 +1,10 @@
-package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.impl;
+package homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.impl;
 
-import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Driver;
-import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.Truck;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.domain.Driver;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.domain.Truck;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.CrudDAO;
 import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.dao.TruckDAO;
+import homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.domain.Qualification;
 
 import static homeworks.mihail_chursinov.hw_12_23.hw_05_12_23.util.ConnectionUtil.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class DriverDAOImpl implements CrudDAO<Driver> {
     private TruckDAO truckDAO;
+
 
     public DriverDAOImpl() {
         truckDAO = new TruckDAOImpl();
@@ -32,10 +34,10 @@ public class DriverDAOImpl implements CrudDAO<Driver> {
                 "VALUES(?,?,?,?)";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
-            statement.setString(1, driver.getFirstName());
-            statement.setString(2, driver.getLastName());
-            statement.setInt(3, driver.getAge());
-            statement.setString(4, driver.getQualification());
+            statement.setString(1, driver.firstName());
+            statement.setString(2, driver.lastName());
+            statement.setInt(3, driver.age());
+            statement.setString(4, driver.qualification().name());
 
             statement.executeUpdate();
         }
@@ -50,15 +52,14 @@ public class DriverDAOImpl implements CrudDAO<Driver> {
             List<Driver> drivers = new ArrayList<>();
 
             while (resultSet.next()) {
-                int driverId = resultSet.getInt("driver_id");
+                int driverId = resultSet.getInt("id_driver");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 int age = resultSet.getInt("age");
-                String qualification = resultSet.getString("qualification");
-
-                Driver driver = new Driver(driverId, firstName, lastName, age, qualification);
-
+                Qualification qualification = Qualification.valueOf(resultSet.getString("qualification"));
                 List<Truck> trucks = truckDAO.findAllByDriverId(driverId);
+
+                Driver driver = new Driver(driverId, firstName, lastName, age, qualification, trucks);
 
                 drivers.add(driver);
 
@@ -74,10 +75,10 @@ public class DriverDAOImpl implements CrudDAO<Driver> {
                 "qualification = ? WHERE id_driver = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(query)) {
-            statement.setString(1, driver.getFirstName());
-            statement.setString(2, driver.getLastName());
-            statement.setInt(3, driver.getAge());
-            statement.setString(4, driver.getQualification());
+            statement.setString(1, driver.firstName());
+            statement.setString(2, driver.lastName());
+            statement.setInt(3, driver.age());
+            statement.setString(4, driver.qualification().name());
 
             statement.executeUpdate();
 
